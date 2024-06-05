@@ -23,5 +23,10 @@ namespace bosssystem1
             this.customerTableAdapter.Fill(this.g13Wst2024DataSet.Customer);
             this.ControlBox = false;
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            customerTableAdapter.FillBySurname(g13Wst2024DataSet.Customer,textBox1.Text);
+        }
     }
 }

@@ -38,6 +38,7 @@ namespace bosssystem1
             this.sidebar = new System.Windows.Forms.FlowLayoutPanel();
             this.invContainer = new System.Windows.Forms.FlowLayoutPanel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.panel10 = new System.Windows.Forms.Panel();
             this.invMenu = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
@@ -57,7 +58,8 @@ namespace bosssystem1
             this.invDroptimer = new System.Windows.Forms.Timer(this.components);
             this.custDroptimer = new System.Windows.Forms.Timer(this.components);
             this.sidebartimer = new System.Windows.Forms.Timer(this.components);
-            this.panel10 = new System.Windows.Forms.Panel();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.invoicesbtn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.sidebar.SuspendLayout();
@@ -71,6 +73,7 @@ namespace bosssystem1
             this.panel7.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel9.SuspendLayout();
+            this.panel11.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -110,6 +113,7 @@ namespace bosssystem1
             this.sidebar.Controls.Add(this.invContainer);
             this.sidebar.Controls.Add(this.custmenucontainer);
             this.sidebar.Controls.Add(this.panel8);
+            this.sidebar.Controls.Add(this.panel11);
             this.sidebar.Controls.Add(this.panel9);
             this.sidebar.Dock = System.Windows.Forms.DockStyle.Left;
             this.sidebar.Location = new System.Drawing.Point(0, 49);
@@ -142,6 +146,13 @@ namespace bosssystem1
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(207, 50);
             this.panel4.TabIndex = 3;
+            // 
+            // panel10
+            // 
+            this.panel10.Location = new System.Drawing.Point(206, 6);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(1042, 539);
+            this.panel10.TabIndex = 3;
             // 
             // invMenu
             // 
@@ -339,7 +350,7 @@ namespace bosssystem1
             // panel9
             // 
             this.panel9.Controls.Add(this.button6);
-            this.panel9.Location = new System.Drawing.Point(0, 150);
+            this.panel9.Location = new System.Drawing.Point(0, 200);
             this.panel9.Margin = new System.Windows.Forms.Padding(0);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(207, 50);
@@ -378,12 +389,31 @@ namespace bosssystem1
             this.sidebartimer.Interval = 10;
             this.sidebartimer.Tick += new System.EventHandler(this.sidebartimer_Tick);
             // 
-            // panel10
+            // panel11
             // 
-            this.panel10.Location = new System.Drawing.Point(206, 6);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(1042, 539);
-            this.panel10.TabIndex = 3;
+            this.panel11.Controls.Add(this.invoicesbtn);
+            this.panel11.Location = new System.Drawing.Point(0, 150);
+            this.panel11.Margin = new System.Windows.Forms.Padding(0);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(207, 50);
+            this.panel11.TabIndex = 5;
+            // 
+            // invoicesbtn
+            // 
+            this.invoicesbtn.BackColor = System.Drawing.Color.Black;
+            this.invoicesbtn.ForeColor = System.Drawing.Color.White;
+            this.invoicesbtn.Image = ((System.Drawing.Image)(resources.GetObject("invoicesbtn.Image")));
+            this.invoicesbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.invoicesbtn.Location = new System.Drawing.Point(-9, -13);
+            this.invoicesbtn.Margin = new System.Windows.Forms.Padding(0);
+            this.invoicesbtn.Name = "invoicesbtn";
+            this.invoicesbtn.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
+            this.invoicesbtn.Size = new System.Drawing.Size(233, 79);
+            this.invoicesbtn.TabIndex = 3;
+            this.invoicesbtn.Text = "    Invoices";
+            this.invoicesbtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.invoicesbtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.invoicesbtn.UseVisualStyleBackColor = false;
             // 
             // Form1
             // 
@@ -410,6 +440,7 @@ namespace bosssystem1
             this.panel7.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
+            this.panel11.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -443,6 +474,8 @@ namespace bosssystem1
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.Button invoicesbtn;
     }
 }
 
