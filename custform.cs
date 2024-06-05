@@ -19,6 +19,8 @@ namespace bosssystem1
 
         private void custform_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'g13Wst2024DataSet.Customer' table. You can move, or remove it, as needed.
+            this.customerTableAdapter.Fill(this.g13Wst2024DataSet.Customer);
             this.ControlBox = false;
         }
     }

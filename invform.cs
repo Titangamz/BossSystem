@@ -19,6 +19,8 @@ namespace bosssystem1
 
         private void invform_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'g13Wst2024DataSet.PartsTable' table. You can move, or remove it, as needed.
+            this.partsTableTableAdapter.Fill(this.g13Wst2024DataSet.PartsTable);
             this.ControlBox = false;
         }
     }

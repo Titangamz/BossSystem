@@ -50,13 +50,14 @@ namespace bosssystem1
             this.button4 = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
             this.button5 = new System.Windows.Forms.Button();
-            this.invDroptimer = new System.Windows.Forms.Timer(this.components);
-            this.custDroptimer = new System.Windows.Forms.Timer(this.components);
-            this.sidebartimer = new System.Windows.Forms.Timer(this.components);
             this.panel8 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.panel9 = new System.Windows.Forms.Panel();
             this.button6 = new System.Windows.Forms.Button();
+            this.invDroptimer = new System.Windows.Forms.Timer(this.components);
+            this.custDroptimer = new System.Windows.Forms.Timer(this.components);
+            this.sidebartimer = new System.Windows.Forms.Timer(this.components);
+            this.panel10 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.sidebar.SuspendLayout();
@@ -134,6 +135,7 @@ namespace bosssystem1
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.panel10);
             this.panel4.Controls.Add(this.invMenu);
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Margin = new System.Windows.Forms.Padding(0);
@@ -307,21 +309,6 @@ namespace bosssystem1
             this.button5.UseVisualStyleBackColor = false;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
-            // invDroptimer
-            // 
-            this.invDroptimer.Interval = 10;
-            this.invDroptimer.Tick += new System.EventHandler(this.invDroptimer_Tick);
-            // 
-            // custDroptimer
-            // 
-            this.custDroptimer.Interval = 10;
-            this.custDroptimer.Tick += new System.EventHandler(this.custDroptimer_Tick);
-            // 
-            // sidebartimer
-            // 
-            this.sidebartimer.Interval = 10;
-            this.sidebartimer.Tick += new System.EventHandler(this.sidebartimer_Tick);
-            // 
             // panel8
             // 
             this.panel8.Controls.Add(this.button2);
@@ -375,6 +362,28 @@ namespace bosssystem1
             this.button6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button6.UseVisualStyleBackColor = false;
             this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // invDroptimer
+            // 
+            this.invDroptimer.Interval = 10;
+            this.invDroptimer.Tick += new System.EventHandler(this.invDroptimer_Tick);
+            // 
+            // custDroptimer
+            // 
+            this.custDroptimer.Interval = 10;
+            this.custDroptimer.Tick += new System.EventHandler(this.custDroptimer_Tick);
+            // 
+            // sidebartimer
+            // 
+            this.sidebartimer.Interval = 10;
+            this.sidebartimer.Tick += new System.EventHandler(this.sidebartimer_Tick);
+            // 
+            // panel10
+            // 
+            this.panel10.Location = new System.Drawing.Point(206, 6);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(1042, 539);
+            this.panel10.TabIndex = 3;
             // 
             // Form1
             // 
@@ -433,6 +442,7 @@ namespace bosssystem1
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Panel panel10;
     }
 }
 
