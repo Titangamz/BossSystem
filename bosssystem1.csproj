@@ -46,12 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="addcustform.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="addcustform.Designer.cs">
-      <DependentUpon>addcustform.cs</DependentUpon>
-    </Compile>
     <Compile Include="custform.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,9 +83,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="addcustform.resx">
-      <DependentUpon>addcustform.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="custform.resx">
       <DependentUpon>custform.cs</DependentUpon>
     </EmbeddedResource>

@@ -48,8 +48,6 @@ namespace bosssystem1 {
         
         private SalesDataTable tableSales;
         
-        private global::System.Data.DataRelation relationFK_Customer_CustomerIDType;
-        
         private global::System.Data.DataRelation relationFK_InventorySupplier_PartsTable;
         
         private global::System.Data.DataRelation relationFK_InventorySupplier_Supplier;
@@ -488,7 +486,6 @@ namespace bosssystem1 {
                     this.tableSales.InitVars();
                 }
             }
-            this.relationFK_Customer_CustomerIDType = this.Relations["FK_Customer_CustomerIDType"];
             this.relationFK_InventorySupplier_PartsTable = this.Relations["FK_InventorySupplier_PartsTable"];
             this.relationFK_InventorySupplier_Supplier = this.Relations["FK_InventorySupplier_Supplier"];
             this.relationFK_OrderItem_Orders = this.Relations["FK_OrderItem_Orders"];
@@ -537,10 +534,6 @@ namespace bosssystem1 {
             base.Tables.Add(this.tableSupplier);
             this.tableSales = new SalesDataTable();
             base.Tables.Add(this.tableSales);
-            this.relationFK_Customer_CustomerIDType = new global::System.Data.DataRelation("FK_Customer_CustomerIDType", new global::System.Data.DataColumn[] {
-                        this.tableCustomerIDType.CustomerIDTypeColumn}, new global::System.Data.DataColumn[] {
-                        this.tableCustomer.CustomerIDTypeColumn}, false);
-            this.Relations.Add(this.relationFK_Customer_CustomerIDType);
             this.relationFK_InventorySupplier_PartsTable = new global::System.Data.DataRelation("FK_InventorySupplier_PartsTable", new global::System.Data.DataColumn[] {
                         this.tablePartsTable.PartNoColumn}, new global::System.Data.DataColumn[] {
                         this.tableInventorySupplier.PartNoColumn}, false);
@@ -771,15 +764,13 @@ namespace bosssystem1 {
             
             private global::System.Data.DataColumn columnCustomerID;
             
-            private global::System.Data.DataColumn columnCustomerIDType;
-            
             private global::System.Data.DataColumn columnCustomerName;
             
             private global::System.Data.DataColumn columnCustomerSurname;
             
             private global::System.Data.DataColumn columnCustomerPhoneNumber;
             
-            private global::System.Data.DataColumn columnPaymentMethod;
+            private global::System.Data.DataColumn columnCustomerAddress;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -824,14 +815,6 @@ namespace bosssystem1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn CustomerIDTypeColumn {
-                get {
-                    return this.columnCustomerIDType;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public global::System.Data.DataColumn CustomerNameColumn {
                 get {
                     return this.columnCustomerName;
@@ -856,9 +839,9 @@ namespace bosssystem1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn PaymentMethodColumn {
+            public global::System.Data.DataColumn CustomerAddressColumn {
                 get {
-                    return this.columnPaymentMethod;
+                    return this.columnCustomerAddress;
                 }
             }
             
@@ -899,18 +882,14 @@ namespace bosssystem1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public CustomerRow AddCustomerRow(int CustomerID, CustomerIDTypeRow parentCustomerIDTypeRowByFK_Customer_CustomerIDType, string CustomerName, string CustomerSurname, string CustomerPhoneNumber, string PaymentMethod) {
+            public CustomerRow AddCustomerRow(int CustomerID, string CustomerName, string CustomerSurname, string CustomerPhoneNumber, string CustomerAddress) {
                 CustomerRow rowCustomerRow = ((CustomerRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         CustomerID,
-                        null,
                         CustomerName,
                         CustomerSurname,
                         CustomerPhoneNumber,
-                        PaymentMethod};
-                if ((parentCustomerIDTypeRowByFK_Customer_CustomerIDType != null)) {
-                    columnValuesArray[1] = parentCustomerIDTypeRowByFK_Customer_CustomerIDType[0];
-                }
+                        CustomerAddress};
                 rowCustomerRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowCustomerRow);
                 return rowCustomerRow;
@@ -941,11 +920,10 @@ namespace bosssystem1 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
                 this.columnCustomerID = base.Columns["CustomerID"];
-                this.columnCustomerIDType = base.Columns["CustomerIDType"];
                 this.columnCustomerName = base.Columns["CustomerName"];
                 this.columnCustomerSurname = base.Columns["CustomerSurname"];
                 this.columnCustomerPhoneNumber = base.Columns["CustomerPhoneNumber"];
-                this.columnPaymentMethod = base.Columns["PaymentMethod"];
+                this.columnCustomerAddress = base.Columns["CustomerAddress"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -953,16 +931,14 @@ namespace bosssystem1 {
             private void InitClass() {
                 this.columnCustomerID = new global::System.Data.DataColumn("CustomerID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCustomerID);
-                this.columnCustomerIDType = new global::System.Data.DataColumn("CustomerIDType", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCustomerIDType);
                 this.columnCustomerName = new global::System.Data.DataColumn("CustomerName", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCustomerName);
                 this.columnCustomerSurname = new global::System.Data.DataColumn("CustomerSurname", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCustomerSurname);
                 this.columnCustomerPhoneNumber = new global::System.Data.DataColumn("CustomerPhoneNumber", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCustomerPhoneNumber);
-                this.columnPaymentMethod = new global::System.Data.DataColumn("PaymentMethod", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPaymentMethod);
+                this.columnCustomerAddress = new global::System.Data.DataColumn("CustomerAddress", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCustomerAddress);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnCustomerID}, true));
                 this.columnCustomerID.AllowDBNull = false;
@@ -970,7 +946,7 @@ namespace bosssystem1 {
                 this.columnCustomerName.MaxLength = 50;
                 this.columnCustomerSurname.MaxLength = 50;
                 this.columnCustomerPhoneNumber.MaxLength = 2147483647;
-                this.columnPaymentMethod.MaxLength = 50;
+                this.columnCustomerAddress.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4866,22 +4842,6 @@ namespace bosssystem1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int CustomerIDType {
-                get {
-                    try {
-                        return ((int)(this[this.tableCustomer.CustomerIDTypeColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CustomerIDType\' in table \'Customer\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableCustomer.CustomerIDTypeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string CustomerName {
                 get {
                     try {
@@ -4930,41 +4890,18 @@ namespace bosssystem1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string PaymentMethod {
+            public string CustomerAddress {
                 get {
                     try {
-                        return ((string)(this[this.tableCustomer.PaymentMethodColumn]));
+                        return ((string)(this[this.tableCustomer.CustomerAddressColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'PaymentMethod\' in table \'Customer\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'CustomerAddress\' in table \'Customer\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableCustomer.PaymentMethodColumn] = value;
+                    this[this.tableCustomer.CustomerAddressColumn] = value;
                 }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public CustomerIDTypeRow CustomerIDTypeRow {
-                get {
-                    return ((CustomerIDTypeRow)(this.GetParentRow(this.Table.ParentRelations["FK_Customer_CustomerIDType"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_Customer_CustomerIDType"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsCustomerIDTypeNull() {
-                return this.IsNull(this.tableCustomer.CustomerIDTypeColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetCustomerIDTypeNull() {
-                this[this.tableCustomer.CustomerIDTypeColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5005,14 +4942,14 @@ namespace bosssystem1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsPaymentMethodNull() {
-                return this.IsNull(this.tableCustomer.PaymentMethodColumn);
+            public bool IsCustomerAddressNull() {
+                return this.IsNull(this.tableCustomer.CustomerAddressColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetPaymentMethodNull() {
-                this[this.tableCustomer.PaymentMethodColumn] = global::System.Convert.DBNull;
+            public void SetCustomerAddressNull() {
+                this[this.tableCustomer.CustomerAddressColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5156,17 +5093,6 @@ namespace bosssystem1 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetCustomerAddressNull() {
                 this[this.tableCustomerIDType.CustomerAddressColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public CustomerRow[] GetCustomerRows() {
-                if ((this.Table.ChildRelations["FK_Customer_CustomerIDType"] == null)) {
-                    return new CustomerRow[0];
-                }
-                else {
-                    return ((CustomerRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Customer_CustomerIDType"])));
-                }
             }
         }
         
@@ -7416,56 +7342,49 @@ namespace bosssystem1.G13Wst2024DataSetTableAdapters {
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "Customer";
             tableMapping.ColumnMappings.Add("CustomerID", "CustomerID");
-            tableMapping.ColumnMappings.Add("CustomerIDType", "CustomerIDType");
             tableMapping.ColumnMappings.Add("CustomerName", "CustomerName");
             tableMapping.ColumnMappings.Add("CustomerSurname", "CustomerSurname");
             tableMapping.ColumnMappings.Add("CustomerPhoneNumber", "CustomerPhoneNumber");
-            tableMapping.ColumnMappings.Add("PaymentMethod", "PaymentMethod");
+            tableMapping.ColumnMappings.Add("CustomerAddress", "CustomerAddress");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Customer] WHERE (([CustomerID] = @Original_CustomerID) AND ((@IsNull_CustomerIDType = 1 AND [CustomerIDType] IS NULL) OR ([CustomerIDType] = @Original_CustomerIDType)) AND ((@IsNull_CustomerName = 1 AND [CustomerName] IS NULL) OR ([CustomerName] = @Original_CustomerName)) AND ((@IsNull_CustomerSurname = 1 AND [CustomerSurname] IS NULL) OR ([CustomerSurname] = @Original_CustomerSurname)) AND ((@IsNull_PaymentMethod = 1 AND [PaymentMethod] IS NULL) OR ([PaymentMethod] = @Original_PaymentMethod)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [Customer] WHERE (([CustomerID] = @Original_CustomerID) AND ((@IsNull_CustomerName = 1 AND [CustomerName] IS NULL) OR ([CustomerName] = @Original_CustomerName)) AND ((@IsNull_CustomerSurname = 1 AND [CustomerSurname] IS NULL) OR ([CustomerSurname] = @Original_CustomerSurname)) AND ((@IsNull_CustomerAddress = 1 AND [CustomerAddress] IS NULL) OR ([CustomerAddress] = @Original_CustomerAddress)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CustomerID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CustomerIDType", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerIDType", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CustomerIDType", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerIDType", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CustomerName", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerName", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CustomerName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CustomerSurname", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerSurname", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CustomerSurname", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerSurname", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PaymentMethod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentMethod", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PaymentMethod", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentMethod", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CustomerAddress", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerAddress", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CustomerAddress", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerAddress", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Customer] ([CustomerID], [CustomerIDType], [CustomerName], [CustomerSurname], [CustomerPhoneNumber], [PaymentMethod]) VALUES (@CustomerID, @CustomerIDType, @CustomerName, @CustomerSurname, @CustomerPhoneNumber, @PaymentMethod);
-SELECT CustomerID, CustomerIDType, CustomerName, CustomerSurname, CustomerPhoneNumber, PaymentMethod FROM Customer WHERE (CustomerID = @CustomerID)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [Customer] ([CustomerID], [CustomerName], [CustomerSurname], [CustomerPhoneNumber], [CustomerAddress]) VALUES (@CustomerID, @CustomerName, @CustomerSurname, @CustomerPhoneNumber, @CustomerAddress);
+SELECT CustomerID, CustomerName, CustomerSurname, CustomerPhoneNumber, CustomerAddress FROM Customer WHERE (CustomerID = @CustomerID)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CustomerID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CustomerIDType", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerIDType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CustomerName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CustomerSurname", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerSurname", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CustomerPhoneNumber", global::System.Data.SqlDbType.Text, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerPhoneNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentMethod", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentMethod", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CustomerAddress", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerAddress", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Customer] SET [CustomerID] = @CustomerID, [CustomerIDType] = @CustomerIDType, [CustomerName] = @CustomerName, [CustomerSurname] = @CustomerSurname, [CustomerPhoneNumber] = @CustomerPhoneNumber, [PaymentMethod] = @PaymentMethod WHERE (([CustomerID] = @Original_CustomerID) AND ((@IsNull_CustomerIDType = 1 AND [CustomerIDType] IS NULL) OR ([CustomerIDType] = @Original_CustomerIDType)) AND ((@IsNull_CustomerName = 1 AND [CustomerName] IS NULL) OR ([CustomerName] = @Original_CustomerName)) AND ((@IsNull_CustomerSurname = 1 AND [CustomerSurname] IS NULL) OR ([CustomerSurname] = @Original_CustomerSurname)) AND ((@IsNull_PaymentMethod = 1 AND [PaymentMethod] IS NULL) OR ([PaymentMethod] = @Original_PaymentMethod)));
-SELECT CustomerID, CustomerIDType, CustomerName, CustomerSurname, CustomerPhoneNumber, PaymentMethod FROM Customer WHERE (CustomerID = @CustomerID)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [Customer] SET [CustomerID] = @CustomerID, [CustomerName] = @CustomerName, [CustomerSurname] = @CustomerSurname, [CustomerPhoneNumber] = @CustomerPhoneNumber, [CustomerAddress] = @CustomerAddress WHERE (([CustomerID] = @Original_CustomerID) AND ((@IsNull_CustomerName = 1 AND [CustomerName] IS NULL) OR ([CustomerName] = @Original_CustomerName)) AND ((@IsNull_CustomerSurname = 1 AND [CustomerSurname] IS NULL) OR ([CustomerSurname] = @Original_CustomerSurname)) AND ((@IsNull_CustomerAddress = 1 AND [CustomerAddress] IS NULL) OR ([CustomerAddress] = @Original_CustomerAddress)));
+SELECT CustomerID, CustomerName, CustomerSurname, CustomerPhoneNumber, CustomerAddress FROM Customer WHERE (CustomerID = @CustomerID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CustomerID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CustomerIDType", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerIDType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CustomerName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CustomerSurname", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerSurname", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CustomerPhoneNumber", global::System.Data.SqlDbType.Text, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerPhoneNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentMethod", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentMethod", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CustomerAddress", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerAddress", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CustomerID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CustomerIDType", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerIDType", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CustomerIDType", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerIDType", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CustomerName", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerName", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CustomerName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CustomerSurname", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerSurname", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CustomerSurname", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerSurname", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PaymentMethod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentMethod", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PaymentMethod", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentMethod", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CustomerAddress", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerAddress", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CustomerAddress", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerAddress", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7481,14 +7400,13 @@ SELECT CustomerID, CustomerIDType, CustomerName, CustomerSurname, CustomerPhoneN
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT CustomerID, CustomerIDType, CustomerName, CustomerSurname, CustomerPhoneNu" +
-                "mber, PaymentMethod, CustomerAddress FROM Customer";
+            this._commandCollection[0].CommandText = "SELECT CustomerID, CustomerName, CustomerSurname, CustomerPhoneNumber, CustomerAd" +
+                "dress FROM Customer";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT CustomerID, CustomerIDType, CustomerName, CustomerSurname, CustomerPhoneNu" +
-                "mber, PaymentMethod, CustomerAddress FROM Customer WHERE (CustomerSurname LIKE @" +
-                "customersurname + \'%\')";
+            this._commandCollection[1].CommandText = "SELECT CustomerID, CustomerName, CustomerSurname, CustomerPhoneNumber, CustomerAd" +
+                "dress FROM Customer WHERE (CustomerSurname LIKE @customersurname + \'%\')";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@customersurname", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerSurname", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
@@ -7586,39 +7504,31 @@ SELECT CustomerID, CustomerIDType, CustomerName, CustomerSurname, CustomerPhoneN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_CustomerID, global::System.Nullable<int> Original_CustomerIDType, string Original_CustomerName, string Original_CustomerSurname, string Original_PaymentMethod) {
+        public virtual int Delete(int Original_CustomerID, string Original_CustomerName, string Original_CustomerSurname, string Original_CustomerAddress) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_CustomerID));
-            if ((Original_CustomerIDType.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_CustomerIDType.Value));
-            }
-            else {
+            if ((Original_CustomerName == null)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            if ((Original_CustomerName == null)) {
+            else {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_CustomerName));
+            }
+            if ((Original_CustomerSurname == null)) {
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_CustomerName));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_CustomerSurname));
             }
-            if ((Original_CustomerSurname == null)) {
+            if ((Original_CustomerAddress == null)) {
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_CustomerSurname));
-            }
-            if ((Original_PaymentMethod == null)) {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_PaymentMethod));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_CustomerAddress));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -7640,37 +7550,31 @@ SELECT CustomerID, CustomerIDType, CustomerName, CustomerSurname, CustomerPhoneN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int CustomerID, global::System.Nullable<int> CustomerIDType, string CustomerName, string CustomerSurname, string CustomerPhoneNumber, string PaymentMethod) {
+        public virtual int Insert(int CustomerID, string CustomerName, string CustomerSurname, string CustomerPhoneNumber, string CustomerAddress) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(CustomerID));
-            if ((CustomerIDType.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((int)(CustomerIDType.Value));
-            }
-            else {
+            if ((CustomerName == null)) {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            if ((CustomerName == null)) {
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(CustomerName));
+            }
+            if ((CustomerSurname == null)) {
                 this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(CustomerName));
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(CustomerSurname));
             }
-            if ((CustomerSurname == null)) {
+            if ((CustomerPhoneNumber == null)) {
                 this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(CustomerSurname));
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(CustomerPhoneNumber));
             }
-            if ((CustomerPhoneNumber == null)) {
+            if ((CustomerAddress == null)) {
                 this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(CustomerPhoneNumber));
-            }
-            if ((PaymentMethod == null)) {
-                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(PaymentMethod));
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(CustomerAddress));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -7692,70 +7596,56 @@ SELECT CustomerID, CustomerIDType, CustomerName, CustomerSurname, CustomerPhoneN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int CustomerID, global::System.Nullable<int> CustomerIDType, string CustomerName, string CustomerSurname, string CustomerPhoneNumber, string PaymentMethod, int Original_CustomerID, global::System.Nullable<int> Original_CustomerIDType, string Original_CustomerName, string Original_CustomerSurname, string Original_PaymentMethod) {
+        public virtual int Update(int CustomerID, string CustomerName, string CustomerSurname, string CustomerPhoneNumber, string CustomerAddress, int Original_CustomerID, string Original_CustomerName, string Original_CustomerSurname, string Original_CustomerAddress) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(CustomerID));
-            if ((CustomerIDType.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(CustomerIDType.Value));
-            }
-            else {
+            if ((CustomerName == null)) {
                 this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            if ((CustomerName == null)) {
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(CustomerName));
+            }
+            if ((CustomerSurname == null)) {
                 this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(CustomerName));
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(CustomerSurname));
             }
-            if ((CustomerSurname == null)) {
+            if ((CustomerPhoneNumber == null)) {
                 this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(CustomerSurname));
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(CustomerPhoneNumber));
             }
-            if ((CustomerPhoneNumber == null)) {
+            if ((CustomerAddress == null)) {
                 this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(CustomerPhoneNumber));
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(CustomerAddress));
             }
-            if ((PaymentMethod == null)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(PaymentMethod));
-            }
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_CustomerID));
-            if ((Original_CustomerIDType.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_CustomerIDType.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_CustomerID));
             if ((Original_CustomerName == null)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_CustomerName));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_CustomerName));
             }
             if ((Original_CustomerSurname == null)) {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_CustomerSurname));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_CustomerSurname));
             }
-            if ((Original_PaymentMethod == null)) {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
+            if ((Original_CustomerAddress == null)) {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_PaymentMethod));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_CustomerAddress));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -7777,8 +7667,8 @@ SELECT CustomerID, CustomerIDType, CustomerName, CustomerSurname, CustomerPhoneN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<int> CustomerIDType, string CustomerName, string CustomerSurname, string CustomerPhoneNumber, string PaymentMethod, int Original_CustomerID, global::System.Nullable<int> Original_CustomerIDType, string Original_CustomerName, string Original_CustomerSurname, string Original_PaymentMethod) {
-            return this.Update(Original_CustomerID, CustomerIDType, CustomerName, CustomerSurname, CustomerPhoneNumber, PaymentMethod, Original_CustomerID, Original_CustomerIDType, Original_CustomerName, Original_CustomerSurname, Original_PaymentMethod);
+        public virtual int Update(string CustomerName, string CustomerSurname, string CustomerPhoneNumber, string CustomerAddress, int Original_CustomerID, string Original_CustomerName, string Original_CustomerSurname, string Original_CustomerAddress) {
+            return this.Update(Original_CustomerID, CustomerName, CustomerSurname, CustomerPhoneNumber, CustomerAddress, Original_CustomerID, Original_CustomerName, Original_CustomerSurname, Original_CustomerAddress);
         }
     }
     
@@ -12876,15 +12766,6 @@ SELECT SupplierID, SupplierName, SupplierNumber, SupplierEmail, SupplierAddress 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private int UpdateUpdatedRows(G13Wst2024DataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._customerIDTypeTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.CustomerIDType.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._customerIDTypeTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._customerTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Customer.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -12936,6 +12817,15 @@ SELECT SupplierID, SupplierName, SupplierNumber, SupplierEmail, SupplierAddress 
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._supplierTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._customerIDTypeTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.CustomerIDType.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._customerIDTypeTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -12994,14 +12884,6 @@ SELECT SupplierID, SupplierName, SupplierNumber, SupplierEmail, SupplierAddress 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private int UpdateInsertedRows(G13Wst2024DataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._customerIDTypeTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.CustomerIDType.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._customerIDTypeTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._customerTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Customer.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -13047,6 +12929,14 @@ SELECT SupplierID, SupplierName, SupplierNumber, SupplierEmail, SupplierAddress 
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._supplierTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._customerIDTypeTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.CustomerIDType.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._customerIDTypeTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -13140,6 +13030,14 @@ SELECT SupplierID, SupplierName, SupplierNumber, SupplierEmail, SupplierAddress 
                     allChangedRows.AddRange(deletedRows);
                 }
             }
+            if ((this._customerIDTypeTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.CustomerIDType.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._customerIDTypeTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._supplierTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Supplier.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -13185,14 +13083,6 @@ SELECT SupplierID, SupplierName, SupplierNumber, SupplierEmail, SupplierAddress 
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._customerTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._customerIDTypeTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.CustomerIDType.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._customerIDTypeTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
