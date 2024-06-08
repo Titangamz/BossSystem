@@ -157,5 +157,11 @@ namespace bosssystem1
             ordersform orderfrm = new ordersform();
             FormSetup(orderfrm);
         }
+
+        private void invoicesbtn_Click(object sender, EventArgs e)
+        {
+            invoiceForm invoicefrm = new invoiceForm();
+            FormSetup(invoicefrm);
+        }
     }
 }

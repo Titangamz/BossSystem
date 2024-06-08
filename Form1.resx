@@ -203,15 +203,14 @@
   </data>
   <data name="invoicesbtn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAACxMAAAsTAQCanBgAAAGvSURBVEhLzZU5SwNRFEZDwKQzsTIIaiqbgEuhVUr/hJ1G
-        q1hoo4JVSkFwxUoUERtBe5fGwl4Ee0EbictfiOd73hlmknGJyYgHDnnve/PuzTJvkvhzarXaUgwWrfwH
-        BGKljV5jJVg8Dioy2GQA37DfhXWQj+C8OWxxCPI8vqJqiYYmWiy5IABZCg/wATdNjfcxZZf5kJVQtURD
-        k6yb1EG+jWeYsUhZBs9xw6IQ5FkU4SZuUAdxH+pddVvkQ5bDF+y1KAS5aGzCSxrLOGbzGTzROArWTtF9
-        xdqD2pu2uYhsMou3WLX5Mq5qHIXWdI2Nn1F7yzYXkU30bqp4aPNp/O6TTNn4CLV31Oaiqd8kZ5GPMmzu
-        N4HP7q4t1J3kr2ts2bpFIWxdNDT56pzs4SPqdpYa72KHXeZDFjwnlxhq4p34vAvrIB/COXPQ4hDai2rg
-        nXg9v8a9xVhwxZshuOlXBX5CLE2ok8RjFfSwJdckgK5J2lLzsFl31gXuWORDtoZX6B4jLUGRTrzBBYuU
-        LeIddlnUOhTrwXucxAnU/0nkSW8JihbwySxY3H4oXpQ2/U8kEu/xedt+J0OgYgAAAABJRU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        EwAACxMBAJqcGAAAAVJJREFUSEvtlb9LA0EQhU8TC2MholaCEAyoYBVFQ/yRQEQQtRGxDDaCaGWhKTQY
+        UlmJCP695/fCIKe5XffOQoQ8+Lid2bc32bCzF430fxTH8Sbcw3MAXTiEMVv+szDfwTksQgP2PezBhD1f
+        oGivcQtTDc5gG6pBi0x4K3BloVuYtAvtoGqpTGLdkw3dwtSDXShY6ovIb0AL6jC0S3I9G7olEzQt/BS5
+        cTiFW4sn4WIwaSJegXxFiOfhCLaScym+NfjVTi5BB8JXZAGyF2F8DeqFN3iHA2jb3PciO5D77ypBH5aT
+        cym+JuQuMgVLsJqcS/HlLyKRK0AbfKcrU5GGhUNiztknxMFFHkDXQ8VSQcJfBN1fQR1/AvqVxzBtaa/w
+        qYAadQ46lnYLkzr7Fcqg5tOFue5BnwTd1LOgYz5jr/ILo67uG9B3ohPAoz3DCoz0x4qiD/cGJXaFI5zw
+        AAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="button6.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
