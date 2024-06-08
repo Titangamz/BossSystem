@@ -16,9 +16,7 @@ namespace bosssystem1
         {
             InitializeComponent();
         }
-
-        bool invExpand;
-        bool custExpand;
+        
         bool sidebarExpand;
 
         private void Form1_Load(object sender, EventArgs e)
@@ -38,30 +36,11 @@ namespace bosssystem1
         }
 
 
-        private void invDroptimer_Tick(object sender, EventArgs e)
-        {
-            if (invExpand)
-            {
-                invContainer.Height -= 10;
-                if (invContainer.Height <= invContainer.MinimumSize.Height)
-                {
-                    invExpand = false;
-                    invDroptimer.Stop();                    
-                }
-            }
-            else
-            {              
-                invContainer.Height += 10;
-                if (invContainer.Height >= invContainer.MaximumSize.Height)
-                {
-                    invExpand = true;
-                    invDroptimer.Stop();
-                }
-            }
-        }
+       
         private void invMenu_Click(object sender, EventArgs e)
         {
-            invDroptimer.Start();
+            invform invfrm = new invform();
+            FormSetup(invfrm);
         }
 
         private void invContainer_Paint(object sender, PaintEventArgs e)
@@ -69,31 +48,12 @@ namespace bosssystem1
 
         }
 
-        private void custDroptimer_Tick(object sender, EventArgs e)
-        {
-            if (custExpand)
-            {
-                custmenucontainer.Height -= 10;
-                if (custmenucontainer.Height <= custmenucontainer.MinimumSize.Height)
-                {
-                    custExpand = false;
-                    custDroptimer.Stop();
-                }
-            }
-            else
-            {
-                custmenucontainer.Height += 10;
-                if (custmenucontainer.Height >= custmenucontainer.MaximumSize.Height)
-                {
-                    custExpand = true;
-                    custDroptimer.Stop();
-                }
-            }
-        }
+       
 
         private void custmenubtn_Click(object sender, EventArgs e)
         {
-            custDroptimer.Start();
+            custform custfrm = new custform();
+            FormSetup(custfrm);
         }
 
         private void sidebartimer_Tick(object sender, EventArgs e)
@@ -128,30 +88,6 @@ namespace bosssystem1
             this.Close();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            invform invfrm = new invform();
-            FormSetup(invfrm);
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            addinvform ainvfrm = new addinvform();
-            FormSetup(ainvfrm);
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            custform custfrm = new custform();
-            FormSetup(custfrm);
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            addcustform acustfrm = new addcustform();
-            FormSetup(acustfrm);
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
             ordersform orderfrm = new ordersform();
@@ -160,7 +96,7 @@ namespace bosssystem1
 
         private void invoicesbtn_Click(object sender, EventArgs e)
         {
-            invoiceForm invoicefrm = new invoiceForm();
+            salesForm invoicefrm = new salesForm();
             FormSetup(invoicefrm);
         }
     }

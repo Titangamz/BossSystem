@@ -10,16 +10,20 @@ using System.Windows.Forms;
 
 namespace bosssystem1
 {
-    public partial class invoiceForm : Form
+    public partial class salesForm : Form
     {
-        public invoiceForm()
+        public salesForm()
         {
             InitializeComponent();
         }
 
         private void invoiceForm_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'g13Wst2024DataSet.Sales' table. You can move, or remove it, as needed.
+            this.salesTableAdapter.Fill(this.g13Wst2024DataSet.Sales);
             this.ControlBox = false;
         }
+
+       
     }
 }

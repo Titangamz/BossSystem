@@ -52,12 +52,6 @@
     <Compile Include="addcustform.Designer.cs">
       <DependentUpon>addcustform.cs</DependentUpon>
     </Compile>
-    <Compile Include="addinvform.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="addinvform.Designer.cs">
-      <DependentUpon>addinvform.cs</DependentUpon>
-    </Compile>
     <Compile Include="custform.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,11 +75,11 @@
     <Compile Include="invform.Designer.cs">
       <DependentUpon>invform.cs</DependentUpon>
     </Compile>
-    <Compile Include="invoiceForm.cs">
+    <Compile Include="salesForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="invoiceForm.Designer.cs">
-      <DependentUpon>invoiceForm.cs</DependentUpon>
+    <Compile Include="salesForm.Designer.cs">
+      <DependentUpon>salesForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ordersform.cs">
       <SubType>Form</SubType>
@@ -98,9 +92,6 @@
     <EmbeddedResource Include="addcustform.resx">
       <DependentUpon>addcustform.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="addinvform.resx">
-      <DependentUpon>addinvform.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="custform.resx">
       <DependentUpon>custform.cs</DependentUpon>
     </EmbeddedResource>
@@ -110,8 +101,8 @@
     <EmbeddedResource Include="invform.resx">
       <DependentUpon>invform.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="invoiceForm.resx">
-      <DependentUpon>invoiceForm.cs</DependentUpon>
+    <EmbeddedResource Include="salesForm.resx">
+      <DependentUpon>salesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ordersform.resx">
       <DependentUpon>ordersform.cs</DependentUpon>
