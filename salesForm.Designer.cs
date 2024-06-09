@@ -53,9 +53,6 @@ namespace bosssystem1
             this.customerSurnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.customerPhoneNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.customerAddressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataSetInvoice = new bosssystem1.DataSetInvoice();
-            this.saleorderBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.saleorderTableAdapter = new bosssystem1.DataSetInvoiceTableAdapters.saleorderTableAdapter();
             this.invoiceNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.customerIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.customerNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,6 +60,11 @@ namespace bosssystem1
             this.itemNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.unitPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.saleDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.saleorderBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSetInvoice = new bosssystem1.DataSetInvoice();
+            this.saleorderTableAdapter = new bosssystem1.DataSetInvoiceTableAdapters.saleorderTableAdapter();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.saledatagrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.g13Wst2024DataSet)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -70,8 +72,8 @@ namespace bosssystem1
             ((System.ComponentModel.ISupportInitialize)(this.partsTableBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.custdatagrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetInvoice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.saleorderBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetInvoice)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -96,7 +98,7 @@ namespace bosssystem1
             this.unitPriceDataGridViewTextBoxColumn,
             this.saleDateDataGridViewTextBoxColumn});
             this.saledatagrid.DataSource = this.saleorderBindingSource;
-            this.saledatagrid.Location = new System.Drawing.Point(12, 362);
+            this.saledatagrid.Location = new System.Drawing.Point(12, 404);
             this.saledatagrid.Name = "saledatagrid";
             this.saledatagrid.RowHeadersWidth = 51;
             this.saledatagrid.RowTemplate.Height = 24;
@@ -110,11 +112,13 @@ namespace bosssystem1
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button2);
+            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.custdatagrid);
             this.groupBox1.Controls.Add(this.invdatagrid);
             this.groupBox1.Location = new System.Drawing.Point(12, 29);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1312, 313);
+            this.groupBox1.Size = new System.Drawing.Size(1312, 369);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Click on the rows to add parts and a customer to the sale";
@@ -282,20 +286,6 @@ namespace bosssystem1
             this.customerAddressDataGridViewTextBoxColumn.Name = "customerAddressDataGridViewTextBoxColumn";
             this.customerAddressDataGridViewTextBoxColumn.Width = 125;
             // 
-            // dataSetInvoice
-            // 
-            this.dataSetInvoice.DataSetName = "DataSetInvoice";
-            this.dataSetInvoice.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // saleorderBindingSource
-            // 
-            this.saleorderBindingSource.DataMember = "saleorder";
-            this.saleorderBindingSource.DataSource = this.dataSetInvoice;
-            // 
-            // saleorderTableAdapter
-            // 
-            this.saleorderTableAdapter.ClearBeforeFill = true;
-            // 
             // invoiceNoDataGridViewTextBoxColumn
             // 
             this.invoiceNoDataGridViewTextBoxColumn.DataPropertyName = "InvoiceNo";
@@ -353,6 +343,39 @@ namespace bosssystem1
             this.saleDateDataGridViewTextBoxColumn.Name = "saleDateDataGridViewTextBoxColumn";
             this.saleDateDataGridViewTextBoxColumn.Width = 125;
             // 
+            // saleorderBindingSource
+            // 
+            this.saleorderBindingSource.DataMember = "saleorder";
+            this.saleorderBindingSource.DataSource = this.dataSetInvoice;
+            // 
+            // dataSetInvoice
+            // 
+            this.dataSetInvoice.DataSetName = "DataSetInvoice";
+            this.dataSetInvoice.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // saleorderTableAdapter
+            // 
+            this.saleorderTableAdapter.ClearBeforeFill = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(3, 18);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(569, 312);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(153, 42);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // salesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -371,8 +394,8 @@ namespace bosssystem1
             ((System.ComponentModel.ISupportInitialize)(this.partsTableBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.custdatagrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetInvoice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.saleorderBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetInvoice)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -413,5 +436,7 @@ namespace bosssystem1
         private System.Windows.Forms.DataGridViewTextBoxColumn itemNameDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn unitPriceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn saleDateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
     }
 }

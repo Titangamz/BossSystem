@@ -29,67 +29,54 @@ namespace bosssystem1
             this.ControlBox = false;
         }
 
-        /* private void FillDataTableFromDataGridView(DataGridView dataGridView, DataTable dataTable, int[] columnIndexesToCopy)
-         {
-             // Find the unique identifier of the current row (assuming the first column is unique)
-             object uniqueId = dataGridView.CurrentRow.Cells[0].Value;
-             DataRow dr = dataSetInvoice.saleorder.Rows.Find(uniqueId);
 
-             if (dr == null)
-             {
-                 // If the row does not exist, create a new one
-                 dr = dataSetInvoice.saleorder.NewRow();
-                 dr[0] = uniqueId; // Set the unique identifier
-                 for (int i = 0; i < dataSetInvoice.saleorder.Columns.Count; i++)
-                 {
-                     if (Array.IndexOf(columnIndexesToCopy, i) == -1)
-                     {
-                         dr[i] = DBNull.Value; // Initialize non-copied columns to DBNull
-                     }
-                 }
-                 dataSetInvoice.saleorder.Rows.Add(dr);
-             }
-
-             // Update the row with values from the specified columns
-             foreach (int columnIndex in columnIndexesToCopy)
-             {
-                 dr[columnIndex] = dataGridView.CurrentRow.Cells[columnIndex].Value;
-             }
-         }*/
-
-
-
-        private void invdatagrid_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-            var columnMappings = new Dictionary<int, int>
-    {
-        { 0, 3 }, // PartNo column in DataGridView (index 0) to PartNo column in DataTable (index 3)
-        { 2, 4 }, // ItemName column in DataGridView (index 2) to ItemName column in DataTable (index 4)
-        { 4, 5 }  // ItemPrice column in DataGridView (index 4) to UnitPrice column in DataTable (index 5)
-    };
-            AddOrUpdateDataFromDataGridView(invdatagrid, columnMappings, 3, e.RowIndex);
+            // Get the selected rows from both DataGridViews
+            DataGridViewRow invSelectedRow = invdatagrid.SelectedRows.Count > 0 ? invdatagrid.SelectedRows[0] : null;
+            DataGridViewRow custSelectedRow = custdatagrid.SelectedRows.Count > 0 ? custdatagrid.SelectedRows[0] : null;
+
+            // If both rows are selected, add them to the DataTable
+            if (invSelectedRow != null && custSelectedRow != null)
+            {
+                // Assuming the unique identifiers are in specific columns
+                object invUniqueId = invSelectedRow.Cells[3].Value;
+                object custUniqueId = custSelectedRow.Cells[1].Value;
+
+                // Define column mappings for both DataGridViews
+                var invColumnMappings = new Dictionary<int, int>
+        {
+            { 0, 3 }, // PartNo column in DataGridView (index 0) to PartNo column in DataTable (index 3)
+            { 2, 4 }, // ItemName column in DataGridView (index 2) to ItemName column in DataTable (index 4)
+            { 4, 5 }  // ItemPrice column in DataGridView (index 4) to UnitPrice column in DataTable (index 5)
+        };
+
+                var custColumnMappings = new Dictionary<int, int>
+        {
+            { 0, 1 }, // CustomerID column in DataGridView (index 0) to CustomerID column in DataTable (index 1)
+            { 1, 2 }  // CustomerName column in DataGridView (index 1) to CustomerName column in DataTable (index 2)
+        };
+
+                // Add or update data in the DataTable
+                AddOrUpdateDataFromDataGridViews(invdatagrid, custdatagrid, invColumnMappings, custColumnMappings, 3, invUniqueId, 1, custUniqueId);
+            }
+            else
+            {
+                MessageBox.Show("Please select rows from both tables.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
-        private void custdatagrid_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        private void AddOrUpdateDataFromDataGridViews(DataGridView dataGridView1, DataGridView dataGridView2, Dictionary<int, int> columnMappings1, Dictionary<int, int> columnMappings2, int uniqueColumnIndex1, object uniqueId1, int uniqueColumnIndex2, object uniqueId2)
         {
-            var columnMappings = new Dictionary<int, int>
-    {
-        { 0, 1 }, // CustomerID column in DataGridView (index 0) to CustomerID column in DataTable (index 1)
-        { 1, 2 }  // CustomerName column in DataGridView (index 1) to CustomerName column in DataTable (index 2)
-    };
-            AddOrUpdateDataFromDataGridView(custdatagrid, columnMappings, 1, e.RowIndex);
-        }
-
-        private void AddOrUpdateDataFromDataGridView(DataGridView dataGridView, Dictionary<int, int> columnMappings, int uniqueColumnIndex, int rowIndex)
-        {
-            // Find the unique identifier of the current row
-            object uniqueId = dataGridView.Rows[rowIndex].Cells[uniqueColumnIndex].Value;
             DataRow dr = null;
 
             // Check if the row already exists
             foreach (DataRow row in dataSetInvoice.saleorder.Rows)
             {
-                if (row[uniqueColumnIndex].Equals(uniqueId))
+                if (row.RowState == DataRowState.Deleted)
+                    continue;
+
+                if (row[uniqueColumnIndex1].Equals(uniqueId1) && row[uniqueColumnIndex2].Equals(uniqueId2))
                 {
                     dr = row;
                     break;
@@ -100,19 +87,28 @@ namespace bosssystem1
             if (dr == null)
             {
                 dr = dataSetInvoice.saleorder.NewRow();
-                dr[uniqueColumnIndex] = uniqueId; // Set the unique identifier
+                dr[uniqueColumnIndex1] = uniqueId1; // Set the unique identifier
+                dr[uniqueColumnIndex2] = uniqueId2; // Set the unique identifier
                 dataSetInvoice.saleorder.Rows.Add(dr);
             }
 
             // Update the row with values from the specified columns
-            foreach (var mapping in columnMappings)
+            foreach (var mapping in columnMappings1)
             {
                 int dataGridViewColumnIndex = mapping.Key;
                 int dataTableColumnIndex = mapping.Value;
-                dr[dataTableColumnIndex] = dataGridView.Rows[rowIndex].Cells[dataGridViewColumnIndex].Value ?? DBNull.Value;
+                dr[dataTableColumnIndex] = dataGridView1.CurrentRow.Cells[dataGridViewColumnIndex].Value ?? DBNull.Value;
+            }
+
+            foreach (var mapping in columnMappings2)
+            {
+                int dataGridViewColumnIndex = mapping.Key;
+                int dataTableColumnIndex = mapping.Value;
+                dr[dataTableColumnIndex] = dataGridView2.CurrentRow.Cells[dataGridViewColumnIndex].Value ?? DBNull.Value;
             }
         }
 
-
+        private void custdatagrid_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e) { }
+        private void invdatagrid_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e) { }
     }
 }
