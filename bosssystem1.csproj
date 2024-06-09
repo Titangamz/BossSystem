@@ -33,7 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
+    <Reference Include="System">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
+    </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -51,6 +53,11 @@
     </Compile>
     <Compile Include="custform.Designer.cs">
       <DependentUpon>custform.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetInvoice.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetInvoice.xsd</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -107,6 +114,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="DataSetInvoice.xsc">
+      <DependentUpon>DataSetInvoice.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetInvoice.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetInvoice.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSetInvoice.xss">
+      <DependentUpon>DataSetInvoice.xsd</DependentUpon>
+    </None>
     <None Include="G13Wst2024DataSet.xsc">
       <DependentUpon>G13Wst2024DataSet.xsd</DependentUpon>
     </None>
