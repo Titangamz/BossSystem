@@ -15,10 +15,15 @@ namespace bosssystem1
         public salesForm()
         {
             InitializeComponent();
+            
         }
 
         private void invoiceForm_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'dataSetInvoice.saleorder' table. You can move, or remove it, as needed.
+            this.saleorderTableAdapter.Fill(this.dataSetInvoice.saleorder);
+            // TODO: This line of code loads data into the 'dataSetInvoice.saleorder' table. You can move, or remove it, as needed.
+            this.saleorderTableAdapter.Fill(this.dataSetInvoice.saleorder);
             // TODO: This line of code loads data into the 'dataSetInvoice.saleorder' table. You can move, or remove it, as needed.
             this.saleorderTableAdapter.Fill(this.dataSetInvoice.saleorder);
             // TODO: This line of code loads data into the 'g13Wst2024DataSet.Customer' table. You can move, or remove it, as needed.
@@ -46,15 +51,15 @@ namespace bosssystem1
                 // Define column mappings for both DataGridViews
                 var invColumnMappings = new Dictionary<int, int>
         {
-            { 0, 3 }, // PartNo column in DataGridView (index 0) to PartNo column in DataTable (index 3)
-            { 2, 4 }, // ItemName column in DataGridView (index 2) to ItemName column in DataTable (index 4)
-            { 4, 5 }  // ItemPrice column in DataGridView (index 4) to UnitPrice column in DataTable (index 5)
+            { 0, 2 }, // PartNo column in DataGridView (index 0) to PartNo column in DataTable (index 3)
+            { 2, 3 }, // ItemName column in DataGridView (index 2) to ItemName column in DataTable (index 4)
+            { 4, 4 }  // ItemPrice column in DataGridView (index 4) to UnitPrice column in DataTable (index 5)
         };
 
                 var custColumnMappings = new Dictionary<int, int>
         {
-            { 0, 1 }, // CustomerID column in DataGridView (index 0) to CustomerID column in DataTable (index 1)
-            { 1, 2 }  // CustomerName column in DataGridView (index 1) to CustomerName column in DataTable (index 2)
+            { 0, 0 }, // CustomerID column in DataGridView (index 0) to CustomerID column in DataTable (index 1)
+            { 1, 1 }  // CustomerName column in DataGridView (index 1) to CustomerName column in DataTable (index 2)
         };
 
                 // Add or update data in the DataTable
@@ -108,7 +113,74 @@ namespace bosssystem1
             }
         }
 
+
+
         private void custdatagrid_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e) { }
         private void invdatagrid_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e) { }
+
+        private void saledatagrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void saledatagrid_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+
+            if (e.RowIndex < 0 || e.ColumnIndex < 0) return; // Check for valid row and column indices
+
+            // Check if the changed cell is in the Quantity column
+            DataGridView dataGridView = sender as DataGridView;
+            if (dataGridView.Columns[e.ColumnIndex].Name == "Quantity")
+            {
+                DataGridViewRow row = dataGridView.Rows[e.RowIndex];
+
+                object unitPriceObj = row.Cells["unitPriceDataGridViewTextBoxColumn"].Value;
+                object quantityObj = row.Cells["Quantity"].Value;
+
+                // Check for null values
+                if (unitPriceObj != null && quantityObj != null)
+                {
+                    decimal unitPrice, quantity;
+
+                    // Try parsing cell values to decimal
+                    if (decimal.TryParse(unitPriceObj.ToString(), out unitPrice) &&
+                        decimal.TryParse(quantityObj.ToString(), out quantity))
+                    {
+                        // Calculate the RowTotal
+                        decimal rowTotal = unitPrice * quantity;
+
+                        // Update the RowTotal cell
+                        row.Cells["RowTotal"].Value = rowTotal;
+                    }
+                    else
+                    {
+                        // Handle parsing errors
+                    }
+                }
+                else
+                {
+                    // Handle null values
+                }
+            }
+        }
+       
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string totalColumnName = "RowTotal"; // Name of the column to sum
+            decimal total = 0;
+
+            foreach (DataGridViewRow row in saledatagrid.Rows)
+            {
+                if (!row.IsNewRow)
+                {
+                    if (decimal.TryParse(row.Cells[totalColumnName].Value?.ToString(), out decimal value))
+                    {
+                        total += value;
+                    }
+                }
+            }
+
+            ordtotaltxt.Text = total.ToString("C");
+        }
     }
 }
