@@ -180,7 +180,33 @@ namespace bosssystem1
                 }
             }
 
-            ordtotaltxt.Text = total.ToString("C");
+            ordtotaltxt.Text = total.ToString();
+        }
+
+        private void deleterowsbtn_Click(object sender, EventArgs e)
+        {
+            dataSetInvoice.Clear();
+            ordtotaltxt.Text = "";
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in saledatagrid.Rows)
+            {
+                if (row.IsNewRow) continue;
+
+                // Extract values from the row
+                var PartNoValue = row.Cells[2].Value?.ToString();
+                var custIDValue = row.Cells[0].Value?.ToString();
+                var paytypeValue = row.Cells[7].Value?.ToString();
+                // Add more columns as needed
+
+                // Insert the row into the database using the TableAdapter
+                salebkTableAdapter1.Insert(int.Parse(PartNoValue),int.Parse(custIDValue),DateTime.Now,paytypeValue,Convert.ToDecimal(ordtotaltxt.Text),null,null);
+            }
+
+            // Optionally refresh the DataGridView
+            
         }
     }
 }
