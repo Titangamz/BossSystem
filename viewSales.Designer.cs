@@ -46,6 +46,8 @@ namespace bosssystem1
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.salebkTableAdapter = new bosssystem1.G13Wst2024DataSetTableAdapters.SalebkTableAdapter();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvsalesview)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.salebkBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.g13Wst2024DataSet)).BeginInit();
@@ -168,7 +170,7 @@ namespace bosssystem1
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(528, 58);
+            this.dateTimePicker1.Location = new System.Drawing.Point(109, 56);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(232, 22);
             this.dateTimePicker1.TabIndex = 1;
@@ -180,6 +182,8 @@ namespace bosssystem1
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.dateTimePicker1);
             this.groupBox1.Controls.Add(this.dgvsalesview);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
@@ -189,6 +193,27 @@ namespace bosssystem1
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Select a date and all the sales for that day will be displayed";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(1122, 22);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(172, 56);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Add Payment Date and Amount";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(704, 18);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(412, 68);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "(To add payment details Change the relevant details in the table\r\n and click \"Add" +
+    " Payment Date and Amount\")\r\n*Note: You only need to fill 1 row,\r\n it will autofi" +
+    "ll rows of the same InvoiceNo*";
             // 
             // viewSales
             // 
@@ -203,6 +228,7 @@ namespace bosssystem1
             ((System.ComponentModel.ISupportInitialize)(this.salebkBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.g13Wst2024DataSet)).EndInit();
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -226,5 +252,7 @@ namespace bosssystem1
         private System.Windows.Forms.DataGridViewTextBoxColumn amountPaidDataGridViewTextBoxColumn;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button1;
     }
 }

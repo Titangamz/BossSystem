@@ -35,5 +35,20 @@ namespace bosssystem1
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("WARNING, this will permanantly alter your employee table. Proceed?", "Confirmation",
+MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                salebkTableAdapter.Update(g13Wst2024DataSet.Salebk);
+                salebkTableAdapter.Fill(g13Wst2024DataSet.Salebk);
+            }
+            else if (result == DialogResult.No)
+            {
+                MessageBox.Show("Update Cancelled");
+            }
+        }
     }
 }

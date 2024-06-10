@@ -57,5 +57,21 @@ MessageBoxButtons.YesNo);
         {
             partsTableTableAdapter.FillByItemName(g13Wst2024DataSet.PartsTable, searchBar.Text);
         }
+
+        private void updatepartbtn_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("WARNING, this will permanantly alter your employee table. Proceed?", "Confirmation",
+MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                partsTableTableAdapter.Update(g13Wst2024DataSet.PartsTable);
+                partsTableTableAdapter.Fill(g13Wst2024DataSet.PartsTable);
+            }
+            else if (result == DialogResult.No)
+            {
+                MessageBox.Show("Update Cancelled");
+            }
+            
+        }
     }
 }
