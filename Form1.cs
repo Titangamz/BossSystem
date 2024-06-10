@@ -130,7 +130,17 @@ namespace bosssystem1
 
         private void button6_Click(object sender, EventArgs e)
         {
-            this.Close();
+            DialogResult result = MessageBox.Show("Are you sure you want to exit the application?", "LogOut?",
+MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                this.Close();
+            }
+            else if (result == DialogResult.No)
+            {
+                
+            }
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -165,6 +175,12 @@ namespace bosssystem1
         {
             viewsuppliersform viewsuppfrm = new viewsuppliersform();
             FormSetup(viewsuppfrm);
+        }
+
+        private void employeebtn_Click(object sender, EventArgs e)
+        {
+            EmployeeForm empfrm = new EmployeeForm();
+            FormSetup(empfrm);
         }
     }
 }

@@ -31,7 +31,6 @@ namespace bosssystem1
         {
             this.components = new System.ComponentModel.Container();
             this.dgvsalesview = new System.Windows.Forms.DataGridView();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.invoiceNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.partNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,6 +43,7 @@ namespace bosssystem1
             this.amountPaidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.salebkBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.g13Wst2024DataSet = new bosssystem1.G13Wst2024DataSet();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.salebkTableAdapter = new bosssystem1.G13Wst2024DataSetTableAdapters.SalebkTableAdapter();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvsalesview)).BeginInit();
@@ -75,14 +75,6 @@ namespace bosssystem1
             this.dgvsalesview.Size = new System.Drawing.Size(1300, 275);
             this.dgvsalesview.TabIndex = 0;
             this.dgvsalesview.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvsalesview_CellContentClick);
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(528, 58);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(232, 22);
-            this.dateTimePicker1.TabIndex = 1;
-            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // invoiceNoDataGridViewTextBoxColumn
             // 
@@ -174,6 +166,14 @@ namespace bosssystem1
             this.g13Wst2024DataSet.DataSetName = "G13Wst2024DataSet";
             this.g13Wst2024DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(528, 58);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(232, 22);
+            this.dateTimePicker1.TabIndex = 1;
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            // 
             // salebkTableAdapter
             // 
             this.salebkTableAdapter.ClearBeforeFill = true;
@@ -184,6 +184,7 @@ namespace bosssystem1
             this.groupBox1.Controls.Add(this.dgvsalesview);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
+            this.groupBox1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.groupBox1.Size = new System.Drawing.Size(1312, 439);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;

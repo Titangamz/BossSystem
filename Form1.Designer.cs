@@ -59,6 +59,8 @@ namespace bosssystem1
             this.sidebartimer = new System.Windows.Forms.Timer(this.components);
             this.saledrptimer = new System.Windows.Forms.Timer(this.components);
             this.suppdrptimer = new System.Windows.Forms.Timer(this.components);
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.employeebtn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.sidebar.SuspendLayout();
@@ -73,6 +75,7 @@ namespace bosssystem1
             this.panel4.SuspendLayout();
             this.panel10.SuspendLayout();
             this.panel7.SuspendLayout();
+            this.panel9.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -113,6 +116,7 @@ namespace bosssystem1
             this.sidebar.Controls.Add(this.panel3);
             this.sidebar.Controls.Add(this.saleContainer);
             this.sidebar.Controls.Add(this.suppContainer);
+            this.sidebar.Controls.Add(this.panel9);
             this.sidebar.Controls.Add(this.panel7);
             this.sidebar.Dock = System.Windows.Forms.DockStyle.Left;
             this.sidebar.Location = new System.Drawing.Point(0, 50);
@@ -386,7 +390,7 @@ namespace bosssystem1
             // panel7
             // 
             this.panel7.Controls.Add(this.button6);
-            this.panel7.Location = new System.Drawing.Point(0, 200);
+            this.panel7.Location = new System.Drawing.Point(0, 250);
             this.panel7.Margin = new System.Windows.Forms.Padding(0);
             this.panel7.MaximumSize = new System.Drawing.Size(200, 50);
             this.panel7.MinimumSize = new System.Drawing.Size(200, 50);
@@ -427,6 +431,35 @@ namespace bosssystem1
             this.suppdrptimer.Interval = 10;
             this.suppdrptimer.Tick += new System.EventHandler(this.suppdrptimer_Tick);
             // 
+            // panel9
+            // 
+            this.panel9.Controls.Add(this.employeebtn);
+            this.panel9.Location = new System.Drawing.Point(0, 200);
+            this.panel9.Margin = new System.Windows.Forms.Padding(0);
+            this.panel9.MaximumSize = new System.Drawing.Size(200, 50);
+            this.panel9.MinimumSize = new System.Drawing.Size(200, 50);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(200, 50);
+            this.panel9.TabIndex = 11;
+            // 
+            // employeebtn
+            // 
+            this.employeebtn.BackColor = System.Drawing.Color.Black;
+            this.employeebtn.ForeColor = System.Drawing.Color.White;
+            this.employeebtn.Image = ((System.Drawing.Image)(resources.GetObject("employeebtn.Image")));
+            this.employeebtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.employeebtn.Location = new System.Drawing.Point(-12, -24);
+            this.employeebtn.Margin = new System.Windows.Forms.Padding(0);
+            this.employeebtn.Name = "employeebtn";
+            this.employeebtn.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
+            this.employeebtn.Size = new System.Drawing.Size(261, 100);
+            this.employeebtn.TabIndex = 3;
+            this.employeebtn.Text = "    Employee";
+            this.employeebtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.employeebtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.employeebtn.UseVisualStyleBackColor = false;
+            this.employeebtn.Click += new System.EventHandler(this.employeebtn_Click);
+            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -453,6 +486,7 @@ namespace bosssystem1
             this.panel4.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
+            this.panel9.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -487,6 +521,8 @@ namespace bosssystem1
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Button viewsuppbtn;
         private System.Windows.Forms.Timer suppdrptimer;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Button employeebtn;
     }
 }
 

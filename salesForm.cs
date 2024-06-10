@@ -190,39 +190,50 @@ namespace bosssystem1
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (ordtotaltxt.Text == "")
-            {
-                MessageBox.Show("Please get the order before recording the order");
-            }
-            else
-            {
 
-
-                int? lastInvoiceNumber = salebkTableAdapter1.GetCurrentInvoiceNumber();
-                int newInvoiceNumber = (lastInvoiceNumber ?? 0) + 1;
-                foreach (DataGridViewRow row in saledatagrid.Rows)
+            DialogResult result = MessageBox.Show("Do you want to Confirm?", "Confirmation",
+MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                if (ordtotaltxt.Text == "")
                 {
-                    if (row.IsNewRow) continue;
-
-
-                    var PartNoValue = row.Cells[2].Value?.ToString();
-                    var custIDValue = row.Cells[0].Value?.ToString();
-                    var paytypeValue = row.Cells[7].Value?.ToString();
-                    var rowtotalValue = row.Cells[6].Value?.ToString();
-                    var quantityValue = row.Cells[5].Value?.ToString();
-
-                    try
-                    {
-                        salebkTableAdapter1.Insert(newInvoiceNumber, int.Parse(PartNoValue), quantityValue, int.Parse(custIDValue), DateTime.Now, paytypeValue, Convert.ToDecimal(rowtotalValue), Convert.ToDecimal(ordtotaltxt.Text), null, null);
-                    }
-                    catch (Exception)
-                    {
-                        MessageBox.Show("Error, please ensure all fields are filled in");
-                    }
-                   
+                    MessageBox.Show("Please get the order before recording the order");
                 }
-                MessageBox.Show("Order has been Confirmed with Invoice No: " + newInvoiceNumber);
+                else
+                {
+
+
+                    int? lastInvoiceNumber = salebkTableAdapter1.GetCurrentInvoiceNumber();
+                    int newInvoiceNumber = (lastInvoiceNumber ?? 0) + 1;
+                    foreach (DataGridViewRow row in saledatagrid.Rows)
+                    {
+                        if (row.IsNewRow) continue;
+
+
+                        var PartNoValue = row.Cells[2].Value?.ToString();
+                        var custIDValue = row.Cells[0].Value?.ToString();
+                        var paytypeValue = row.Cells[7].Value?.ToString();
+                        var rowtotalValue = row.Cells[6].Value?.ToString();
+                        var quantityValue = row.Cells[5].Value?.ToString();
+
+                        try
+                        {
+                            salebkTableAdapter1.Insert(newInvoiceNumber, int.Parse(PartNoValue), quantityValue, int.Parse(custIDValue), DateTime.Now, paytypeValue, Convert.ToDecimal(rowtotalValue), Convert.ToDecimal(ordtotaltxt.Text), null, null);
+                        }
+                        catch (Exception)
+                        {
+                            MessageBox.Show("Error, please ensure all fields are filled in");
+                        }
+
+                    }
+                    MessageBox.Show("Order has been Confirmed with Invoice No: " + newInvoiceNumber);
+                }
             }
+            else if (result == DialogResult.No)
+            {
+                MessageBox.Show("Sale NOT Processed");
+            }
+            
 
 
         }
