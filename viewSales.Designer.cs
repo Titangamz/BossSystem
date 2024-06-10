@@ -31,9 +31,7 @@ namespace bosssystem1
         {
             this.components = new System.ComponentModel.Container();
             this.dgvsalesview = new System.Windows.Forms.DataGridView();
-            this.g13Wst2024DataSet = new bosssystem1.G13Wst2024DataSet();
-            this.salebkBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.salebkTableAdapter = new bosssystem1.G13Wst2024DataSetTableAdapters.SalebkTableAdapter();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.invoiceNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.partNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,9 +42,14 @@ namespace bosssystem1
             this.orderTotalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.paymentDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.amountPaidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.salebkBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.g13Wst2024DataSet = new bosssystem1.G13Wst2024DataSet();
+            this.salebkTableAdapter = new bosssystem1.G13Wst2024DataSetTableAdapters.SalebkTableAdapter();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvsalesview)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.g13Wst2024DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.salebkBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.g13Wst2024DataSet)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvsalesview
@@ -65,26 +68,21 @@ namespace bosssystem1
             this.paymentDateDataGridViewTextBoxColumn,
             this.amountPaidDataGridViewTextBoxColumn});
             this.dgvsalesview.DataSource = this.salebkBindingSource;
-            this.dgvsalesview.Location = new System.Drawing.Point(12, 81);
+            this.dgvsalesview.Location = new System.Drawing.Point(6, 108);
             this.dgvsalesview.Name = "dgvsalesview";
             this.dgvsalesview.RowHeadersWidth = 51;
             this.dgvsalesview.RowTemplate.Height = 24;
-            this.dgvsalesview.Size = new System.Drawing.Size(1312, 180);
+            this.dgvsalesview.Size = new System.Drawing.Size(1300, 275);
             this.dgvsalesview.TabIndex = 0;
+            this.dgvsalesview.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvsalesview_CellContentClick);
             // 
-            // g13Wst2024DataSet
+            // dateTimePicker1
             // 
-            this.g13Wst2024DataSet.DataSetName = "G13Wst2024DataSet";
-            this.g13Wst2024DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // salebkBindingSource
-            // 
-            this.salebkBindingSource.DataMember = "Salebk";
-            this.salebkBindingSource.DataSource = this.g13Wst2024DataSet;
-            // 
-            // salebkTableAdapter
-            // 
-            this.salebkTableAdapter.ClearBeforeFill = true;
+            this.dateTimePicker1.Location = new System.Drawing.Point(528, 58);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(232, 22);
+            this.dateTimePicker1.TabIndex = 1;
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // invoiceNoDataGridViewTextBoxColumn
             // 
@@ -166,18 +164,44 @@ namespace bosssystem1
             this.amountPaidDataGridViewTextBoxColumn.Name = "amountPaidDataGridViewTextBoxColumn";
             this.amountPaidDataGridViewTextBoxColumn.Width = 125;
             // 
+            // salebkBindingSource
+            // 
+            this.salebkBindingSource.DataMember = "Salebk";
+            this.salebkBindingSource.DataSource = this.g13Wst2024DataSet;
+            // 
+            // g13Wst2024DataSet
+            // 
+            this.g13Wst2024DataSet.DataSetName = "G13Wst2024DataSet";
+            this.g13Wst2024DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // salebkTableAdapter
+            // 
+            this.salebkTableAdapter.ClearBeforeFill = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.dateTimePicker1);
+            this.groupBox1.Controls.Add(this.dgvsalesview);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(1312, 439);
+            this.groupBox1.TabIndex = 2;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Select a date and all the sales for that day will be displayed";
+            // 
             // viewSales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1336, 590);
-            this.Controls.Add(this.dgvsalesview);
+            this.Controls.Add(this.groupBox1);
             this.Name = "viewSales";
             this.Text = "viewSales";
             this.Load += new System.EventHandler(this.viewSales_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvsalesview)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.g13Wst2024DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.salebkBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.g13Wst2024DataSet)).EndInit();
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -199,5 +223,7 @@ namespace bosssystem1
         private System.Windows.Forms.DataGridViewTextBoxColumn orderTotalDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn paymentDateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn amountPaidDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

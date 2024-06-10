@@ -18,6 +18,8 @@ namespace bosssystem1
         }
         
         bool sidebarExpand;
+        bool saledrpexp;
+        bool suppdrpexp;
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -77,6 +79,49 @@ namespace bosssystem1
                 }
             } 
         }
+        private void saledrptimer_Tick(object sender, EventArgs e)
+        {
+            if (saledrpexp)
+            {
+                saleContainer.Height -= 10;
+                if (saleContainer.Height <= saleContainer.MinimumSize.Height)
+                {
+                    saledrpexp = false;
+                    saledrptimer.Stop();
+                }
+            }
+            else
+            {
+                saleContainer.Height += 10;
+                if (saleContainer.Height >= saleContainer.MaximumSize.Height)
+                {
+                    saledrpexp = true;
+                    saledrptimer.Stop();
+                }
+            }
+        }
+
+        private void suppdrptimer_Tick(object sender, EventArgs e)
+        {
+            if (suppdrpexp)
+            {
+                suppContainer.Height -= 10;
+                if (suppContainer.Height <= suppContainer.MinimumSize.Height)
+                {
+                    suppdrpexp = false;
+                    suppdrptimer.Stop();
+                }
+            }
+            else
+            {
+                suppContainer.Height += 10;
+                if (suppContainer.Height >= suppContainer.MaximumSize.Height)
+                {
+                    suppdrpexp = true;
+                    suppdrptimer.Stop();
+                }
+            }
+        }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -104,6 +149,22 @@ namespace bosssystem1
         {
             viewSales viewsle = new viewSales();
             FormSetup(viewsle);
+        }
+
+        private void saledrpbtn_Click(object sender, EventArgs e)
+        {
+            saledrptimer.Start();
+        }
+
+        private void supplierdrpbtn_Click(object sender, EventArgs e)
+        {
+            suppdrptimer.Start();
+        }
+
+        private void viewsuppbtn_Click(object sender, EventArgs e)
+        {
+            viewsuppliersform viewsuppfrm = new viewsuppliersform();
+            FormSetup(viewsuppfrm);
         }
     }
 }

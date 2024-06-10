@@ -25,5 +25,15 @@ namespace bosssystem1
 
             this.ControlBox = false;
         }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            salebkTableAdapter.FillByPurchaseDate(g13Wst2024DataSet.Salebk, dateTimePicker1.Value.ToShortDateString());
+        }
+
+        private void dgvsalesview_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

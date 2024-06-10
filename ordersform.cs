@@ -19,6 +19,9 @@ namespace bosssystem1
 
         private void ordersform_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'g13Wst2024DataSet.Orders' table. You can move, or remove it, as needed.
+            this.ordersTableAdapter.Fill(this.g13Wst2024DataSet.Orders);
+
             this.ControlBox = false;
         }
     }
