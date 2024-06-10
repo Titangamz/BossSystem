@@ -191,6 +191,9 @@ namespace bosssystem1
 
         private void button3_Click(object sender, EventArgs e)
         {
+
+            int? lastInvoiceNumber = salebkTableAdapter1.GetLastInvoiceNumber();
+            int newInvoiceNumber = (lastInvoiceNumber ?? 0) + 1;
             foreach (DataGridViewRow row in saledatagrid.Rows)
             {
                 if (row.IsNewRow) continue;
@@ -200,9 +203,19 @@ namespace bosssystem1
                 var custIDValue = row.Cells[0].Value?.ToString();
                 var paytypeValue = row.Cells[7].Value?.ToString();
                 // Add more columns as needed
+                try
+                {
+                    // Insert the row into the database using the TableAdapter
+                    salebkTableAdapter1.Insert(newInvoiceNumber,int.Parse(PartNoValue), int.Parse(custIDValue), DateTime.Now, paytypeValue, Convert.ToDecimal(ordtotaltxt.Text), null, null);
+                   
+                  
+                }
+                catch (Exception)
+                {
 
-                // Insert the row into the database using the TableAdapter
-                salebkTableAdapter1.Insert(int.Parse(PartNoValue),int.Parse(custIDValue),DateTime.Now,paytypeValue,Convert.ToDecimal(ordtotaltxt.Text),null,null);
+                    MessageBox.Show("Error, please ensure all fields are filled in");
+                }
+                MessageBox.Show("Order has been Confirmed with Order No: " + newInvoiceNumber);
             }
 
             // Optionally refresh the DataGridView

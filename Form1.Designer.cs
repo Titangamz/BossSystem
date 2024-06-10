@@ -42,6 +42,7 @@ namespace bosssystem1
             this.invoicesbtn = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.sidebartimer = new System.Windows.Forms.Timer(this.components);
+            this.viewsalesbtn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.sidebar.SuspendLayout();
@@ -85,6 +86,7 @@ namespace bosssystem1
             this.sidebar.Controls.Add(this.custmenubtn);
             this.sidebar.Controls.Add(this.button2);
             this.sidebar.Controls.Add(this.invoicesbtn);
+            this.sidebar.Controls.Add(this.viewsalesbtn);
             this.sidebar.Controls.Add(this.button6);
             this.sidebar.Dock = System.Windows.Forms.DockStyle.Left;
             this.sidebar.Location = new System.Drawing.Point(0, 49);
@@ -173,7 +175,7 @@ namespace bosssystem1
             this.button6.ForeColor = System.Drawing.Color.White;
             this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
             this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button6.Location = new System.Drawing.Point(0, 200);
+            this.button6.Location = new System.Drawing.Point(0, 250);
             this.button6.Margin = new System.Windows.Forms.Padding(0);
             this.button6.Name = "button6";
             this.button6.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
@@ -189,6 +191,24 @@ namespace bosssystem1
             // 
             this.sidebartimer.Interval = 10;
             this.sidebartimer.Tick += new System.EventHandler(this.sidebartimer_Tick);
+            // 
+            // viewsalesbtn
+            // 
+            this.viewsalesbtn.BackColor = System.Drawing.Color.Black;
+            this.viewsalesbtn.ForeColor = System.Drawing.Color.White;
+            this.viewsalesbtn.Image = ((System.Drawing.Image)(resources.GetObject("viewsalesbtn.Image")));
+            this.viewsalesbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.viewsalesbtn.Location = new System.Drawing.Point(0, 200);
+            this.viewsalesbtn.Margin = new System.Windows.Forms.Padding(0);
+            this.viewsalesbtn.Name = "viewsalesbtn";
+            this.viewsalesbtn.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
+            this.viewsalesbtn.Size = new System.Drawing.Size(200, 50);
+            this.viewsalesbtn.TabIndex = 4;
+            this.viewsalesbtn.Text = "    View Sales";
+            this.viewsalesbtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.viewsalesbtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.viewsalesbtn.UseVisualStyleBackColor = false;
+            this.viewsalesbtn.Click += new System.EventHandler(this.viewsalesbtn_Click);
             // 
             // Form1
             // 
@@ -222,6 +242,7 @@ namespace bosssystem1
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button invoicesbtn;
+        private System.Windows.Forms.Button viewsalesbtn;
     }
 }
 

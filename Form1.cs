@@ -99,5 +99,11 @@ namespace bosssystem1
             salesForm invoicefrm = new salesForm();
             FormSetup(invoicefrm);
         }
+
+        private void viewsalesbtn_Click(object sender, EventArgs e)
+        {
+            viewSales viewsle = new viewSales();
+            FormSetup(viewsle);
+        }
     }
 }
