@@ -24,5 +24,19 @@ namespace bosssystem1
 
             this.ControlBox = false;
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ordersTableAdapter.Insert(int.Parse(orderidtxt.Text), int.Parse(empidtxt.Text), Convert.ToDateTime(datetxt.Text), int.Parse(partnotxt.Text));
+                MessageBox.Show("Order added Order: " + orderidtxt.Text);
+            }
+            catch
+            {
+                MessageBox.Show("Please ensure all details are correct");
+            }
+            ordersTableAdapter.Fill(g13Wst2024DataSet.Orders);
+        }
     }
 }

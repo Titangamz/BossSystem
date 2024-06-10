@@ -36,6 +36,10 @@ namespace bosssystem1
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.sidebar = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.invMenu = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.custmenubtn = new System.Windows.Forms.Button();
             this.saleContainer = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.viewsalesbtn = new System.Windows.Forms.Button();
@@ -43,36 +47,32 @@ namespace bosssystem1
             this.saledrpbtn = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.invoicesbtn = new System.Windows.Forms.Button();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.button6 = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.custmenubtn = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.invMenu = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.sidebartimer = new System.Windows.Forms.Timer(this.components);
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.saledrptimer = new System.Windows.Forms.Timer(this.components);
             this.suppContainer = new System.Windows.Forms.Panel();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.supplierdrpbtn = new System.Windows.Forms.Button();
             this.panel11 = new System.Windows.Forms.Panel();
             this.viewsuppbtn = new System.Windows.Forms.Button();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.supplierdrpbtn = new System.Windows.Forms.Button();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.button6 = new System.Windows.Forms.Button();
+            this.sidebartimer = new System.Windows.Forms.Timer(this.components);
+            this.saledrptimer = new System.Windows.Forms.Timer(this.components);
             this.suppdrptimer = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.sidebar.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.saleContainer.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel5.SuspendLayout();
-            this.panel7.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel4.SuspendLayout();
             this.suppContainer.SuspendLayout();
-            this.panel10.SuspendLayout();
             this.panel11.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.panel10.SuspendLayout();
+            this.panel7.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -121,6 +121,65 @@ namespace bosssystem1
             this.sidebar.Name = "sidebar";
             this.sidebar.Size = new System.Drawing.Size(200, 545);
             this.sidebar.TabIndex = 1;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.invMenu);
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(0);
+            this.panel2.MaximumSize = new System.Drawing.Size(200, 50);
+            this.panel2.MinimumSize = new System.Drawing.Size(200, 50);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(200, 50);
+            this.panel2.TabIndex = 5;
+            // 
+            // invMenu
+            // 
+            this.invMenu.BackColor = System.Drawing.Color.Black;
+            this.invMenu.FlatAppearance.BorderSize = 0;
+            this.invMenu.ForeColor = System.Drawing.Color.White;
+            this.invMenu.Image = ((System.Drawing.Image)(resources.GetObject("invMenu.Image")));
+            this.invMenu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.invMenu.Location = new System.Drawing.Point(-12, -25);
+            this.invMenu.Margin = new System.Windows.Forms.Padding(0);
+            this.invMenu.Name = "invMenu";
+            this.invMenu.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
+            this.invMenu.Size = new System.Drawing.Size(233, 100);
+            this.invMenu.TabIndex = 3;
+            this.invMenu.Text = "    Inventory";
+            this.invMenu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.invMenu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.invMenu.UseVisualStyleBackColor = false;
+            this.invMenu.Click += new System.EventHandler(this.invMenu_Click);
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.custmenubtn);
+            this.panel3.Location = new System.Drawing.Point(0, 50);
+            this.panel3.Margin = new System.Windows.Forms.Padding(0);
+            this.panel3.MaximumSize = new System.Drawing.Size(200, 50);
+            this.panel3.MinimumSize = new System.Drawing.Size(200, 50);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(200, 50);
+            this.panel3.TabIndex = 6;
+            // 
+            // custmenubtn
+            // 
+            this.custmenubtn.BackColor = System.Drawing.Color.Black;
+            this.custmenubtn.ForeColor = System.Drawing.Color.White;
+            this.custmenubtn.Image = ((System.Drawing.Image)(resources.GetObject("custmenubtn.Image")));
+            this.custmenubtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.custmenubtn.Location = new System.Drawing.Point(-11, -24);
+            this.custmenubtn.Margin = new System.Windows.Forms.Padding(0);
+            this.custmenubtn.Name = "custmenubtn";
+            this.custmenubtn.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
+            this.custmenubtn.Size = new System.Drawing.Size(251, 100);
+            this.custmenubtn.TabIndex = 3;
+            this.custmenubtn.Text = "    Customers";
+            this.custmenubtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.custmenubtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.custmenubtn.UseVisualStyleBackColor = false;
+            this.custmenubtn.Click += new System.EventHandler(this.custmenubtn_Click);
             // 
             // saleContainer
             // 
@@ -223,93 +282,58 @@ namespace bosssystem1
             this.invoicesbtn.UseVisualStyleBackColor = false;
             this.invoicesbtn.Click += new System.EventHandler(this.invoicesbtn_Click);
             // 
-            // panel7
+            // suppContainer
             // 
-            this.panel7.Controls.Add(this.button6);
-            this.panel7.Location = new System.Drawing.Point(0, 200);
-            this.panel7.Margin = new System.Windows.Forms.Padding(0);
-            this.panel7.MaximumSize = new System.Drawing.Size(200, 50);
-            this.panel7.MinimumSize = new System.Drawing.Size(200, 50);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(200, 50);
-            this.panel7.TabIndex = 10;
+            this.suppContainer.Controls.Add(this.panel11);
+            this.suppContainer.Controls.Add(this.panel4);
+            this.suppContainer.Controls.Add(this.panel10);
+            this.suppContainer.Location = new System.Drawing.Point(0, 150);
+            this.suppContainer.Margin = new System.Windows.Forms.Padding(0);
+            this.suppContainer.MaximumSize = new System.Drawing.Size(200, 150);
+            this.suppContainer.MinimumSize = new System.Drawing.Size(200, 50);
+            this.suppContainer.Name = "suppContainer";
+            this.suppContainer.Size = new System.Drawing.Size(200, 50);
+            this.suppContainer.TabIndex = 8;
             // 
-            // button6
+            // panel11
             // 
-            this.button6.BackColor = System.Drawing.Color.Black;
-            this.button6.ForeColor = System.Drawing.Color.White;
-            this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
-            this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button6.Location = new System.Drawing.Point(-12, -24);
-            this.button6.Margin = new System.Windows.Forms.Padding(0);
-            this.button6.Name = "button6";
-            this.button6.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.button6.Size = new System.Drawing.Size(261, 100);
-            this.button6.TabIndex = 3;
-            this.button6.Text = "    LogOut";
-            this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button6.UseVisualStyleBackColor = false;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.panel11.Controls.Add(this.viewsuppbtn);
+            this.panel11.Location = new System.Drawing.Point(0, 50);
+            this.panel11.Margin = new System.Windows.Forms.Padding(0);
+            this.panel11.MaximumSize = new System.Drawing.Size(200, 50);
+            this.panel11.MinimumSize = new System.Drawing.Size(200, 50);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(200, 50);
+            this.panel11.TabIndex = 9;
             // 
-            // panel3
+            // viewsuppbtn
             // 
-            this.panel3.Controls.Add(this.custmenubtn);
-            this.panel3.Location = new System.Drawing.Point(0, 50);
-            this.panel3.Margin = new System.Windows.Forms.Padding(0);
-            this.panel3.MaximumSize = new System.Drawing.Size(200, 50);
-            this.panel3.MinimumSize = new System.Drawing.Size(200, 50);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(200, 50);
-            this.panel3.TabIndex = 6;
+            this.viewsuppbtn.BackColor = System.Drawing.Color.Black;
+            this.viewsuppbtn.ForeColor = System.Drawing.Color.White;
+            this.viewsuppbtn.Image = ((System.Drawing.Image)(resources.GetObject("viewsuppbtn.Image")));
+            this.viewsuppbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.viewsuppbtn.Location = new System.Drawing.Point(-12, -12);
+            this.viewsuppbtn.Margin = new System.Windows.Forms.Padding(0);
+            this.viewsuppbtn.Name = "viewsuppbtn";
+            this.viewsuppbtn.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
+            this.viewsuppbtn.Size = new System.Drawing.Size(253, 78);
+            this.viewsuppbtn.TabIndex = 3;
+            this.viewsuppbtn.Text = "    View Suppliers";
+            this.viewsuppbtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.viewsuppbtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.viewsuppbtn.UseVisualStyleBackColor = false;
+            this.viewsuppbtn.Click += new System.EventHandler(this.viewsuppbtn_Click);
             // 
-            // custmenubtn
+            // panel4
             // 
-            this.custmenubtn.BackColor = System.Drawing.Color.Black;
-            this.custmenubtn.ForeColor = System.Drawing.Color.White;
-            this.custmenubtn.Image = ((System.Drawing.Image)(resources.GetObject("custmenubtn.Image")));
-            this.custmenubtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.custmenubtn.Location = new System.Drawing.Point(-11, -24);
-            this.custmenubtn.Margin = new System.Windows.Forms.Padding(0);
-            this.custmenubtn.Name = "custmenubtn";
-            this.custmenubtn.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.custmenubtn.Size = new System.Drawing.Size(251, 100);
-            this.custmenubtn.TabIndex = 3;
-            this.custmenubtn.Text = "    Customers";
-            this.custmenubtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.custmenubtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.custmenubtn.UseVisualStyleBackColor = false;
-            this.custmenubtn.Click += new System.EventHandler(this.custmenubtn_Click);
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.invMenu);
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(0);
-            this.panel2.MaximumSize = new System.Drawing.Size(200, 50);
-            this.panel2.MinimumSize = new System.Drawing.Size(200, 50);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(200, 50);
-            this.panel2.TabIndex = 5;
-            // 
-            // invMenu
-            // 
-            this.invMenu.BackColor = System.Drawing.Color.Black;
-            this.invMenu.FlatAppearance.BorderSize = 0;
-            this.invMenu.ForeColor = System.Drawing.Color.White;
-            this.invMenu.Image = ((System.Drawing.Image)(resources.GetObject("invMenu.Image")));
-            this.invMenu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.invMenu.Location = new System.Drawing.Point(-12, -25);
-            this.invMenu.Margin = new System.Windows.Forms.Padding(0);
-            this.invMenu.Name = "invMenu";
-            this.invMenu.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.invMenu.Size = new System.Drawing.Size(233, 100);
-            this.invMenu.TabIndex = 3;
-            this.invMenu.Text = "    Inventory";
-            this.invMenu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.invMenu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.invMenu.UseVisualStyleBackColor = false;
-            this.invMenu.Click += new System.EventHandler(this.invMenu_Click);
+            this.panel4.Controls.Add(this.button2);
+            this.panel4.Location = new System.Drawing.Point(0, 100);
+            this.panel4.Margin = new System.Windows.Forms.Padding(0);
+            this.panel4.MaximumSize = new System.Drawing.Size(200, 50);
+            this.panel4.MinimumSize = new System.Drawing.Size(200, 50);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(200, 50);
+            this.panel4.TabIndex = 7;
             // 
             // button2
             // 
@@ -328,40 +352,6 @@ namespace bosssystem1
             this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // sidebartimer
-            // 
-            this.sidebartimer.Interval = 10;
-            this.sidebartimer.Tick += new System.EventHandler(this.sidebartimer_Tick);
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.button2);
-            this.panel4.Location = new System.Drawing.Point(0, 100);
-            this.panel4.Margin = new System.Windows.Forms.Padding(0);
-            this.panel4.MaximumSize = new System.Drawing.Size(200, 50);
-            this.panel4.MinimumSize = new System.Drawing.Size(200, 50);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(200, 50);
-            this.panel4.TabIndex = 7;
-            // 
-            // saledrptimer
-            // 
-            this.saledrptimer.Interval = 10;
-            this.saledrptimer.Tick += new System.EventHandler(this.saledrptimer_Tick);
-            // 
-            // suppContainer
-            // 
-            this.suppContainer.Controls.Add(this.panel11);
-            this.suppContainer.Controls.Add(this.panel4);
-            this.suppContainer.Controls.Add(this.panel10);
-            this.suppContainer.Location = new System.Drawing.Point(0, 150);
-            this.suppContainer.Margin = new System.Windows.Forms.Padding(0);
-            this.suppContainer.MaximumSize = new System.Drawing.Size(200, 150);
-            this.suppContainer.MinimumSize = new System.Drawing.Size(200, 50);
-            this.suppContainer.Name = "suppContainer";
-            this.suppContainer.Size = new System.Drawing.Size(200, 50);
-            this.suppContainer.TabIndex = 8;
             // 
             // panel10
             // 
@@ -393,34 +383,44 @@ namespace bosssystem1
             this.supplierdrpbtn.UseVisualStyleBackColor = false;
             this.supplierdrpbtn.Click += new System.EventHandler(this.supplierdrpbtn_Click);
             // 
-            // panel11
+            // panel7
             // 
-            this.panel11.Controls.Add(this.viewsuppbtn);
-            this.panel11.Location = new System.Drawing.Point(0, 50);
-            this.panel11.Margin = new System.Windows.Forms.Padding(0);
-            this.panel11.MaximumSize = new System.Drawing.Size(200, 50);
-            this.panel11.MinimumSize = new System.Drawing.Size(200, 50);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(200, 50);
-            this.panel11.TabIndex = 9;
+            this.panel7.Controls.Add(this.button6);
+            this.panel7.Location = new System.Drawing.Point(0, 200);
+            this.panel7.Margin = new System.Windows.Forms.Padding(0);
+            this.panel7.MaximumSize = new System.Drawing.Size(200, 50);
+            this.panel7.MinimumSize = new System.Drawing.Size(200, 50);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(200, 50);
+            this.panel7.TabIndex = 10;
             // 
-            // viewsuppbtn
+            // button6
             // 
-            this.viewsuppbtn.BackColor = System.Drawing.Color.Black;
-            this.viewsuppbtn.ForeColor = System.Drawing.Color.White;
-            this.viewsuppbtn.Image = ((System.Drawing.Image)(resources.GetObject("viewsuppbtn.Image")));
-            this.viewsuppbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.viewsuppbtn.Location = new System.Drawing.Point(-12, -12);
-            this.viewsuppbtn.Margin = new System.Windows.Forms.Padding(0);
-            this.viewsuppbtn.Name = "viewsuppbtn";
-            this.viewsuppbtn.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.viewsuppbtn.Size = new System.Drawing.Size(253, 78);
-            this.viewsuppbtn.TabIndex = 3;
-            this.viewsuppbtn.Text = "    View Suppliers";
-            this.viewsuppbtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.viewsuppbtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.viewsuppbtn.UseVisualStyleBackColor = false;
-            this.viewsuppbtn.Click += new System.EventHandler(this.viewsuppbtn_Click);
+            this.button6.BackColor = System.Drawing.Color.Black;
+            this.button6.ForeColor = System.Drawing.Color.White;
+            this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
+            this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button6.Location = new System.Drawing.Point(-12, -24);
+            this.button6.Margin = new System.Windows.Forms.Padding(0);
+            this.button6.Name = "button6";
+            this.button6.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
+            this.button6.Size = new System.Drawing.Size(261, 100);
+            this.button6.TabIndex = 3;
+            this.button6.Text = "    LogOut";
+            this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // sidebartimer
+            // 
+            this.sidebartimer.Interval = 10;
+            this.sidebartimer.Tick += new System.EventHandler(this.sidebartimer_Tick);
+            // 
+            // saledrptimer
+            // 
+            this.saledrptimer.Interval = 10;
+            this.saledrptimer.Tick += new System.EventHandler(this.saledrptimer_Tick);
             // 
             // suppdrptimer
             // 
@@ -442,17 +442,17 @@ namespace bosssystem1
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.sidebar.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
             this.saleContainer.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
-            this.panel7.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
             this.suppContainer.ResumeLayout(false);
-            this.panel10.ResumeLayout(false);
             this.panel11.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            this.panel10.ResumeLayout(false);
+            this.panel7.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

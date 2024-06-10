@@ -32,26 +32,19 @@ namespace bosssystem1
             this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.saledatagrid = new System.Windows.Forms.DataGridView();
-            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RowTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PaymentType = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.custdatagrid = new System.Windows.Forms.DataGridView();
-            this.invdatagrid = new System.Windows.Forms.DataGridView();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.button1 = new System.Windows.Forms.Button();
-            this.ordtotaltxt = new System.Windows.Forms.TextBox();
-            this.deleterowsbtn = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.customerIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.customerNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.partNoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.itemNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.unitPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RowTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PaymentType = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.saleorderBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSetInvoice = new bosssystem1.DataSetInvoice();
-            this.saleorderTableAdapter = new bosssystem1.DataSetInvoiceTableAdapters.saleorderTableAdapter();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.custdatagrid = new System.Windows.Forms.DataGridView();
             this.customerIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.customerNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.customerSurnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,6 +52,7 @@ namespace bosssystem1
             this.customerAddressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.customerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.g13Wst2024DataSet = new bosssystem1.G13Wst2024DataSet();
+            this.invdatagrid = new System.Windows.Forms.DataGridView();
             this.partNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.itemDescriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.itemNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -68,17 +62,24 @@ namespace bosssystem1
             this.itemVatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.supplierIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.partsTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.button1 = new System.Windows.Forms.Button();
+            this.ordtotaltxt = new System.Windows.Forms.TextBox();
+            this.deleterowsbtn = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.saleorderTableAdapter = new bosssystem1.DataSetInvoiceTableAdapters.saleorderTableAdapter();
             this.partsTableTableAdapter = new bosssystem1.G13Wst2024DataSetTableAdapters.PartsTableTableAdapter();
             this.customerTableAdapter = new bosssystem1.G13Wst2024DataSetTableAdapters.CustomerTableAdapter();
             this.salebkTableAdapter1 = new bosssystem1.G13Wst2024DataSetTableAdapters.SalebkTableAdapter();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.saledatagrid)).BeginInit();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.custdatagrid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.invdatagrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.saleorderBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetInvoice)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.custdatagrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.g13Wst2024DataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.invdatagrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.partsTableBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -113,138 +114,6 @@ namespace bosssystem1
             this.saledatagrid.TabIndex = 1;
             this.saledatagrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.saledatagrid_CellContentClick);
             this.saledatagrid.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.saledatagrid_CellValueChanged);
-            // 
-            // Quantity
-            // 
-            this.Quantity.HeaderText = "Quantity";
-            this.Quantity.MinimumWidth = 6;
-            this.Quantity.Name = "Quantity";
-            this.Quantity.Width = 125;
-            // 
-            // RowTotal
-            // 
-            this.RowTotal.HeaderText = "RowTotal";
-            this.RowTotal.MinimumWidth = 6;
-            this.RowTotal.Name = "RowTotal";
-            this.RowTotal.ReadOnly = true;
-            this.RowTotal.Width = 125;
-            // 
-            // PaymentType
-            // 
-            this.PaymentType.HeaderText = "PaymentType";
-            this.PaymentType.Items.AddRange(new object[] {
-            "Cash",
-            "Credit"});
-            this.PaymentType.MinimumWidth = 6;
-            this.PaymentType.Name = "PaymentType";
-            this.PaymentType.Width = 125;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.custdatagrid);
-            this.groupBox1.Controls.Add(this.invdatagrid);
-            this.groupBox1.Location = new System.Drawing.Point(12, 29);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1312, 369);
-            this.groupBox1.TabIndex = 4;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Click on the rows to add parts and a customer to the sale";
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(582, 321);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(153, 42);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Add Details to invoice";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // custdatagrid
-            // 
-            this.custdatagrid.AutoGenerateColumns = false;
-            this.custdatagrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.custdatagrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.customerIDDataGridViewTextBoxColumn1,
-            this.customerNameDataGridViewTextBoxColumn,
-            this.customerSurnameDataGridViewTextBoxColumn,
-            this.customerPhoneNumberDataGridViewTextBoxColumn,
-            this.customerAddressDataGridViewTextBoxColumn});
-            this.custdatagrid.DataSource = this.customerBindingSource;
-            this.custdatagrid.Location = new System.Drawing.Point(0, 21);
-            this.custdatagrid.Name = "custdatagrid";
-            this.custdatagrid.RowHeadersWidth = 51;
-            this.custdatagrid.RowTemplate.Height = 24;
-            this.custdatagrid.Size = new System.Drawing.Size(649, 285);
-            this.custdatagrid.TabIndex = 1;
-            this.custdatagrid.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.custdatagrid_RowHeaderMouseDoubleClick);
-            // 
-            // invdatagrid
-            // 
-            this.invdatagrid.AutoGenerateColumns = false;
-            this.invdatagrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.invdatagrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.partNoDataGridViewTextBoxColumn,
-            this.itemDescriptionDataGridViewTextBoxColumn,
-            this.itemNameDataGridViewTextBoxColumn,
-            this.itemQuantityDataGridViewTextBoxColumn,
-            this.itemPriceDataGridViewTextBoxColumn,
-            this.dateReceivedDataGridViewTextBoxColumn,
-            this.itemVatDataGridViewTextBoxColumn,
-            this.supplierIDDataGridViewTextBoxColumn});
-            this.invdatagrid.DataSource = this.partsTableBindingSource;
-            this.invdatagrid.Location = new System.Drawing.Point(661, 21);
-            this.invdatagrid.Name = "invdatagrid";
-            this.invdatagrid.RowHeadersWidth = 51;
-            this.invdatagrid.RowTemplate.Height = 24;
-            this.invdatagrid.Size = new System.Drawing.Size(645, 285);
-            this.invdatagrid.TabIndex = 0;
-            this.invdatagrid.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.invdatagrid_RowHeaderMouseDoubleClick);
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(526, 619);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(135, 38);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Get Order Total";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // ordtotaltxt
-            // 
-            this.ordtotaltxt.Location = new System.Drawing.Point(667, 627);
-            this.ordtotaltxt.Name = "ordtotaltxt";
-            this.ordtotaltxt.ReadOnly = true;
-            this.ordtotaltxt.Size = new System.Drawing.Size(153, 22);
-            this.ordtotaltxt.TabIndex = 6;
-            // 
-            // deleterowsbtn
-            // 
-            this.deleterowsbtn.Location = new System.Drawing.Point(49, 619);
-            this.deleterowsbtn.Name = "deleterowsbtn";
-            this.deleterowsbtn.Size = new System.Drawing.Size(135, 38);
-            this.deleterowsbtn.TabIndex = 7;
-            this.deleterowsbtn.Text = "Clear Table";
-            this.deleterowsbtn.UseVisualStyleBackColor = true;
-            this.deleterowsbtn.Click += new System.EventHandler(this.deleterowsbtn_Click);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(1039, 619);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(135, 38);
-            this.button3.TabIndex = 8;
-            this.button3.Text = "Confirm Order";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // customerIDDataGridViewTextBoxColumn
             // 
@@ -286,6 +155,31 @@ namespace bosssystem1
             this.unitPriceDataGridViewTextBoxColumn.Name = "unitPriceDataGridViewTextBoxColumn";
             this.unitPriceDataGridViewTextBoxColumn.Width = 125;
             // 
+            // Quantity
+            // 
+            this.Quantity.HeaderText = "Quantity";
+            this.Quantity.MinimumWidth = 6;
+            this.Quantity.Name = "Quantity";
+            this.Quantity.Width = 125;
+            // 
+            // RowTotal
+            // 
+            this.RowTotal.HeaderText = "RowTotal";
+            this.RowTotal.MinimumWidth = 6;
+            this.RowTotal.Name = "RowTotal";
+            this.RowTotal.ReadOnly = true;
+            this.RowTotal.Width = 125;
+            // 
+            // PaymentType
+            // 
+            this.PaymentType.HeaderText = "PaymentType";
+            this.PaymentType.Items.AddRange(new object[] {
+            "Cash",
+            "Credit"});
+            this.PaymentType.MinimumWidth = 6;
+            this.PaymentType.Name = "PaymentType";
+            this.PaymentType.Width = 125;
+            // 
             // saleorderBindingSource
             // 
             this.saleorderBindingSource.DataMember = "saleorder";
@@ -296,9 +190,46 @@ namespace bosssystem1
             this.dataSetInvoice.DataSetName = "DataSetInvoice";
             this.dataSetInvoice.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // saleorderTableAdapter
+            // groupBox1
             // 
-            this.saleorderTableAdapter.ClearBeforeFill = true;
+            this.groupBox1.Controls.Add(this.button2);
+            this.groupBox1.Controls.Add(this.custdatagrid);
+            this.groupBox1.Controls.Add(this.invdatagrid);
+            this.groupBox1.Location = new System.Drawing.Point(12, 29);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(1312, 369);
+            this.groupBox1.TabIndex = 4;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Click on the rows to add a customer and parts to the sale";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(582, 321);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(153, 42);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "Add Details to invoice";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // custdatagrid
+            // 
+            this.custdatagrid.AutoGenerateColumns = false;
+            this.custdatagrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.custdatagrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.customerIDDataGridViewTextBoxColumn1,
+            this.customerNameDataGridViewTextBoxColumn,
+            this.customerSurnameDataGridViewTextBoxColumn,
+            this.customerPhoneNumberDataGridViewTextBoxColumn,
+            this.customerAddressDataGridViewTextBoxColumn});
+            this.custdatagrid.DataSource = this.customerBindingSource;
+            this.custdatagrid.Location = new System.Drawing.Point(0, 21);
+            this.custdatagrid.Name = "custdatagrid";
+            this.custdatagrid.RowHeadersWidth = 51;
+            this.custdatagrid.RowTemplate.Height = 24;
+            this.custdatagrid.Size = new System.Drawing.Size(649, 285);
+            this.custdatagrid.TabIndex = 1;
+            this.custdatagrid.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.custdatagrid_RowHeaderMouseDoubleClick);
             // 
             // customerIDDataGridViewTextBoxColumn1
             // 
@@ -349,6 +280,28 @@ namespace bosssystem1
             // 
             this.g13Wst2024DataSet.DataSetName = "G13Wst2024DataSet";
             this.g13Wst2024DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // invdatagrid
+            // 
+            this.invdatagrid.AutoGenerateColumns = false;
+            this.invdatagrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.invdatagrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.partNoDataGridViewTextBoxColumn,
+            this.itemDescriptionDataGridViewTextBoxColumn,
+            this.itemNameDataGridViewTextBoxColumn,
+            this.itemQuantityDataGridViewTextBoxColumn,
+            this.itemPriceDataGridViewTextBoxColumn,
+            this.dateReceivedDataGridViewTextBoxColumn,
+            this.itemVatDataGridViewTextBoxColumn,
+            this.supplierIDDataGridViewTextBoxColumn});
+            this.invdatagrid.DataSource = this.partsTableBindingSource;
+            this.invdatagrid.Location = new System.Drawing.Point(661, 21);
+            this.invdatagrid.Name = "invdatagrid";
+            this.invdatagrid.RowHeadersWidth = 51;
+            this.invdatagrid.RowTemplate.Height = 24;
+            this.invdatagrid.Size = new System.Drawing.Size(645, 285);
+            this.invdatagrid.TabIndex = 0;
+            this.invdatagrid.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.invdatagrid_RowHeaderMouseDoubleClick);
             // 
             // partNoDataGridViewTextBoxColumn
             // 
@@ -419,6 +372,54 @@ namespace bosssystem1
             this.partsTableBindingSource.DataMember = "PartsTable";
             this.partsTableBindingSource.DataSource = this.g13Wst2024DataSet;
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(526, 619);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(135, 38);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Get Order Total";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // ordtotaltxt
+            // 
+            this.ordtotaltxt.Location = new System.Drawing.Point(667, 627);
+            this.ordtotaltxt.Name = "ordtotaltxt";
+            this.ordtotaltxt.ReadOnly = true;
+            this.ordtotaltxt.Size = new System.Drawing.Size(153, 22);
+            this.ordtotaltxt.TabIndex = 6;
+            // 
+            // deleterowsbtn
+            // 
+            this.deleterowsbtn.Location = new System.Drawing.Point(49, 619);
+            this.deleterowsbtn.Name = "deleterowsbtn";
+            this.deleterowsbtn.Size = new System.Drawing.Size(135, 38);
+            this.deleterowsbtn.TabIndex = 7;
+            this.deleterowsbtn.Text = "Clear Table";
+            this.deleterowsbtn.UseVisualStyleBackColor = true;
+            this.deleterowsbtn.Click += new System.EventHandler(this.deleterowsbtn_Click);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(1039, 619);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(135, 38);
+            this.button3.TabIndex = 8;
+            this.button3.Text = "Confirm Order";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // saleorderTableAdapter
+            // 
+            this.saleorderTableAdapter.ClearBeforeFill = true;
+            // 
             // partsTableTableAdapter
             // 
             this.partsTableTableAdapter.ClearBeforeFill = true;
@@ -431,11 +432,22 @@ namespace bosssystem1
             // 
             this.salebkTableAdapter1.ClearBeforeFill = true;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(190, 623);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(290, 34);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "(Only 1 customer can be added to the table. \r\nClear table to change the customer)" +
+    "";
+            // 
             // salesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1336, 669);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.deleterowsbtn);
             this.Controls.Add(this.ordtotaltxt);
@@ -447,13 +459,13 @@ namespace bosssystem1
             this.Text = "SalesForm";
             this.Load += new System.EventHandler(this.invoiceForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.saledatagrid)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.custdatagrid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.invdatagrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.saleorderBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetInvoice)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.custdatagrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.g13Wst2024DataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.invdatagrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.partsTableBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -504,5 +516,6 @@ namespace bosssystem1
         private System.Windows.Forms.DataGridViewTextBoxColumn RowTotal;
         private System.Windows.Forms.DataGridViewComboBoxColumn PaymentType;
         private G13Wst2024DataSetTableAdapters.SalebkTableAdapter salebkTableAdapter1;
+        private System.Windows.Forms.Label label2;
     }
 }

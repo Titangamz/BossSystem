@@ -48,17 +48,9 @@ namespace bosssystem1 {
         
         private SalebkDataTable tableSalebk;
         
-        private global::System.Data.DataRelation relationFK_InventorySupplier_PartsTable;
-        
         private global::System.Data.DataRelation relationFK_InventorySupplier_Supplier;
         
         private global::System.Data.DataRelation relationFK_OrderItem_Orders;
-        
-        private global::System.Data.DataRelation relationFK_OrderItem_PartsTable1;
-        
-        private global::System.Data.DataRelation relationFK_Orders_Customer;
-        
-        private global::System.Data.DataRelation relationFK_Orders_Driver;
         
         private global::System.Data.DataRelation relationFK_Orders_Employee;
         
@@ -75,6 +67,10 @@ namespace bosssystem1 {
         private global::System.Data.DataRelation relationFK_Quotation_Orders;
         
         private global::System.Data.DataRelation relationFK_Orders_PartsTable;
+        
+        private global::System.Data.DataRelation relationFK_OrderItem_PartsTable1;
+        
+        private global::System.Data.DataRelation relationFK_InventorySupplier_PartsTable;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -486,12 +482,8 @@ namespace bosssystem1 {
                     this.tableSalebk.InitVars();
                 }
             }
-            this.relationFK_InventorySupplier_PartsTable = this.Relations["FK_InventorySupplier_PartsTable"];
             this.relationFK_InventorySupplier_Supplier = this.Relations["FK_InventorySupplier_Supplier"];
             this.relationFK_OrderItem_Orders = this.Relations["FK_OrderItem_Orders"];
-            this.relationFK_OrderItem_PartsTable1 = this.Relations["FK_OrderItem_PartsTable1"];
-            this.relationFK_Orders_Customer = this.Relations["FK_Orders_Customer"];
-            this.relationFK_Orders_Driver = this.Relations["FK_Orders_Driver"];
             this.relationFK_Orders_Employee = this.Relations["FK_Orders_Employee"];
             this.relationFK_Payment_Customer = this.Relations["FK_Payment_Customer"];
             this.relationFK_Payment_Employee = this.Relations["FK_Payment_Employee"];
@@ -500,6 +492,8 @@ namespace bosssystem1 {
             this.relationFK_Quotation_Employee = this.Relations["FK_Quotation_Employee"];
             this.relationFK_Quotation_Orders = this.Relations["FK_Quotation_Orders"];
             this.relationFK_Orders_PartsTable = this.Relations["FK_Orders_PartsTable"];
+            this.relationFK_OrderItem_PartsTable1 = this.Relations["FK_OrderItem_PartsTable1"];
+            this.relationFK_InventorySupplier_PartsTable = this.Relations["FK_InventorySupplier_PartsTable"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -534,10 +528,6 @@ namespace bosssystem1 {
             base.Tables.Add(this.tableSupplier);
             this.tableSalebk = new SalebkDataTable();
             base.Tables.Add(this.tableSalebk);
-            this.relationFK_InventorySupplier_PartsTable = new global::System.Data.DataRelation("FK_InventorySupplier_PartsTable", new global::System.Data.DataColumn[] {
-                        this.tablePartsTable.PartNoColumn}, new global::System.Data.DataColumn[] {
-                        this.tableInventorySupplier.PartNoColumn}, false);
-            this.Relations.Add(this.relationFK_InventorySupplier_PartsTable);
             this.relationFK_InventorySupplier_Supplier = new global::System.Data.DataRelation("FK_InventorySupplier_Supplier", new global::System.Data.DataColumn[] {
                         this.tableSupplier.SupplierIDColumn}, new global::System.Data.DataColumn[] {
                         this.tableInventorySupplier.SupplierIDColumn}, false);
@@ -546,18 +536,6 @@ namespace bosssystem1 {
                         this.tableOrders.OrderIDColumn}, new global::System.Data.DataColumn[] {
                         this.tableOrderItem.OrderIDColumn}, false);
             this.Relations.Add(this.relationFK_OrderItem_Orders);
-            this.relationFK_OrderItem_PartsTable1 = new global::System.Data.DataRelation("FK_OrderItem_PartsTable1", new global::System.Data.DataColumn[] {
-                        this.tablePartsTable.PartNoColumn}, new global::System.Data.DataColumn[] {
-                        this.tableOrderItem.PartNoColumn}, false);
-            this.Relations.Add(this.relationFK_OrderItem_PartsTable1);
-            this.relationFK_Orders_Customer = new global::System.Data.DataRelation("FK_Orders_Customer", new global::System.Data.DataColumn[] {
-                        this.tableCustomer.CustomerIDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableOrders.CustomerIDColumn}, false);
-            this.Relations.Add(this.relationFK_Orders_Customer);
-            this.relationFK_Orders_Driver = new global::System.Data.DataRelation("FK_Orders_Driver", new global::System.Data.DataColumn[] {
-                        this.tableDriver.DriverIDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableOrders.DriverIDColumn}, false);
-            this.Relations.Add(this.relationFK_Orders_Driver);
             this.relationFK_Orders_Employee = new global::System.Data.DataRelation("FK_Orders_Employee", new global::System.Data.DataColumn[] {
                         this.tableEmployee.EmployeeIDColumn}, new global::System.Data.DataColumn[] {
                         this.tableOrders.EmployeeIDColumn}, false);
@@ -590,6 +568,14 @@ namespace bosssystem1 {
                         this.tablePartsTable.PartNoColumn}, new global::System.Data.DataColumn[] {
                         this.tableOrders.PartNoColumn}, false);
             this.Relations.Add(this.relationFK_Orders_PartsTable);
+            this.relationFK_OrderItem_PartsTable1 = new global::System.Data.DataRelation("FK_OrderItem_PartsTable1", new global::System.Data.DataColumn[] {
+                        this.tablePartsTable.PartNoColumn}, new global::System.Data.DataColumn[] {
+                        this.tableOrderItem.PartNoColumn}, false);
+            this.Relations.Add(this.relationFK_OrderItem_PartsTable1);
+            this.relationFK_InventorySupplier_PartsTable = new global::System.Data.DataRelation("FK_InventorySupplier_PartsTable", new global::System.Data.DataColumn[] {
+                        this.tablePartsTable.PartNoColumn}, new global::System.Data.DataColumn[] {
+                        this.tableInventorySupplier.PartNoColumn}, false);
+            this.Relations.Add(this.relationFK_InventorySupplier_PartsTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2714,13 +2700,7 @@ namespace bosssystem1 {
             
             private global::System.Data.DataColumn columnOrderID;
             
-            private global::System.Data.DataColumn columnCustomerID;
-            
             private global::System.Data.DataColumn columnEmployeeID;
-            
-            private global::System.Data.DataColumn columnDriverID;
-            
-            private global::System.Data.DataColumn columnSupplierInvoiceNumber;
             
             private global::System.Data.DataColumn columnPurchaseDate;
             
@@ -2769,33 +2749,9 @@ namespace bosssystem1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn CustomerIDColumn {
-                get {
-                    return this.columnCustomerID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public global::System.Data.DataColumn EmployeeIDColumn {
                 get {
                     return this.columnEmployeeID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn DriverIDColumn {
-                get {
-                    return this.columnDriverID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn SupplierInvoiceNumberColumn {
-                get {
-                    return this.columnSupplierInvoiceNumber;
                 }
             }
             
@@ -2852,27 +2808,18 @@ namespace bosssystem1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public OrdersRow AddOrdersRow(int OrderID, CustomerRow parentCustomerRowByFK_Orders_Customer, EmployeeRow parentEmployeeRowByFK_Orders_Employee, DriverRow parentDriverRowByFK_Orders_Driver, int SupplierInvoiceNumber, System.DateTime PurchaseDate, PartsTableRow parentPartsTableRowByFK_Orders_PartsTable) {
+            public OrdersRow AddOrdersRow(int OrderID, EmployeeRow parentEmployeeRowByFK_Orders_Employee, System.DateTime PurchaseDate, PartsTableRow parentPartsTableRowByFK_Orders_PartsTable) {
                 OrdersRow rowOrdersRow = ((OrdersRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         OrderID,
                         null,
-                        null,
-                        null,
-                        SupplierInvoiceNumber,
                         PurchaseDate,
                         null};
-                if ((parentCustomerRowByFK_Orders_Customer != null)) {
-                    columnValuesArray[1] = parentCustomerRowByFK_Orders_Customer[0];
-                }
                 if ((parentEmployeeRowByFK_Orders_Employee != null)) {
-                    columnValuesArray[2] = parentEmployeeRowByFK_Orders_Employee[0];
-                }
-                if ((parentDriverRowByFK_Orders_Driver != null)) {
-                    columnValuesArray[3] = parentDriverRowByFK_Orders_Driver[0];
+                    columnValuesArray[1] = parentEmployeeRowByFK_Orders_Employee[0];
                 }
                 if ((parentPartsTableRowByFK_Orders_PartsTable != null)) {
-                    columnValuesArray[6] = parentPartsTableRowByFK_Orders_PartsTable[0];
+                    columnValuesArray[3] = parentPartsTableRowByFK_Orders_PartsTable[0];
                 }
                 rowOrdersRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowOrdersRow);
@@ -2904,10 +2851,7 @@ namespace bosssystem1 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
                 this.columnOrderID = base.Columns["OrderID"];
-                this.columnCustomerID = base.Columns["CustomerID"];
                 this.columnEmployeeID = base.Columns["EmployeeID"];
-                this.columnDriverID = base.Columns["DriverID"];
-                this.columnSupplierInvoiceNumber = base.Columns["SupplierInvoiceNumber"];
                 this.columnPurchaseDate = base.Columns["PurchaseDate"];
                 this.columnPartNo = base.Columns["PartNo"];
             }
@@ -2917,14 +2861,8 @@ namespace bosssystem1 {
             private void InitClass() {
                 this.columnOrderID = new global::System.Data.DataColumn("OrderID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnOrderID);
-                this.columnCustomerID = new global::System.Data.DataColumn("CustomerID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCustomerID);
                 this.columnEmployeeID = new global::System.Data.DataColumn("EmployeeID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnEmployeeID);
-                this.columnDriverID = new global::System.Data.DataColumn("DriverID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDriverID);
-                this.columnSupplierInvoiceNumber = new global::System.Data.DataColumn("SupplierInvoiceNumber", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnSupplierInvoiceNumber);
                 this.columnPurchaseDate = new global::System.Data.DataColumn("PurchaseDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPurchaseDate);
                 this.columnPartNo = new global::System.Data.DataColumn("PartNo", typeof(int), null, global::System.Data.MappingType.Element);
@@ -2933,10 +2871,7 @@ namespace bosssystem1 {
                                 this.columnOrderID}, true));
                 this.columnOrderID.AllowDBNull = false;
                 this.columnOrderID.Unique = true;
-                this.columnCustomerID.AllowDBNull = false;
                 this.columnEmployeeID.AllowDBNull = false;
-                this.columnDriverID.AllowDBNull = false;
-                this.columnSupplierInvoiceNumber.AllowDBNull = false;
                 this.columnPurchaseDate.AllowDBNull = false;
                 this.columnPartNo.AllowDBNull = false;
             }
@@ -3240,13 +3175,6 @@ namespace bosssystem1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public PartsTableRow FindByPartNo(int PartNo) {
-                return ((PartsTableRow)(this.Rows.Find(new object[] {
-                            PartNo})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public override global::System.Data.DataTable Clone() {
                 PartsTableDataTable cln = ((PartsTableDataTable)(base.Clone()));
                 cln.InitVars();
@@ -3292,7 +3220,7 @@ namespace bosssystem1 {
                 this.columnSupplierID = new global::System.Data.DataColumn("SupplierID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSupplierID);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnPartNo}, true));
+                                this.columnPartNo}, false));
                 this.columnPartNo.AllowDBNull = false;
                 this.columnPartNo.Unique = true;
                 this.columnItemDescription.AllowDBNull = false;
@@ -4968,17 +4896,6 @@ namespace bosssystem1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public OrdersRow[] GetOrdersRows() {
-                if ((this.Table.ChildRelations["FK_Orders_Customer"] == null)) {
-                    return new OrdersRow[0];
-                }
-                else {
-                    return ((OrdersRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Orders_Customer"])));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public PaymentRow[] GetPaymentRows() {
                 if ((this.Table.ChildRelations["FK_Payment_Customer"] == null)) {
                     return new PaymentRow[0];
@@ -5183,17 +5100,6 @@ namespace bosssystem1 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetDriverStatusNull() {
                 this[this.tableDriver.DriverStatusColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public OrdersRow[] GetOrdersRows() {
-                if ((this.Table.ChildRelations["FK_Orders_Driver"] == null)) {
-                    return new OrdersRow[0];
-                }
-                else {
-                    return ((OrdersRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Orders_Driver"])));
-                }
             }
         }
         
@@ -5477,23 +5383,23 @@ namespace bosssystem1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public PartsTableRow PartsTableRow {
-                get {
-                    return ((PartsTableRow)(this.GetParentRow(this.Table.ParentRelations["FK_InventorySupplier_PartsTable"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_InventorySupplier_PartsTable"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public SupplierRow SupplierRow {
                 get {
                     return ((SupplierRow)(this.GetParentRow(this.Table.ParentRelations["FK_InventorySupplier_Supplier"])));
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_InventorySupplier_Supplier"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public PartsTableRow PartsTableRow {
+                get {
+                    return ((PartsTableRow)(this.GetParentRow(this.Table.ParentRelations["FK_InventorySupplier_PartsTable"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_InventorySupplier_PartsTable"]);
                 }
             }
             
@@ -5759,45 +5665,12 @@ namespace bosssystem1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int CustomerID {
-                get {
-                    return ((int)(this[this.tableOrders.CustomerIDColumn]));
-                }
-                set {
-                    this[this.tableOrders.CustomerIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public int EmployeeID {
                 get {
                     return ((int)(this[this.tableOrders.EmployeeIDColumn]));
                 }
                 set {
                     this[this.tableOrders.EmployeeIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int DriverID {
-                get {
-                    return ((int)(this[this.tableOrders.DriverIDColumn]));
-                }
-                set {
-                    this[this.tableOrders.DriverIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int SupplierInvoiceNumber {
-                get {
-                    return ((int)(this[this.tableOrders.SupplierInvoiceNumberColumn]));
-                }
-                set {
-                    this[this.tableOrders.SupplierInvoiceNumberColumn] = value;
                 }
             }
             
@@ -5820,28 +5693,6 @@ namespace bosssystem1 {
                 }
                 set {
                     this[this.tableOrders.PartNoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public CustomerRow CustomerRow {
-                get {
-                    return ((CustomerRow)(this.GetParentRow(this.Table.ParentRelations["FK_Orders_Customer"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_Orders_Customer"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public DriverRow DriverRow {
-                get {
-                    return ((DriverRow)(this.GetParentRow(this.Table.ParentRelations["FK_Orders_Driver"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_Orders_Driver"]);
                 }
             }
             
@@ -6090,12 +5941,12 @@ namespace bosssystem1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public InventorySupplierRow[] GetInventorySupplierRows() {
-                if ((this.Table.ChildRelations["FK_InventorySupplier_PartsTable"] == null)) {
-                    return new InventorySupplierRow[0];
+            public OrdersRow[] GetOrdersRows() {
+                if ((this.Table.ChildRelations["FK_Orders_PartsTable"] == null)) {
+                    return new OrdersRow[0];
                 }
                 else {
-                    return ((InventorySupplierRow[])(base.GetChildRows(this.Table.ChildRelations["FK_InventorySupplier_PartsTable"])));
+                    return ((OrdersRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Orders_PartsTable"])));
                 }
             }
             
@@ -6112,12 +5963,12 @@ namespace bosssystem1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public OrdersRow[] GetOrdersRows() {
-                if ((this.Table.ChildRelations["FK_Orders_PartsTable"] == null)) {
-                    return new OrdersRow[0];
+            public InventorySupplierRow[] GetInventorySupplierRows() {
+                if ((this.Table.ChildRelations["FK_InventorySupplier_PartsTable"] == null)) {
+                    return new InventorySupplierRow[0];
                 }
                 else {
-                    return ((OrdersRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Orders_PartsTable"])));
+                    return ((InventorySupplierRow[])(base.GetChildRows(this.Table.ChildRelations["FK_InventorySupplier_PartsTable"])));
                 }
             }
         }
@@ -9934,53 +9785,41 @@ SELECT OrderItemID, OrderID, PartNo, ItemName, ItemDescription, ItemQuantity, It
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "Orders";
             tableMapping.ColumnMappings.Add("OrderID", "OrderID");
-            tableMapping.ColumnMappings.Add("CustomerID", "CustomerID");
             tableMapping.ColumnMappings.Add("EmployeeID", "EmployeeID");
-            tableMapping.ColumnMappings.Add("DriverID", "DriverID");
-            tableMapping.ColumnMappings.Add("SupplierInvoiceNumber", "SupplierInvoiceNumber");
             tableMapping.ColumnMappings.Add("PurchaseDate", "PurchaseDate");
             tableMapping.ColumnMappings.Add("PartNo", "PartNo");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [Orders] WHERE (([OrderID] = @Original_OrderID) AND ([CustomerID] = @Original_CustomerID) AND ([EmployeeID] = @Original_EmployeeID) AND ([DriverID] = @Original_DriverID) AND ([SupplierInvoiceNumber] = @Original_SupplierInvoiceNumber) AND ([PurchaseDate] = @Original_PurchaseDate) AND ([PartNo] = @Original_PartNo))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [Orders] WHERE (([OrderID] = @Original_OrderID) AND ([EmployeeID] = @" +
+                "Original_EmployeeID) AND ([PurchaseDate] = @Original_PurchaseDate) AND ([PartNo]" +
+                " = @Original_PartNo))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_OrderID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OrderID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CustomerID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EmployeeID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EmployeeID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DriverID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DriverID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SupplierInvoiceNumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SupplierInvoiceNumber", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PurchaseDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PurchaseDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PartNo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PartNo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [Orders] ([OrderID], [CustomerID], [EmployeeID], [DriverID], [SupplierInvoiceNumber], [PurchaseDate], [PartNo]) VALUES (@OrderID, @CustomerID, @EmployeeID, @DriverID, @SupplierInvoiceNumber, @PurchaseDate, @PartNo);
-SELECT OrderID, CustomerID, EmployeeID, DriverID, SupplierInvoiceNumber, PurchaseDate, PartNo FROM Orders WHERE (OrderID = @OrderID)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [Orders] ([OrderID], [EmployeeID], [PurchaseDate], [PartNo]) VALUES (" +
+                "@OrderID, @EmployeeID, @PurchaseDate, @PartNo);\r\nSELECT OrderID, EmployeeID, Pur" +
+                "chaseDate, PartNo FROM Orders WHERE (OrderID = @OrderID)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OrderID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OrderID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CustomerID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EmployeeID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EmployeeID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DriverID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DriverID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SupplierInvoiceNumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SupplierInvoiceNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PurchaseDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PurchaseDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PartNo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PartNo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [Orders] SET [OrderID] = @OrderID, [CustomerID] = @CustomerID, [EmployeeID] = @EmployeeID, [DriverID] = @DriverID, [SupplierInvoiceNumber] = @SupplierInvoiceNumber, [PurchaseDate] = @PurchaseDate, [PartNo] = @PartNo WHERE (([OrderID] = @Original_OrderID) AND ([CustomerID] = @Original_CustomerID) AND ([EmployeeID] = @Original_EmployeeID) AND ([DriverID] = @Original_DriverID) AND ([SupplierInvoiceNumber] = @Original_SupplierInvoiceNumber) AND ([PurchaseDate] = @Original_PurchaseDate) AND ([PartNo] = @Original_PartNo));
-SELECT OrderID, CustomerID, EmployeeID, DriverID, SupplierInvoiceNumber, PurchaseDate, PartNo FROM Orders WHERE (OrderID = @OrderID)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [Orders] SET [OrderID] = @OrderID, [EmployeeID] = @EmployeeID, [PurchaseDate] = @PurchaseDate, [PartNo] = @PartNo WHERE (([OrderID] = @Original_OrderID) AND ([EmployeeID] = @Original_EmployeeID) AND ([PurchaseDate] = @Original_PurchaseDate) AND ([PartNo] = @Original_PartNo));
+SELECT OrderID, EmployeeID, PurchaseDate, PartNo FROM Orders WHERE (OrderID = @OrderID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OrderID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OrderID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CustomerID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EmployeeID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EmployeeID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DriverID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DriverID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SupplierInvoiceNumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SupplierInvoiceNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PurchaseDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PurchaseDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PartNo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PartNo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_OrderID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OrderID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CustomerID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EmployeeID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EmployeeID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DriverID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DriverID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SupplierInvoiceNumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SupplierInvoiceNumber", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PurchaseDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PurchaseDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PartNo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PartNo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
@@ -9998,8 +9837,7 @@ SELECT OrderID, CustomerID, EmployeeID, DriverID, SupplierInvoiceNumber, Purchas
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT OrderID, CustomerID, EmployeeID, DriverID, SupplierInvoiceNumber, Purchase" +
-                "Date, PartNo FROM Orders";
+            this._commandCollection[0].CommandText = "SELECT OrderID, EmployeeID, PurchaseDate, PartNo\r\nFROM     Orders";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -10060,14 +9898,11 @@ SELECT OrderID, CustomerID, EmployeeID, DriverID, SupplierInvoiceNumber, Purchas
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_OrderID, int Original_CustomerID, int Original_EmployeeID, int Original_DriverID, int Original_SupplierInvoiceNumber, System.DateTime Original_PurchaseDate, int Original_PartNo) {
+        public virtual int Delete(int Original_OrderID, int Original_EmployeeID, System.DateTime Original_PurchaseDate, int Original_PartNo) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_OrderID));
-            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_CustomerID));
-            this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_EmployeeID));
-            this.Adapter.DeleteCommand.Parameters[3].Value = ((int)(Original_DriverID));
-            this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_SupplierInvoiceNumber));
-            this.Adapter.DeleteCommand.Parameters[5].Value = ((System.DateTime)(Original_PurchaseDate));
-            this.Adapter.DeleteCommand.Parameters[6].Value = ((int)(Original_PartNo));
+            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_EmployeeID));
+            this.Adapter.DeleteCommand.Parameters[2].Value = ((System.DateTime)(Original_PurchaseDate));
+            this.Adapter.DeleteCommand.Parameters[3].Value = ((int)(Original_PartNo));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -10088,14 +9923,11 @@ SELECT OrderID, CustomerID, EmployeeID, DriverID, SupplierInvoiceNumber, Purchas
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int OrderID, int CustomerID, int EmployeeID, int DriverID, int SupplierInvoiceNumber, System.DateTime PurchaseDate, int PartNo) {
+        public virtual int Insert(int OrderID, int EmployeeID, System.DateTime PurchaseDate, int PartNo) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(OrderID));
-            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(CustomerID));
-            this.Adapter.InsertCommand.Parameters[2].Value = ((int)(EmployeeID));
-            this.Adapter.InsertCommand.Parameters[3].Value = ((int)(DriverID));
-            this.Adapter.InsertCommand.Parameters[4].Value = ((int)(SupplierInvoiceNumber));
-            this.Adapter.InsertCommand.Parameters[5].Value = ((System.DateTime)(PurchaseDate));
-            this.Adapter.InsertCommand.Parameters[6].Value = ((int)(PartNo));
+            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(EmployeeID));
+            this.Adapter.InsertCommand.Parameters[2].Value = ((System.DateTime)(PurchaseDate));
+            this.Adapter.InsertCommand.Parameters[3].Value = ((int)(PartNo));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -10116,21 +9948,15 @@ SELECT OrderID, CustomerID, EmployeeID, DriverID, SupplierInvoiceNumber, Purchas
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int OrderID, int CustomerID, int EmployeeID, int DriverID, int SupplierInvoiceNumber, System.DateTime PurchaseDate, int PartNo, int Original_OrderID, int Original_CustomerID, int Original_EmployeeID, int Original_DriverID, int Original_SupplierInvoiceNumber, System.DateTime Original_PurchaseDate, int Original_PartNo) {
+        public virtual int Update(int OrderID, int EmployeeID, System.DateTime PurchaseDate, int PartNo, int Original_OrderID, int Original_EmployeeID, System.DateTime Original_PurchaseDate, int Original_PartNo) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(OrderID));
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(CustomerID));
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(EmployeeID));
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(DriverID));
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(SupplierInvoiceNumber));
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((System.DateTime)(PurchaseDate));
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(PartNo));
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_OrderID));
-            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_CustomerID));
-            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_EmployeeID));
-            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_DriverID));
-            this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(Original_SupplierInvoiceNumber));
-            this.Adapter.UpdateCommand.Parameters[12].Value = ((System.DateTime)(Original_PurchaseDate));
-            this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(Original_PartNo));
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(EmployeeID));
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((System.DateTime)(PurchaseDate));
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(PartNo));
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_OrderID));
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_EmployeeID));
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((System.DateTime)(Original_PurchaseDate));
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_PartNo));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -10151,8 +9977,8 @@ SELECT OrderID, CustomerID, EmployeeID, DriverID, SupplierInvoiceNumber, Purchas
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int CustomerID, int EmployeeID, int DriverID, int SupplierInvoiceNumber, System.DateTime PurchaseDate, int PartNo, int Original_OrderID, int Original_CustomerID, int Original_EmployeeID, int Original_DriverID, int Original_SupplierInvoiceNumber, System.DateTime Original_PurchaseDate, int Original_PartNo) {
-            return this.Update(Original_OrderID, CustomerID, EmployeeID, DriverID, SupplierInvoiceNumber, PurchaseDate, PartNo, Original_OrderID, Original_CustomerID, Original_EmployeeID, Original_DriverID, Original_SupplierInvoiceNumber, Original_PurchaseDate, Original_PartNo);
+        public virtual int Update(int EmployeeID, System.DateTime PurchaseDate, int PartNo, int Original_OrderID, int Original_EmployeeID, System.DateTime Original_PurchaseDate, int Original_PartNo) {
+            return this.Update(Original_OrderID, EmployeeID, PurchaseDate, PartNo, Original_OrderID, Original_EmployeeID, Original_PurchaseDate, Original_PartNo);
         }
     }
     
@@ -10727,14 +10553,6 @@ SELECT PartNo, ItemDescription, ItemName, ItemQuantity, ItemPrice, DateReceived,
                     this.Adapter.UpdateCommand.Connection.Close();
                 }
             }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string ItemDescription, string ItemName, global::System.Nullable<int> ItemQuantity, global::System.Nullable<decimal> ItemPrice, global::System.Nullable<global::System.DateTime> DateReceived, global::System.Nullable<decimal> ItemVat, global::System.Nullable<int> SupplierID, int Original_PartNo, string Original_ItemDescription, string Original_ItemName, global::System.Nullable<int> Original_ItemQuantity, global::System.Nullable<decimal> Original_ItemPrice, global::System.Nullable<global::System.DateTime> Original_DateReceived, global::System.Nullable<decimal> Original_ItemVat, global::System.Nullable<int> Original_SupplierID) {
-            return this.Update(Original_PartNo, ItemDescription, ItemName, ItemQuantity, ItemPrice, DateReceived, ItemVat, SupplierID, Original_PartNo, Original_ItemDescription, Original_ItemName, Original_ItemQuantity, Original_ItemPrice, Original_DateReceived, Original_ItemVat, Original_SupplierID);
         }
     }
     
@@ -11877,14 +11695,16 @@ SELECT QuotationID, CustomerID, EmployeeID, OrderID, QuotationDate, TotalAmount,
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SupplierAddress", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SupplierAddress", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Supplier] ([SupplierID], [SupplierName], [SupplierNumber], [SupplierEmail], [SupplierAddress]) VALUES (@SupplierID, @SupplierName, @SupplierNumber, @SupplierEmail, @SupplierAddress);
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO Supplier
+                  (SupplierID, SupplierName, SupplierNumber, SupplierEmail, SupplierAddress)
+VALUES (@SupplierID,@SupplierName,@SupplierNumber,@SupplierEmail,@SupplierAddress); 
 SELECT SupplierID, SupplierName, SupplierNumber, SupplierEmail, SupplierAddress FROM Supplier WHERE (SupplierID = @SupplierID)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SupplierID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SupplierID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SupplierName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SupplierName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SupplierNumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SupplierNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SupplierEmail", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SupplierEmail", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SupplierAddress", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SupplierAddress", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SupplierID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "SupplierID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SupplierName", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "SupplierName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SupplierNumber", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "SupplierNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SupplierEmail", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "SupplierEmail", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SupplierAddress", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "SupplierAddress", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Supplier] SET [SupplierID] = @SupplierID, [SupplierName] = @SupplierName, [SupplierNumber] = @SupplierNumber, [SupplierEmail] = @SupplierEmail, [SupplierAddress] = @SupplierAddress WHERE (([SupplierID] = @Original_SupplierID) AND ([SupplierName] = @Original_SupplierName) AND ([SupplierNumber] = @Original_SupplierNumber) AND ((@IsNull_SupplierEmail = 1 AND [SupplierEmail] IS NULL) OR ([SupplierEmail] = @Original_SupplierEmail)) AND ([SupplierAddress] = @Original_SupplierAddress));
@@ -12869,24 +12689,6 @@ SELECT SupplierID, SupplierName, SupplierNumber, SupplierEmail, SupplierAddress 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private int UpdateUpdatedRows(G13Wst2024DataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._customerTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Customer.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._customerTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._driverTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Driver.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._driverTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._employeeTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Employee.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -12902,6 +12704,15 @@ SELECT SupplierID, SupplierName, SupplierNumber, SupplierEmail, SupplierAddress 
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._partsTableTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._customerTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Customer.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._customerTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -12929,6 +12740,15 @@ SELECT SupplierID, SupplierName, SupplierNumber, SupplierEmail, SupplierAddress 
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._customerIDTypeTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._driverTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Driver.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._driverTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -12987,22 +12807,6 @@ SELECT SupplierID, SupplierName, SupplierNumber, SupplierEmail, SupplierAddress 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private int UpdateInsertedRows(G13Wst2024DataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._customerTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Customer.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._customerTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._driverTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Driver.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._driverTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._employeeTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Employee.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -13016,6 +12820,14 @@ SELECT SupplierID, SupplierName, SupplierNumber, SupplierEmail, SupplierAddress 
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._partsTableTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._customerTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Customer.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._customerTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -13040,6 +12852,14 @@ SELECT SupplierID, SupplierName, SupplierNumber, SupplierEmail, SupplierAddress 
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._customerIDTypeTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._driverTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Driver.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._driverTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -13133,6 +12953,14 @@ SELECT SupplierID, SupplierName, SupplierNumber, SupplierEmail, SupplierAddress 
                     allChangedRows.AddRange(deletedRows);
                 }
             }
+            if ((this._driverTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Driver.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._driverTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._customerIDTypeTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.CustomerIDType.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -13157,6 +12985,14 @@ SELECT SupplierID, SupplierName, SupplierNumber, SupplierEmail, SupplierAddress 
                     allChangedRows.AddRange(deletedRows);
                 }
             }
+            if ((this._customerTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Customer.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._customerTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._partsTableTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.PartsTable.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -13170,22 +13006,6 @@ SELECT SupplierID, SupplierName, SupplierNumber, SupplierEmail, SupplierAddress 
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._employeeTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._driverTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Driver.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._driverTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._customerTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Customer.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._customerTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
