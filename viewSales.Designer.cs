@@ -36,10 +36,12 @@ namespace bosssystem1
             this.salebkTableAdapter = new bosssystem1.G13Wst2024DataSetTableAdapters.SalebkTableAdapter();
             this.invoiceNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.partNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.customerIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.purchaseDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.paymentTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.amountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemTotalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.orderTotalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.paymentDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.amountPaidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvsalesview)).BeginInit();
@@ -54,10 +56,12 @@ namespace bosssystem1
             this.dgvsalesview.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.invoiceNoDataGridViewTextBoxColumn,
             this.partNoDataGridViewTextBoxColumn,
+            this.quantityDataGridViewTextBoxColumn,
             this.customerIDDataGridViewTextBoxColumn,
             this.purchaseDateDataGridViewTextBoxColumn,
             this.paymentTypeDataGridViewTextBoxColumn,
-            this.amountDataGridViewTextBoxColumn,
+            this.itemTotalDataGridViewTextBoxColumn,
+            this.orderTotalDataGridViewTextBoxColumn,
             this.paymentDateDataGridViewTextBoxColumn,
             this.amountPaidDataGridViewTextBoxColumn});
             this.dgvsalesview.DataSource = this.salebkBindingSource;
@@ -88,7 +92,6 @@ namespace bosssystem1
             this.invoiceNoDataGridViewTextBoxColumn.HeaderText = "InvoiceNo";
             this.invoiceNoDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.invoiceNoDataGridViewTextBoxColumn.Name = "invoiceNoDataGridViewTextBoxColumn";
-            this.invoiceNoDataGridViewTextBoxColumn.ReadOnly = true;
             this.invoiceNoDataGridViewTextBoxColumn.Width = 125;
             // 
             // partNoDataGridViewTextBoxColumn
@@ -98,6 +101,14 @@ namespace bosssystem1
             this.partNoDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.partNoDataGridViewTextBoxColumn.Name = "partNoDataGridViewTextBoxColumn";
             this.partNoDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // quantityDataGridViewTextBoxColumn
+            // 
+            this.quantityDataGridViewTextBoxColumn.DataPropertyName = "Quantity";
+            this.quantityDataGridViewTextBoxColumn.HeaderText = "Quantity";
+            this.quantityDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
+            this.quantityDataGridViewTextBoxColumn.Width = 125;
             // 
             // customerIDDataGridViewTextBoxColumn
             // 
@@ -123,13 +134,21 @@ namespace bosssystem1
             this.paymentTypeDataGridViewTextBoxColumn.Name = "paymentTypeDataGridViewTextBoxColumn";
             this.paymentTypeDataGridViewTextBoxColumn.Width = 125;
             // 
-            // amountDataGridViewTextBoxColumn
+            // itemTotalDataGridViewTextBoxColumn
             // 
-            this.amountDataGridViewTextBoxColumn.DataPropertyName = "Amount";
-            this.amountDataGridViewTextBoxColumn.HeaderText = "Amount";
-            this.amountDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.amountDataGridViewTextBoxColumn.Name = "amountDataGridViewTextBoxColumn";
-            this.amountDataGridViewTextBoxColumn.Width = 125;
+            this.itemTotalDataGridViewTextBoxColumn.DataPropertyName = "ItemTotal";
+            this.itemTotalDataGridViewTextBoxColumn.HeaderText = "ItemTotal";
+            this.itemTotalDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.itemTotalDataGridViewTextBoxColumn.Name = "itemTotalDataGridViewTextBoxColumn";
+            this.itemTotalDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // orderTotalDataGridViewTextBoxColumn
+            // 
+            this.orderTotalDataGridViewTextBoxColumn.DataPropertyName = "OrderTotal";
+            this.orderTotalDataGridViewTextBoxColumn.HeaderText = "OrderTotal";
+            this.orderTotalDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.orderTotalDataGridViewTextBoxColumn.Name = "orderTotalDataGridViewTextBoxColumn";
+            this.orderTotalDataGridViewTextBoxColumn.Width = 125;
             // 
             // paymentDateDataGridViewTextBoxColumn
             // 
@@ -166,15 +185,18 @@ namespace bosssystem1
         #endregion
 
         private System.Windows.Forms.DataGridView dgvsalesview;
+        private System.Windows.Forms.DataGridViewTextBoxColumn amountDataGridViewTextBoxColumn;
         private G13Wst2024DataSet g13Wst2024DataSet;
         private System.Windows.Forms.BindingSource salebkBindingSource;
         private G13Wst2024DataSetTableAdapters.SalebkTableAdapter salebkTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn invoiceNoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn partNoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn customerIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn purchaseDateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn paymentTypeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn amountDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn itemTotalDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn orderTotalDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn paymentDateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn amountPaidDataGridViewTextBoxColumn;
     }

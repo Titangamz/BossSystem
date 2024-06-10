@@ -4459,13 +4459,17 @@ namespace bosssystem1 {
             
             private global::System.Data.DataColumn columnPartNo;
             
+            private global::System.Data.DataColumn columnQuantity;
+            
             private global::System.Data.DataColumn columnCustomerID;
             
             private global::System.Data.DataColumn columnPurchaseDate;
             
             private global::System.Data.DataColumn columnPaymentType;
             
-            private global::System.Data.DataColumn columnAmount;
+            private global::System.Data.DataColumn columnItemTotal;
+            
+            private global::System.Data.DataColumn columnOrderTotal;
             
             private global::System.Data.DataColumn columnPaymentDate;
             
@@ -4522,6 +4526,14 @@ namespace bosssystem1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn QuantityColumn {
+                get {
+                    return this.columnQuantity;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public global::System.Data.DataColumn CustomerIDColumn {
                 get {
                     return this.columnCustomerID;
@@ -4546,9 +4558,17 @@ namespace bosssystem1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn AmountColumn {
+            public global::System.Data.DataColumn ItemTotalColumn {
                 get {
-                    return this.columnAmount;
+                    return this.columnItemTotal;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn OrderTotalColumn {
+                get {
+                    return this.columnOrderTotal;
                 }
             }
             
@@ -4605,15 +4625,17 @@ namespace bosssystem1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public SalebkRow AddSalebkRow(int PartNo, int CustomerID, System.DateTime PurchaseDate, string PaymentType, decimal Amount, System.DateTime PaymentDate, decimal AmountPaid) {
+            public SalebkRow AddSalebkRow(int InvoiceNo, int PartNo, string Quantity, int CustomerID, System.DateTime PurchaseDate, string PaymentType, decimal ItemTotal, decimal OrderTotal, System.DateTime PaymentDate, decimal AmountPaid) {
                 SalebkRow rowSalebkRow = ((SalebkRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        null,
+                        InvoiceNo,
                         PartNo,
+                        Quantity,
                         CustomerID,
                         PurchaseDate,
                         PaymentType,
-                        Amount,
+                        ItemTotal,
+                        OrderTotal,
                         PaymentDate,
                         AmountPaid};
                 rowSalebkRow.ItemArray = columnValuesArray;
@@ -4640,10 +4662,12 @@ namespace bosssystem1 {
             internal void InitVars() {
                 this.columnInvoiceNo = base.Columns["InvoiceNo"];
                 this.columnPartNo = base.Columns["PartNo"];
+                this.columnQuantity = base.Columns["Quantity"];
                 this.columnCustomerID = base.Columns["CustomerID"];
                 this.columnPurchaseDate = base.Columns["PurchaseDate"];
                 this.columnPaymentType = base.Columns["PaymentType"];
-                this.columnAmount = base.Columns["Amount"];
+                this.columnItemTotal = base.Columns["ItemTotal"];
+                this.columnOrderTotal = base.Columns["OrderTotal"];
                 this.columnPaymentDate = base.Columns["PaymentDate"];
                 this.columnAmountPaid = base.Columns["AmountPaid"];
             }
@@ -4655,27 +4679,30 @@ namespace bosssystem1 {
                 base.Columns.Add(this.columnInvoiceNo);
                 this.columnPartNo = new global::System.Data.DataColumn("PartNo", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPartNo);
+                this.columnQuantity = new global::System.Data.DataColumn("Quantity", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnQuantity);
                 this.columnCustomerID = new global::System.Data.DataColumn("CustomerID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCustomerID);
                 this.columnPurchaseDate = new global::System.Data.DataColumn("PurchaseDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPurchaseDate);
                 this.columnPaymentType = new global::System.Data.DataColumn("PaymentType", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPaymentType);
-                this.columnAmount = new global::System.Data.DataColumn("Amount", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnAmount);
+                this.columnItemTotal = new global::System.Data.DataColumn("ItemTotal", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnItemTotal);
+                this.columnOrderTotal = new global::System.Data.DataColumn("OrderTotal", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOrderTotal);
                 this.columnPaymentDate = new global::System.Data.DataColumn("PaymentDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPaymentDate);
                 this.columnAmountPaid = new global::System.Data.DataColumn("AmountPaid", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAmountPaid);
-                this.columnInvoiceNo.AutoIncrement = true;
-                this.columnInvoiceNo.AutoIncrementSeed = -1;
                 this.columnInvoiceNo.AllowDBNull = false;
-                this.columnInvoiceNo.ReadOnly = true;
+                this.columnPartNo.AllowDBNull = false;
+                this.columnQuantity.MaxLength = 50;
                 this.columnCustomerID.AllowDBNull = false;
                 this.columnPurchaseDate.AllowDBNull = false;
                 this.columnPaymentType.AllowDBNull = false;
                 this.columnPaymentType.MaxLength = 50;
-                this.columnAmount.AllowDBNull = false;
+                this.columnOrderTotal.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6676,15 +6703,26 @@ namespace bosssystem1 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public int PartNo {
                 get {
-                    try {
-                        return ((int)(this[this.tableSalebk.PartNoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'PartNo\' in table \'Salebk\' is DBNull.", e);
-                    }
+                    return ((int)(this[this.tableSalebk.PartNoColumn]));
                 }
                 set {
                     this[this.tableSalebk.PartNoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Quantity {
+                get {
+                    try {
+                        return ((string)(this[this.tableSalebk.QuantityColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Quantity\' in table \'Salebk\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSalebk.QuantityColumn] = value;
                 }
             }
             
@@ -6723,12 +6761,28 @@ namespace bosssystem1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal Amount {
+            public decimal ItemTotal {
                 get {
-                    return ((decimal)(this[this.tableSalebk.AmountColumn]));
+                    try {
+                        return ((decimal)(this[this.tableSalebk.ItemTotalColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ItemTotal\' in table \'Salebk\' is DBNull.", e);
+                    }
                 }
                 set {
-                    this[this.tableSalebk.AmountColumn] = value;
+                    this[this.tableSalebk.ItemTotalColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal OrderTotal {
+                get {
+                    return ((decimal)(this[this.tableSalebk.OrderTotalColumn]));
+                }
+                set {
+                    this[this.tableSalebk.OrderTotalColumn] = value;
                 }
             }
             
@@ -6766,14 +6820,26 @@ namespace bosssystem1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsPartNoNull() {
-                return this.IsNull(this.tableSalebk.PartNoColumn);
+            public bool IsQuantityNull() {
+                return this.IsNull(this.tableSalebk.QuantityColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetPartNoNull() {
-                this[this.tableSalebk.PartNoColumn] = global::System.Convert.DBNull;
+            public void SetQuantityNull() {
+                this[this.tableSalebk.QuantityColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsItemTotalNull() {
+                return this.IsNull(this.tableSalebk.ItemTotalColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetItemTotalNull() {
+                this[this.tableSalebk.ItemTotalColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -12187,67 +12253,29 @@ SELECT SupplierID, SupplierName, SupplierNumber, SupplierEmail, SupplierAddress 
             tableMapping.DataSetTable = "Salebk";
             tableMapping.ColumnMappings.Add("InvoiceNo", "InvoiceNo");
             tableMapping.ColumnMappings.Add("PartNo", "PartNo");
+            tableMapping.ColumnMappings.Add("Quantity", "Quantity");
             tableMapping.ColumnMappings.Add("CustomerID", "CustomerID");
             tableMapping.ColumnMappings.Add("PurchaseDate", "PurchaseDate");
             tableMapping.ColumnMappings.Add("PaymentType", "PaymentType");
-            tableMapping.ColumnMappings.Add("Amount", "Amount");
+            tableMapping.ColumnMappings.Add("ItemTotal", "ItemTotal");
+            tableMapping.ColumnMappings.Add("OrderTotal", "OrderTotal");
             tableMapping.ColumnMappings.Add("PaymentDate", "PaymentDate");
             tableMapping.ColumnMappings.Add("AmountPaid", "AmountPaid");
             this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Salebk] WHERE (([InvoiceNo] = @Original_InvoiceNo) AND ((@IsNull_PartNo = 1 AND [PartNo] IS NULL) OR ([PartNo] = @Original_PartNo)) AND ([CustomerID] = @Original_CustomerID) AND ([PurchaseDate] = @Original_PurchaseDate) AND ([PaymentType] = @Original_PaymentType) AND ([Amount] = @Original_Amount) AND ((@IsNull_PaymentDate = 1 AND [PaymentDate] IS NULL) OR ([PaymentDate] = @Original_PaymentDate)) AND ((@IsNull_AmountPaid = 1 AND [AmountPaid] IS NULL) OR ([AmountPaid] = @Original_AmountPaid)))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_InvoiceNo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InvoiceNo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PartNo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PartNo", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PartNo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PartNo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CustomerID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PurchaseDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PurchaseDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PaymentType", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentType", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Amount", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 8, 2, "Amount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PaymentDate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentDate", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PaymentDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_AmountPaid", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AmountPaid", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AmountPaid", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 8, 2, "AmountPaid", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO Salebk
-                  (InvoiceNo, PartNo, CustomerID, PurchaseDate, PaymentType, Amount, PaymentDate, AmountPaid)
-VALUES (@InvoiceNo,@PartNo,@CustomerID,@PurchaseDate,@PaymentType,@Amount,@PaymentDate,@AmountPaid);   
-SELECT InvoiceNo, PartNo, CustomerID, PurchaseDate, PaymentType, Amount, PaymentDate, AmountPaid FROM Salebk WHERE (InvoiceNo = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Salebk] ([InvoiceNo], [PartNo], [Quantity], [CustomerID], [PurchaseDate], [PaymentType], [ItemTotal], [OrderTotal], [PaymentDate], [AmountPaid]) VALUES (@InvoiceNo, @PartNo, @Quantity, @CustomerID, @PurchaseDate, @PaymentType, @ItemTotal, @OrderTotal, @PaymentDate, @AmountPaid)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@InvoiceNo", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "InvoiceNo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PartNo", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "PartNo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CustomerID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PurchaseDate", global::System.Data.SqlDbType.DateTime, 3, global::System.Data.ParameterDirection.Input, 0, 0, "PurchaseDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentType", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Amount", global::System.Data.SqlDbType.Decimal, 5, global::System.Data.ParameterDirection.Input, 8, 2, "Amount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentDate", global::System.Data.SqlDbType.DateTime, 3, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AmountPaid", global::System.Data.SqlDbType.Decimal, 5, global::System.Data.ParameterDirection.Input, 8, 2, "AmountPaid", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Salebk] SET [PartNo] = @PartNo, [CustomerID] = @CustomerID, [PurchaseDate] = @PurchaseDate, [PaymentType] = @PaymentType, [Amount] = @Amount, [PaymentDate] = @PaymentDate, [AmountPaid] = @AmountPaid WHERE (([InvoiceNo] = @Original_InvoiceNo) AND ((@IsNull_PartNo = 1 AND [PartNo] IS NULL) OR ([PartNo] = @Original_PartNo)) AND ([CustomerID] = @Original_CustomerID) AND ([PurchaseDate] = @Original_PurchaseDate) AND ([PaymentType] = @Original_PaymentType) AND ([Amount] = @Original_Amount) AND ((@IsNull_PaymentDate = 1 AND [PaymentDate] IS NULL) OR ([PaymentDate] = @Original_PaymentDate)) AND ((@IsNull_AmountPaid = 1 AND [AmountPaid] IS NULL) OR ([AmountPaid] = @Original_AmountPaid)));
-SELECT InvoiceNo, PartNo, CustomerID, PurchaseDate, PaymentType, Amount, PaymentDate, AmountPaid FROM Salebk WHERE (InvoiceNo = @InvoiceNo)";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PartNo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PartNo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CustomerID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PurchaseDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PurchaseDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentType", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Amount", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 8, 2, "Amount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AmountPaid", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 8, 2, "AmountPaid", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_InvoiceNo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InvoiceNo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PartNo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PartNo", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PartNo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PartNo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CustomerID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PurchaseDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PurchaseDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PaymentType", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentType", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Amount", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 8, 2, "Amount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PaymentDate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentDate", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PaymentDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_AmountPaid", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AmountPaid", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AmountPaid", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 8, 2, "AmountPaid", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@InvoiceNo", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "InvoiceNo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@InvoiceNo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InvoiceNo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PartNo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PartNo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Quantity", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Quantity", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CustomerID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PurchaseDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PurchaseDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentType", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ItemTotal", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 8, 2, "ItemTotal", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OrderTotal", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 8, 2, "OrderTotal", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AmountPaid", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 8, 2, "AmountPaid", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -12260,28 +12288,16 @@ SELECT InvoiceNo, PartNo, CustomerID, PurchaseDate, PaymentType, Amount, Payment
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT InvoiceNo, PartNo, CustomerID, PurchaseDate, PaymentType, Amount, PaymentD" +
-                "ate, AmountPaid FROM dbo.Salebk";
+            this._commandCollection[0].CommandText = "SELECT InvoiceNo, PartNo, Quantity, CustomerID, PurchaseDate, PaymentType, ItemTo" +
+                "tal, OrderTotal, PaymentDate, AmountPaid FROM dbo.Salebk";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT MAX(InvoiceNo) FROM Salebk\r\n";
+            this._commandCollection[1].CommandText = "SELECT MAX(InvoiceNo) AS Expr1\r\nFROM     Salebk";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = @"INSERT INTO [dbo].[Salebk] ([PartNo], [CustomerID], [PurchaseDate], [PaymentType], [Amount], [PaymentDate], [AmountPaid]) VALUES (@PartNo, @CustomerID, @PurchaseDate, @PaymentType, @Amount, @PaymentDate, @AmountPaid);
-SELECT InvoiceNo, PartNo, CustomerID, PurchaseDate, PaymentType, Amount, PaymentDate, AmountPaid FROM Salebk WHERE (InvoiceNo = SCOPE_IDENTITY())";
-            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PartNo", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "PartNo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CustomerID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PurchaseDate", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "PurchaseDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentType", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Amount", global::System.Data.SqlDbType.Decimal, 5, global::System.Data.ParameterDirection.Input, 8, 2, "Amount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentDate", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AmountPaid", global::System.Data.SqlDbType.Decimal, 5, global::System.Data.ParameterDirection.Input, 8, 2, "AmountPaid", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -12340,90 +12356,42 @@ SELECT InvoiceNo, PartNo, CustomerID, PurchaseDate, PaymentType, Amount, Payment
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_InvoiceNo, global::System.Nullable<int> Original_PartNo, int Original_CustomerID, System.DateTime Original_PurchaseDate, string Original_PaymentType, decimal Original_Amount, global::System.Nullable<global::System.DateTime> Original_PaymentDate, global::System.Nullable<decimal> Original_AmountPaid) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_InvoiceNo));
-            if ((Original_PartNo.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_PartNo.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.DeleteCommand.Parameters[3].Value = ((int)(Original_CustomerID));
-            this.Adapter.DeleteCommand.Parameters[4].Value = ((System.DateTime)(Original_PurchaseDate));
-            if ((Original_PaymentType == null)) {
-                throw new global::System.ArgumentNullException("Original_PaymentType");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((string)(Original_PaymentType));
-            }
-            this.Adapter.DeleteCommand.Parameters[6].Value = ((decimal)(Original_Amount));
-            if ((Original_PaymentDate.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((System.DateTime)(Original_PaymentDate.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            if ((Original_AmountPaid.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((decimal)(Original_AmountPaid.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int InvoiceNo, global::System.Nullable<int> PartNo, int CustomerID, System.DateTime PurchaseDate, string PaymentType, decimal Amount, global::System.Nullable<global::System.DateTime> PaymentDate, global::System.Nullable<decimal> AmountPaid) {
+        public virtual int Insert(int InvoiceNo, int PartNo, string Quantity, int CustomerID, System.DateTime PurchaseDate, string PaymentType, global::System.Nullable<decimal> ItemTotal, decimal OrderTotal, global::System.Nullable<global::System.DateTime> PaymentDate, global::System.Nullable<decimal> AmountPaid) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(InvoiceNo));
-            if ((PartNo.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((int)(PartNo.Value));
+            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(PartNo));
+            if ((Quantity == null)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(Quantity));
             }
-            this.Adapter.InsertCommand.Parameters[2].Value = ((int)(CustomerID));
-            this.Adapter.InsertCommand.Parameters[3].Value = ((System.DateTime)(PurchaseDate));
+            this.Adapter.InsertCommand.Parameters[3].Value = ((int)(CustomerID));
+            this.Adapter.InsertCommand.Parameters[4].Value = ((System.DateTime)(PurchaseDate));
             if ((PaymentType == null)) {
                 throw new global::System.ArgumentNullException("PaymentType");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(PaymentType));
+                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(PaymentType));
             }
-            this.Adapter.InsertCommand.Parameters[5].Value = ((decimal)(Amount));
-            if ((PaymentDate.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((System.DateTime)(PaymentDate.Value));
+            if ((ItemTotal.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[6].Value = ((decimal)(ItemTotal.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
-            if ((AmountPaid.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((decimal)(AmountPaid.Value));
+            this.Adapter.InsertCommand.Parameters[7].Value = ((decimal)(OrderTotal));
+            if ((PaymentDate.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[8].Value = ((System.DateTime)(PaymentDate.Value));
             }
             else {
-                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            if ((AmountPaid.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[9].Value = ((decimal)(AmountPaid.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -12444,106 +12412,7 @@ SELECT InvoiceNo, PartNo, CustomerID, PurchaseDate, PaymentType, Amount, Payment
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    global::System.Nullable<int> PartNo, 
-                    int CustomerID, 
-                    System.DateTime PurchaseDate, 
-                    string PaymentType, 
-                    decimal Amount, 
-                    global::System.Nullable<global::System.DateTime> PaymentDate, 
-                    global::System.Nullable<decimal> AmountPaid, 
-                    int Original_InvoiceNo, 
-                    global::System.Nullable<int> Original_PartNo, 
-                    int Original_CustomerID, 
-                    System.DateTime Original_PurchaseDate, 
-                    string Original_PaymentType, 
-                    decimal Original_Amount, 
-                    global::System.Nullable<global::System.DateTime> Original_PaymentDate, 
-                    global::System.Nullable<decimal> Original_AmountPaid, 
-                    int InvoiceNo) {
-            if ((PartNo.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(PartNo.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(CustomerID));
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((System.DateTime)(PurchaseDate));
-            if ((PaymentType == null)) {
-                throw new global::System.ArgumentNullException("PaymentType");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(PaymentType));
-            }
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((decimal)(Amount));
-            if ((PaymentDate.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((System.DateTime)(PaymentDate.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            if ((AmountPaid.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((decimal)(AmountPaid.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_InvoiceNo));
-            if ((Original_PartNo.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_PartNo.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_CustomerID));
-            this.Adapter.UpdateCommand.Parameters[11].Value = ((System.DateTime)(Original_PurchaseDate));
-            if ((Original_PaymentType == null)) {
-                throw new global::System.ArgumentNullException("Original_PaymentType");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_PaymentType));
-            }
-            this.Adapter.UpdateCommand.Parameters[13].Value = ((decimal)(Original_Amount));
-            if ((Original_PaymentDate.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((System.DateTime)(Original_PaymentDate.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
-            }
-            if ((Original_AmountPaid.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((decimal)(Original_AmountPaid.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.UpdateCommand.Parameters[18].Value = ((int)(InvoiceNo));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual global::System.Nullable<int> GetLastInvoiceNumber() {
+        public virtual global::System.Nullable<int> GetCurrentInvoiceNumber() {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -12566,61 +12435,6 @@ SELECT InvoiceNo, PartNo, CustomerID, PurchaseDate, PaymentType, Amount, Payment
             else {
                 return new global::System.Nullable<int>(((int)(returnValue)));
             }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
-        public virtual int InsertQuery(global::System.Nullable<int> PartNo, int CustomerID, string PurchaseDate, string PaymentType, decimal Amount, string PaymentDate, global::System.Nullable<decimal> AmountPaid) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[2];
-            if ((PartNo.HasValue == true)) {
-                command.Parameters[0].Value = ((int)(PartNo.Value));
-            }
-            else {
-                command.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            command.Parameters[1].Value = ((int)(CustomerID));
-            if ((PurchaseDate == null)) {
-                throw new global::System.ArgumentNullException("PurchaseDate");
-            }
-            else {
-                command.Parameters[2].Value = ((string)(PurchaseDate));
-            }
-            if ((PaymentType == null)) {
-                throw new global::System.ArgumentNullException("PaymentType");
-            }
-            else {
-                command.Parameters[3].Value = ((string)(PaymentType));
-            }
-            command.Parameters[4].Value = ((decimal)(Amount));
-            if ((PaymentDate == null)) {
-                command.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            else {
-                command.Parameters[5].Value = ((string)(PaymentDate));
-            }
-            if ((AmountPaid.HasValue == true)) {
-                command.Parameters[6].Value = ((decimal)(AmountPaid.Value));
-            }
-            else {
-                command.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
-            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                command.Connection.Open();
-            }
-            int returnValue;
-            try {
-                returnValue = command.ExecuteNonQuery();
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    command.Connection.Close();
-                }
-            }
-            return returnValue;
         }
     }
     

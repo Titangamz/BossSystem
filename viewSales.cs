@@ -22,6 +22,7 @@ namespace bosssystem1
             // TODO: This line of code loads data into the 'g13Wst2024DataSet.Salebk' table. You can move, or remove it, as needed.
             this.salebkTableAdapter.Fill(this.g13Wst2024DataSet.Salebk);
 
+
             this.ControlBox = false;
         }
     }
