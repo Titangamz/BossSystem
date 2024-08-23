@@ -72,7 +72,7 @@ namespace bosssystem1
             this.customerTableAdapter = new bosssystem1.G13Wst2024DataSetTableAdapters.CustomerTableAdapter();
             this.salebkTableAdapter1 = new bosssystem1.G13Wst2024DataSetTableAdapters.SalebkTableAdapter();
             this.label2 = new System.Windows.Forms.Label();
-            this.overall_salesTableAdapter1 = new bosssystem1.G13Wst2024DataSetTableAdapters.Overall_salesTableAdapter();
+            this.overallsalesTableAdapter = new bosssystem1.G13Wst2024DataSetTableAdapters.OverallsalesTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.saledatagrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.saleorderBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetInvoice)).BeginInit();
@@ -443,9 +443,9 @@ namespace bosssystem1
             this.label2.Text = "(Only 1 customer can be added to the table. \r\nClear table to change the customer)" +
     "";
             // 
-            // overall_salesTableAdapter1
+            // overallsalesTableAdapter
             // 
-            this.overall_salesTableAdapter1.ClearBeforeFill = true;
+            this.overallsalesTableAdapter.ClearBeforeFill = true;
             // 
             // salesForm
             // 
@@ -522,6 +522,6 @@ namespace bosssystem1
         private System.Windows.Forms.DataGridViewComboBoxColumn PaymentType;
         private G13Wst2024DataSetTableAdapters.SalebkTableAdapter salebkTableAdapter1;
         private System.Windows.Forms.Label label2;
-        private G13Wst2024DataSetTableAdapters.Overall_salesTableAdapter overall_salesTableAdapter1;
+        private G13Wst2024DataSetTableAdapters.OverallsalesTableAdapter overallsalesTableAdapter;
     }
 }

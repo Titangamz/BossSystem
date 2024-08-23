@@ -203,7 +203,7 @@ MessageBoxButtons.YesNo);
                 {
 
 
-                    int? lastInvoiceNumber = overall_salesTableAdapter1.GetInvoiceNumber();
+                    int? lastInvoiceNumber = overallsalesTableAdapter.GetInvoiceNumber();
                     int newInvoiceNumber = (lastInvoiceNumber ?? 0) + 1;
                     foreach (DataGridViewRow row in saledatagrid.Rows)
                     {
@@ -219,7 +219,7 @@ MessageBoxButtons.YesNo);
                         try
                         {
                             
-                            overall_salesTableAdapter1.InsertByAllSale(newInvoiceNumber, int.Parse(custIDValue), Convert.ToDecimal(rowtotalValue), paytypeValue, Convert.ToString(DateTime.Now), null, null);
+                            overallsalesTableAdapter.Insert(newInvoiceNumber, int.Parse(custIDValue), Convert.ToDecimal(ordtotaltxt.Text), paytypeValue, DateTime.Now, null, null);
                         }
                         catch (Exception)
                         {

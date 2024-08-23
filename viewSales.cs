@@ -19,11 +19,9 @@ namespace bosssystem1
 
         private void viewSales_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'g13Wst2024DataSet1.Overall_sales' table. You can move, or remove it, as needed.
-            this.overall_salesTableAdapter.Fill(this.g13Wst2024DataSet1.Overall_sales);
+            // TODO: This line of code loads data into the 'g13Wst2024DataSet2.Overallsales' table. You can move, or remove it, as needed.
+            this.overallsalesTableAdapter.Fill(this.g13Wst2024DataSet2.Overallsales);
           
-
-
             this.ControlBox = false;
         }
 
