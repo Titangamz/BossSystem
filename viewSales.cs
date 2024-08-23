@@ -19,16 +19,17 @@ namespace bosssystem1
 
         private void viewSales_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'g13Wst2024DataSet.Salebk' table. You can move, or remove it, as needed.
-            this.salebkTableAdapter.Fill(this.g13Wst2024DataSet.Salebk);
+            // TODO: This line of code loads data into the 'g13Wst2024DataSet1.Overall_sales' table. You can move, or remove it, as needed.
+            this.overall_salesTableAdapter.Fill(this.g13Wst2024DataSet1.Overall_sales);
+          
 
 
             this.ControlBox = false;
         }
 
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+      private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
-            salebkTableAdapter.FillByPurchaseDate(g13Wst2024DataSet.Salebk, dateTimePicker1.Value.ToShortDateString());
+           // salebkTableAdapter.FillByPurchaseDate(g13Wst2024DataSet.Salebk, dateTimePicker1.Value.ToShortDateString());
         }
 
         private void dgvsalesview_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -38,7 +39,7 @@ namespace bosssystem1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("WARNING, this will permanantly alter your employee table. Proceed?", "Confirmation",
+          /*  DialogResult result = MessageBox.Show("WARNING, this will permanantly alter your sales table. Proceed?", "Confirmation",
 MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
@@ -48,7 +49,7 @@ MessageBoxButtons.YesNo);
             else if (result == DialogResult.No)
             {
                 MessageBox.Show("Update Cancelled");
-            }
+            }*/
         }
     }
 }

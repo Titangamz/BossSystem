@@ -197,13 +197,13 @@ MessageBoxButtons.YesNo);
             {
                 if (ordtotaltxt.Text == "")
                 {
-                    MessageBox.Show("Please get the order before recording the order");
+                    MessageBox.Show("Please get the order total before recording the order");
                 }
                 else
                 {
 
 
-                    int? lastInvoiceNumber = salebkTableAdapter1.GetCurrentInvoiceNumber();
+                    int? lastInvoiceNumber = overall_salesTableAdapter1.GetInvoiceNumber();
                     int newInvoiceNumber = (lastInvoiceNumber ?? 0) + 1;
                     foreach (DataGridViewRow row in saledatagrid.Rows)
                     {
@@ -218,7 +218,8 @@ MessageBoxButtons.YesNo);
 
                         try
                         {
-                            salebkTableAdapter1.Insert(newInvoiceNumber, int.Parse(PartNoValue), quantityValue, int.Parse(custIDValue), DateTime.Now, paytypeValue, Convert.ToDecimal(rowtotalValue), Convert.ToDecimal(ordtotaltxt.Text), null, null);
+                            
+                            overall_salesTableAdapter1.InsertByAllSale(newInvoiceNumber, int.Parse(custIDValue), Convert.ToDecimal(rowtotalValue), paytypeValue, Convert.ToString(DateTime.Now), null, null);
                         }
                         catch (Exception)
                         {
