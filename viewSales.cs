@@ -19,15 +19,18 @@ namespace bosssystem1
 
         private void viewSales_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'g13Wst2024DataSet2.Overallsales' table. You can move, or remove it, as needed.
-            this.overallsalesTableAdapter.Fill(this.g13Wst2024DataSet2.Overallsales);
-          
+            // TODO: This line of code loads data into the 'g13Wst2024DataSet.ItemSale' table. You can move, or remove it, as needed.
+            this.itemSaleTableAdapter.Fill(this.g13Wst2024DataSet.ItemSale);
+            // TODO: This line of code loads data into the 'g13Wst2024DataSet.Overallsales' table. You can move, or remove it, as needed.
+            this.overallsalesTableAdapter.Fill(this.g13Wst2024DataSet.Overallsales);
+
+
             this.ControlBox = false;
         }
 
       private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
-           // salebkTableAdapter.FillByPurchaseDate(g13Wst2024DataSet.Salebk, dateTimePicker1.Value.ToShortDateString());
+            overallsalesTableAdapter.FillByDateOfSale(g13Wst2024DataSet.Overallsales, dateTimePicker1.Value.ToShortDateString());
         }
 
         private void dgvsalesview_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -48,6 +51,11 @@ MessageBoxButtons.YesNo);
             {
                 MessageBox.Show("Update Cancelled");
             }*/
+        }
+
+        private void dataGridView2_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            
         }
     }
 }

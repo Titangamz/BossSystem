@@ -73,6 +73,7 @@ namespace bosssystem1
             this.salebkTableAdapter1 = new bosssystem1.G13Wst2024DataSetTableAdapters.SalebkTableAdapter();
             this.label2 = new System.Windows.Forms.Label();
             this.overallsalesTableAdapter = new bosssystem1.G13Wst2024DataSetTableAdapters.OverallsalesTableAdapter();
+            this.itemSaleTableAdapter1 = new bosssystem1.G13Wst2024DataSetTableAdapters.ItemSaleTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.saledatagrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.saleorderBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetInvoice)).BeginInit();
@@ -447,6 +448,10 @@ namespace bosssystem1
             // 
             this.overallsalesTableAdapter.ClearBeforeFill = true;
             // 
+            // itemSaleTableAdapter1
+            // 
+            this.itemSaleTableAdapter1.ClearBeforeFill = true;
+            // 
             // salesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -523,5 +528,6 @@ namespace bosssystem1
         private G13Wst2024DataSetTableAdapters.SalebkTableAdapter salebkTableAdapter1;
         private System.Windows.Forms.Label label2;
         private G13Wst2024DataSetTableAdapters.OverallsalesTableAdapter overallsalesTableAdapter;
+        private G13Wst2024DataSetTableAdapters.ItemSaleTableAdapter itemSaleTableAdapter1;
     }
 }

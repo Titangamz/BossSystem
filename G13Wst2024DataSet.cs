@@ -4,6 +4,9 @@
 
     partial class G13Wst2024DataSet
     {
+        partial class OverallsalesDataTable
+        {
+        }
     }
 }
 

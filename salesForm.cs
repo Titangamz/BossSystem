@@ -205,28 +205,32 @@ MessageBoxButtons.YesNo);
 
                     int? lastInvoiceNumber = overallsalesTableAdapter.GetInvoiceNumber();
                     int newInvoiceNumber = (lastInvoiceNumber ?? 0) + 1;
-                    foreach (DataGridViewRow row in saledatagrid.Rows)
+                    try
                     {
-                        if (row.IsNewRow) continue;
+                        // Get values from the first row to perform the insert just once.
+                        var firstRow = saledatagrid.Rows[0];
+                        var custIDValue = firstRow.Cells[0].Value.ToString();
+                        var paytypeValue = firstRow.Cells[7].Value.ToString();
+                        var custname = firstRow.Cells[1].Value.ToString();
 
+                        // Insert into the overallsalesTableAdapter once, outside of the loop.
+                        overallsalesTableAdapter.InsertQuery(newInvoiceNumber, int.Parse(custIDValue),Convert.ToDecimal(ordtotaltxt.Text), paytypeValue,Convert.ToString(DateTime.Now), null, null);
 
-                        var PartNoValue = row.Cells[2].Value?.ToString();
-                        var custIDValue = row.Cells[0].Value?.ToString();
-                        var paytypeValue = row.Cells[7].Value?.ToString();
-                        var rowtotalValue = row.Cells[6].Value?.ToString();
-                        var quantityValue = row.Cells[5].Value?.ToString();
-
-                        try
+                        // Now, if needed, you can loop over the rows to handle other per-row operations.
+                        foreach (DataGridViewRow row in saledatagrid.Rows)
                         {
-                            
-                            overallsalesTableAdapter.Insert(newInvoiceNumber, int.Parse(custIDValue), Convert.ToDecimal(ordtotaltxt.Text), paytypeValue, DateTime.Now, null, null);
-                        }
-                        catch (Exception)
-                        {
-                            MessageBox.Show("Error, please ensure all fields are filled in");
-                        }
+                            var PartNoValue = row.Cells[2].Value.ToString();
+                            var rowtotalValue = row.Cells[6].Value?.ToString();
+                            var quantityValue = row.Cells[5].Value?.ToString();
 
+                            itemSaleTableAdapter1.Insert(newInvoiceNumber, int.Parse(PartNoValue), quantityValue, Convert.ToDecimal(rowtotalValue));
+                        }
                     }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Error, please ensure all fields are filled in.");
+                    }
+
                     MessageBox.Show("Order has been Confirmed with Invoice No: " + newInvoiceNumber);
                 }
             }

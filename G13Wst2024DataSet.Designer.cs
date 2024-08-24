@@ -78,6 +78,8 @@ namespace bosssystem1 {
         
         private global::System.Data.DataRelation relationFK_InventorySupplier_PartsTable;
         
+        private global::System.Data.DataRelation relationOverallsales_ItemSale;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -566,6 +568,7 @@ namespace bosssystem1 {
             this.relationFK_Orders_PartsTable = this.Relations["FK_Orders_PartsTable"];
             this.relationFK_OrderItem_PartsTable1 = this.Relations["FK_OrderItem_PartsTable1"];
             this.relationFK_InventorySupplier_PartsTable = this.Relations["FK_InventorySupplier_PartsTable"];
+            this.relationOverallsales_ItemSale = this.Relations["Overallsales_ItemSale"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -654,6 +657,10 @@ namespace bosssystem1 {
                         this.tablePartsTable.PartNoColumn}, new global::System.Data.DataColumn[] {
                         this.tableInventorySupplier.PartNoColumn}, false);
             this.Relations.Add(this.relationFK_InventorySupplier_PartsTable);
+            this.relationOverallsales_ItemSale = new global::System.Data.DataRelation("Overallsales_ItemSale", new global::System.Data.DataColumn[] {
+                        this.tableOverallsales.InvoiceNumberColumn}, new global::System.Data.DataColumn[] {
+                        this.tableItemSale.InvoiceNumberColumn}, false);
+            this.Relations.Add(this.relationOverallsales_ItemSale);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4979,13 +4986,16 @@ namespace bosssystem1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public ItemSaleRow AddItemSaleRow(int InvoiceNumber, int PartNo, string PartQuantity, decimal ItemTotal) {
+            public ItemSaleRow AddItemSaleRow(OverallsalesRow parentOverallsalesRowByOverallsales_ItemSale, int PartNo, string PartQuantity, decimal ItemTotal) {
                 ItemSaleRow rowItemSaleRow = ((ItemSaleRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        InvoiceNumber,
+                        null,
                         PartNo,
                         PartQuantity,
                         ItemTotal};
+                if ((parentOverallsalesRowByOverallsales_ItemSale != null)) {
+                    columnValuesArray[0] = parentOverallsalesRowByOverallsales_ItemSale[0];
+                }
                 rowItemSaleRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowItemSaleRow);
                 return rowItemSaleRow;
@@ -7867,6 +7877,17 @@ namespace bosssystem1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public OverallsalesRow OverallsalesRow {
+                get {
+                    return ((OverallsalesRow)(this.GetParentRow(this.Table.ParentRelations["Overallsales_ItemSale"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["Overallsales_ItemSale"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsInvoiceNumberNull() {
                 return this.IsNull(this.tableItemSale.InvoiceNumberColumn);
             }
@@ -8163,6 +8184,17 @@ namespace bosssystem1 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetAmountPaidNull() {
                 this[this.tableOverallsales.AmountPaidColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public ItemSaleRow[] GetItemSaleRows() {
+                if ((this.Table.ChildRelations["Overallsales_ItemSale"] == null)) {
+                    return new ItemSaleRow[0];
+                }
+                else {
+                    return ((ItemSaleRow[])(base.GetChildRows(this.Table.ChildRelations["Overallsales_ItemSale"])));
+                }
             }
         }
         
@@ -14138,11 +14170,17 @@ SELECT SupplierID, SupplierName, SupplierNumber, SupplierEmail, SupplierAddress 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT InvoiceNumber, PartNo, PartQuantity, ItemTotal FROM dbo.ItemSale";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT InvoiceNumber, PartNo, PartQuantity, ItemTotal\r\nFROM     ItemSale\r\nWHERE  " +
+                "(InvoiceNumber = @InvoiceNumber)";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@InvoiceNumber", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "InvoiceNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -14164,6 +14202,42 @@ SELECT SupplierID, SupplierName, SupplierNumber, SupplierEmail, SupplierAddress 
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual G13Wst2024DataSet.ItemSaleDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            G13Wst2024DataSet.ItemSaleDataTable dataTable = new G13Wst2024DataSet.ItemSaleDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByInvoiceNo(G13Wst2024DataSet.ItemSaleDataTable dataTable, global::System.Nullable<int> InvoiceNumber) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((InvoiceNumber.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(InvoiceNumber.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual G13Wst2024DataSet.ItemSaleDataTable GetDataBy(global::System.Nullable<int> InvoiceNumber) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((InvoiceNumber.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(InvoiceNumber.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
             G13Wst2024DataSet.ItemSaleDataTable dataTable = new G13Wst2024DataSet.ItemSaleDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -14729,17 +14803,17 @@ SELECT SupplierID, SupplierName, SupplierNumber, SupplierEmail, SupplierAddress 
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Overallsales] ([InvoiceNumber], [CustomerId], [Total], [Paymen" +
-                "tType], [DateOfSale], [PaymentDate], [AmountPaid]) VALUES (@InvoiceNumber, @Cust" +
-                "omerId, @Total, @PaymentType, @DateOfSale, @PaymentDate, @AmountPaid)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO Overallsales\r\n                  (InvoiceNumber, CustomerId, Total, Pa" +
+                "ymentType, DateOfSale, PaymentDate, AmountPaid)\r\nVALUES (@InvoiceNumber,@Custome" +
+                "rId,@Total,@PaymentType,@DateOfSale,@PaymentDate,@AmountPaid)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@InvoiceNumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InvoiceNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CustomerId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Total", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 8, 2, "Total", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentType", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DateOfSale", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DateOfSale", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AmountPaid", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 8, 2, "AmountPaid", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@InvoiceNumber", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "InvoiceNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CustomerId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Total", global::System.Data.SqlDbType.Decimal, 5, global::System.Data.ParameterDirection.Input, 8, 2, "Total", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentType", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DateOfSale", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "DateOfSale", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentDate", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AmountPaid", global::System.Data.SqlDbType.Decimal, 5, global::System.Data.ParameterDirection.Input, 8, 2, "AmountPaid", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -14752,16 +14826,35 @@ SELECT SupplierID, SupplierName, SupplierNumber, SupplierEmail, SupplierAddress 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[4];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT InvoiceNumber, CustomerId, Total, PaymentType, DateOfSale, PaymentDate, Am" +
-                "ountPaid FROM dbo.Overallsales";
+                "ountPaid\r\nFROM     Overallsales";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT MAX(InvoiceNumber) AS Expr1\r\nFROM     Overallsales";
+            this._commandCollection[1].CommandText = "SELECT InvoiceNumber, CustomerId, Total, PaymentType, DateOfSale, PaymentDate, Am" +
+                "ountPaid\r\nFROM     Overallsales\r\nWHERE  (DateOfSale = @DateOfSale)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DateOfSale", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "DateOfSale", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "SELECT MAX(InvoiceNumber) AS Expr1\r\nFROM     Overallsales";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = "INSERT INTO Overallsales\r\n                  (InvoiceNumber, CustomerId, Total, Pa" +
+                "ymentType, DateOfSale, PaymentDate, AmountPaid)\r\nVALUES (@InvoiceNumber,@Custome" +
+                "rId,@Total,@PaymentType,@DateOfSale,@PaymentDate,@AmountPaid)";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@InvoiceNumber", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "InvoiceNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CustomerId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Total", global::System.Data.SqlDbType.Decimal, 5, global::System.Data.ParameterDirection.Input, 8, 2, "Total", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentType", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DateOfSale", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "DateOfSale", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentDate", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AmountPaid", global::System.Data.SqlDbType.Decimal, 5, global::System.Data.ParameterDirection.Input, 8, 2, "AmountPaid", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -14783,6 +14876,42 @@ SELECT SupplierID, SupplierName, SupplierNumber, SupplierEmail, SupplierAddress 
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual G13Wst2024DataSet.OverallsalesDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            G13Wst2024DataSet.OverallsalesDataTable dataTable = new G13Wst2024DataSet.OverallsalesDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByDateOfSale(G13Wst2024DataSet.OverallsalesDataTable dataTable, string DateOfSale) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((DateOfSale == null)) {
+                throw new global::System.ArgumentNullException("DateOfSale");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(DateOfSale));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual G13Wst2024DataSet.OverallsalesDataTable GetDataBy2(string DateOfSale) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((DateOfSale == null)) {
+                throw new global::System.ArgumentNullException("DateOfSale");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(DateOfSale));
+            }
             G13Wst2024DataSet.OverallsalesDataTable dataTable = new G13Wst2024DataSet.OverallsalesDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -14820,51 +14949,8 @@ SELECT SupplierID, SupplierName, SupplierNumber, SupplierEmail, SupplierAddress 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int InvoiceNumber, int CustomerId, decimal Total, string PaymentType, System.DateTime DateOfSale, global::System.Nullable<global::System.DateTime> PaymentDate, global::System.Nullable<decimal> AmountPaid) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(InvoiceNumber));
-            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(CustomerId));
-            this.Adapter.InsertCommand.Parameters[2].Value = ((decimal)(Total));
-            if ((PaymentType == null)) {
-                throw new global::System.ArgumentNullException("PaymentType");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(PaymentType));
-            }
-            this.Adapter.InsertCommand.Parameters[4].Value = ((System.DateTime)(DateOfSale));
-            if ((PaymentDate.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((System.DateTime)(PaymentDate.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            if ((AmountPaid.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((decimal)(AmountPaid.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual global::System.Nullable<int> GetInvoiceNumber() {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[2];
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -14886,6 +14972,56 @@ SELECT SupplierID, SupplierName, SupplierNumber, SupplierEmail, SupplierAddress 
             else {
                 return new global::System.Nullable<int>(((int)(returnValue)));
             }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
+        public virtual int InsertQuery(int InvoiceNumber, int CustomerId, decimal Total, string PaymentType, string DateOfSale, string PaymentDate, global::System.Nullable<decimal> AmountPaid) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[3];
+            command.Parameters[0].Value = ((int)(InvoiceNumber));
+            command.Parameters[1].Value = ((int)(CustomerId));
+            command.Parameters[2].Value = ((decimal)(Total));
+            if ((PaymentType == null)) {
+                throw new global::System.ArgumentNullException("PaymentType");
+            }
+            else {
+                command.Parameters[3].Value = ((string)(PaymentType));
+            }
+            if ((DateOfSale == null)) {
+                throw new global::System.ArgumentNullException("DateOfSale");
+            }
+            else {
+                command.Parameters[4].Value = ((string)(DateOfSale));
+            }
+            if ((PaymentDate == null)) {
+                command.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[5].Value = ((string)(PaymentDate));
+            }
+            if ((AmountPaid.HasValue == true)) {
+                command.Parameters[6].Value = ((decimal)(AmountPaid.Value));
+            }
+            else {
+                command.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
         }
     }
     
@@ -15349,6 +15485,15 @@ SELECT SupplierID, SupplierName, SupplierNumber, SupplierEmail, SupplierAddress 
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._overallsalesTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Overallsales.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._overallsalesTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             if ((this._customerIDTypeTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.CustomerIDType.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -15421,15 +15566,6 @@ SELECT SupplierID, SupplierName, SupplierNumber, SupplierEmail, SupplierAddress 
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._overallsalesTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Overallsales.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._overallsalesTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._overall_salesTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Overall_sales.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -15486,6 +15622,14 @@ SELECT SupplierID, SupplierName, SupplierNumber, SupplierEmail, SupplierAddress 
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._supplierTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._overallsalesTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Overallsales.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._overallsalesTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -15553,14 +15697,6 @@ SELECT SupplierID, SupplierName, SupplierNumber, SupplierEmail, SupplierAddress 
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._overallsalesTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Overallsales.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._overallsalesTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._overall_salesTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Overall_sales.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -15584,14 +15720,6 @@ SELECT SupplierID, SupplierName, SupplierNumber, SupplierEmail, SupplierAddress 
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._overall_salesTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._overallsalesTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Overallsales.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._overallsalesTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -15656,6 +15784,14 @@ SELECT SupplierID, SupplierName, SupplierNumber, SupplierEmail, SupplierAddress 
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._customerIDTypeTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._overallsalesTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Overallsales.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._overallsalesTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
