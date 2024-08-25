@@ -32,6 +32,13 @@ namespace bosssystem1
             this.components = new System.ComponentModel.Container();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.invoiceNumberDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.partNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.partQuantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemTotalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemSaleBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.g13Wst2024DataSet = new bosssystem1.G13Wst2024DataSet();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.invoiceNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.customerIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -41,23 +48,16 @@ namespace bosssystem1
             this.paymentDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.amountPaidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.overallsalesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.g13Wst2024DataSet = new bosssystem1.G13Wst2024DataSet();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.overallsalesTableAdapter = new bosssystem1.G13Wst2024DataSetTableAdapters.OverallsalesTableAdapter();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.itemSaleBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.itemSaleTableAdapter = new bosssystem1.G13Wst2024DataSetTableAdapters.ItemSaleTableAdapter();
-            this.invoiceNumberDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.partNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.partQuantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemTotalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.overallsalesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.g13Wst2024DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemSaleBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.g13Wst2024DataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.overallsalesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dateTimePicker1
@@ -83,6 +83,66 @@ namespace bosssystem1
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Select a date and all the sales for that day will be displayed";
             // 
+            // dataGridView2
+            // 
+            this.dataGridView2.AutoGenerateColumns = false;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.invoiceNumberDataGridViewTextBoxColumn1,
+            this.partNoDataGridViewTextBoxColumn,
+            this.partQuantityDataGridViewTextBoxColumn,
+            this.itemTotalDataGridViewTextBoxColumn});
+            this.dataGridView2.DataSource = this.itemSaleBindingSource;
+            this.dataGridView2.Location = new System.Drawing.Point(7, 326);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.RowHeadersWidth = 51;
+            this.dataGridView2.RowTemplate.Height = 24;
+            this.dataGridView2.Size = new System.Drawing.Size(1287, 150);
+            this.dataGridView2.TabIndex = 5;
+            this.dataGridView2.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView2_RowHeaderMouseDoubleClick);
+            // 
+            // invoiceNumberDataGridViewTextBoxColumn1
+            // 
+            this.invoiceNumberDataGridViewTextBoxColumn1.DataPropertyName = "InvoiceNumber";
+            this.invoiceNumberDataGridViewTextBoxColumn1.HeaderText = "InvoiceNumber";
+            this.invoiceNumberDataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.invoiceNumberDataGridViewTextBoxColumn1.Name = "invoiceNumberDataGridViewTextBoxColumn1";
+            this.invoiceNumberDataGridViewTextBoxColumn1.Width = 125;
+            // 
+            // partNoDataGridViewTextBoxColumn
+            // 
+            this.partNoDataGridViewTextBoxColumn.DataPropertyName = "PartNo";
+            this.partNoDataGridViewTextBoxColumn.HeaderText = "PartNo";
+            this.partNoDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.partNoDataGridViewTextBoxColumn.Name = "partNoDataGridViewTextBoxColumn";
+            this.partNoDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // partQuantityDataGridViewTextBoxColumn
+            // 
+            this.partQuantityDataGridViewTextBoxColumn.DataPropertyName = "PartQuantity";
+            this.partQuantityDataGridViewTextBoxColumn.HeaderText = "PartQuantity";
+            this.partQuantityDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.partQuantityDataGridViewTextBoxColumn.Name = "partQuantityDataGridViewTextBoxColumn";
+            this.partQuantityDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // itemTotalDataGridViewTextBoxColumn
+            // 
+            this.itemTotalDataGridViewTextBoxColumn.DataPropertyName = "ItemTotal";
+            this.itemTotalDataGridViewTextBoxColumn.HeaderText = "ItemTotal";
+            this.itemTotalDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.itemTotalDataGridViewTextBoxColumn.Name = "itemTotalDataGridViewTextBoxColumn";
+            this.itemTotalDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // itemSaleBindingSource
+            // 
+            this.itemSaleBindingSource.DataMember = "ItemSale";
+            this.itemSaleBindingSource.DataSource = this.g13Wst2024DataSet;
+            // 
+            // g13Wst2024DataSet
+            // 
+            this.g13Wst2024DataSet.DataSetName = "G13Wst2024DataSet";
+            this.g13Wst2024DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // dataGridView1
             // 
             this.dataGridView1.AutoGenerateColumns = false;
@@ -102,6 +162,7 @@ namespace bosssystem1
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(1287, 171);
             this.dataGridView1.TabIndex = 4;
+            this.dataGridView1.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseDoubleClick);
             // 
             // invoiceNumberDataGridViewTextBoxColumn
             // 
@@ -164,11 +225,6 @@ namespace bosssystem1
             this.overallsalesBindingSource.DataMember = "Overallsales";
             this.overallsalesBindingSource.DataSource = this.g13Wst2024DataSet;
             // 
-            // g13Wst2024DataSet
-            // 
-            this.g13Wst2024DataSet.DataSetName = "G13Wst2024DataSet";
-            this.g13Wst2024DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -194,64 +250,9 @@ namespace bosssystem1
             // 
             this.overallsalesTableAdapter.ClearBeforeFill = true;
             // 
-            // dataGridView2
-            // 
-            this.dataGridView2.AutoGenerateColumns = false;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.invoiceNumberDataGridViewTextBoxColumn1,
-            this.partNoDataGridViewTextBoxColumn,
-            this.partQuantityDataGridViewTextBoxColumn,
-            this.itemTotalDataGridViewTextBoxColumn});
-            this.dataGridView2.DataSource = this.itemSaleBindingSource;
-            this.dataGridView2.Location = new System.Drawing.Point(7, 326);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersWidth = 51;
-            this.dataGridView2.RowTemplate.Height = 24;
-            this.dataGridView2.Size = new System.Drawing.Size(1287, 150);
-            this.dataGridView2.TabIndex = 5;
-            this.dataGridView2.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView2_RowHeaderMouseDoubleClick);
-            // 
-            // itemSaleBindingSource
-            // 
-            this.itemSaleBindingSource.DataMember = "ItemSale";
-            this.itemSaleBindingSource.DataSource = this.g13Wst2024DataSet;
-            // 
             // itemSaleTableAdapter
             // 
             this.itemSaleTableAdapter.ClearBeforeFill = true;
-            // 
-            // invoiceNumberDataGridViewTextBoxColumn1
-            // 
-            this.invoiceNumberDataGridViewTextBoxColumn1.DataPropertyName = "InvoiceNumber";
-            this.invoiceNumberDataGridViewTextBoxColumn1.HeaderText = "InvoiceNumber";
-            this.invoiceNumberDataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.invoiceNumberDataGridViewTextBoxColumn1.Name = "invoiceNumberDataGridViewTextBoxColumn1";
-            this.invoiceNumberDataGridViewTextBoxColumn1.Width = 125;
-            // 
-            // partNoDataGridViewTextBoxColumn
-            // 
-            this.partNoDataGridViewTextBoxColumn.DataPropertyName = "PartNo";
-            this.partNoDataGridViewTextBoxColumn.HeaderText = "PartNo";
-            this.partNoDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.partNoDataGridViewTextBoxColumn.Name = "partNoDataGridViewTextBoxColumn";
-            this.partNoDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // partQuantityDataGridViewTextBoxColumn
-            // 
-            this.partQuantityDataGridViewTextBoxColumn.DataPropertyName = "PartQuantity";
-            this.partQuantityDataGridViewTextBoxColumn.HeaderText = "PartQuantity";
-            this.partQuantityDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.partQuantityDataGridViewTextBoxColumn.Name = "partQuantityDataGridViewTextBoxColumn";
-            this.partQuantityDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // itemTotalDataGridViewTextBoxColumn
-            // 
-            this.itemTotalDataGridViewTextBoxColumn.DataPropertyName = "ItemTotal";
-            this.itemTotalDataGridViewTextBoxColumn.HeaderText = "ItemTotal";
-            this.itemTotalDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.itemTotalDataGridViewTextBoxColumn.Name = "itemTotalDataGridViewTextBoxColumn";
-            this.itemTotalDataGridViewTextBoxColumn.Width = 125;
             // 
             // viewSales
             // 
@@ -264,11 +265,11 @@ namespace bosssystem1
             this.Load += new System.EventHandler(this.viewSales_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.overallsalesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.g13Wst2024DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemSaleBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.g13Wst2024DataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.overallsalesBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -57,5 +57,14 @@ MessageBoxButtons.YesNo);
         {
             
         }
+
+        private void dataGridView1_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            // Assuming the InvoiceNumber is in the first column (index 0) of the selected row
+            int invoiceNumber = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value);
+
+            // Now call FillByInvNo with the retrieved invoice number
+            itemSaleTableAdapter.FillByInvNo(g13Wst2024DataSet.ItemSale, invoiceNumber);
+        }
     }
 }

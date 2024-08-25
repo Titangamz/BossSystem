@@ -216,14 +216,21 @@ MessageBoxButtons.YesNo);
                         // Insert into the overallsalesTableAdapter once, outside of the loop.
                         overallsalesTableAdapter.InsertQuery(newInvoiceNumber, int.Parse(custIDValue),Convert.ToDecimal(ordtotaltxt.Text), paytypeValue,Convert.ToString(DateTime.Now), null, null);
 
-                        // Now, if needed, you can loop over the rows to handle other per-row operations.
-                        foreach (DataGridViewRow row in saledatagrid.Rows)
+                        try
                         {
-                            var PartNoValue = row.Cells[2].Value.ToString();
-                            var rowtotalValue = row.Cells[6].Value?.ToString();
-                            var quantityValue = row.Cells[5].Value?.ToString();
+                            // Now, if needed, you can loop over the rows to handle other per-row operations.
+                            foreach (DataGridViewRow row in saledatagrid.Rows)
+                            {
+                                var PartNoValue = row.Cells[2].Value.ToString();
+                                var rowtotalValue = row.Cells[6].Value?.ToString();
+                                var quantityValue = row.Cells[5].Value?.ToString();
 
-                            itemSaleTableAdapter1.Insert(newInvoiceNumber, int.Parse(PartNoValue), quantityValue, Convert.ToDecimal(rowtotalValue));
+                                itemSaleTableAdapter1.Insert(newInvoiceNumber, int.Parse(PartNoValue), quantityValue, Convert.ToDecimal(rowtotalValue));
+                            }
+                        }
+                        catch(NullReferenceException)
+                        {
+                            
                         }
                     }
                     catch (Exception)
