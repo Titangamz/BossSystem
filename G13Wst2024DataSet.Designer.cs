@@ -11818,7 +11818,7 @@ SELECT PartNo, ItemDescription, ItemName, ItemQuantity, ItemPrice, DateReceived,
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT PartNo, ItemDescription, ItemName, ItemQuantity, ItemPrice, DateReceived, " +
@@ -11831,6 +11831,15 @@ SELECT PartNo, ItemDescription, ItemName, ItemQuantity, ItemPrice, DateReceived,
                 "";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@itemname", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "ItemName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "UPDATE PartsTable\r\nSET          ItemQuantity = ItemQuantity - @QuantityToDec\r\nWHE" +
+                "RE  (PartNo = @PartNo); \r\nSELECT PartNo, ItemDescription, ItemName, ItemQuantity" +
+                ", ItemPrice, DateReceived, ItemVat, SupplierID FROM PartsTable WHERE (PartNo = @" +
+                "PartNo)";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@QuantityToDec", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ItemQuantity", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PartNo", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "PartNo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -11880,7 +11889,7 @@ SELECT PartNo, ItemDescription, ItemName, ItemQuantity, ItemPrice, DateReceived,
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual G13Wst2024DataSet.PartsTableDataTable GetDataBy(string itemname) {
+        public virtual G13Wst2024DataSet.PartsTableDataTable GetDataBy1(string itemname) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
             if ((itemname == null)) {
                 throw new global::System.ArgumentNullException("itemname");
@@ -12191,6 +12200,36 @@ SELECT PartNo, ItemDescription, ItemName, ItemQuantity, ItemPrice, DateReceived,
                     this.Adapter.UpdateCommand.Connection.Close();
                 }
             }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
+        public virtual int UpdateQuantity(global::System.Nullable<int> QuantityToDec, int PartNo) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[2];
+            if ((QuantityToDec.HasValue == true)) {
+                command.Parameters[0].Value = ((int)(QuantityToDec.Value));
+            }
+            else {
+                command.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            command.Parameters[1].Value = ((int)(PartNo));
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
         }
     }
     

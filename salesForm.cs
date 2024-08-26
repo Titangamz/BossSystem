@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace bosssystem1
 {
@@ -218,15 +219,38 @@ MessageBoxButtons.YesNo);
 
                         try
                         {
-                            // Now, if needed, you can loop over the rows to handle other per-row operations.
                             foreach (DataGridViewRow row in saledatagrid.Rows)
                             {
-                                var PartNoValue = row.Cells[2].Value.ToString();
-                                var rowtotalValue = row.Cells[6].Value?.ToString();
-                                var quantityValue = row.Cells[5].Value?.ToString();
+                                try
+                                {
+                                    var PartNoValue = row.Cells[2].Value.ToString().Trim();
+                                    var rowtotalValue = row.Cells[6].Value?.ToString();
+                                    var quantityValue = row.Cells[5].Value?.ToString();
 
-                                itemSaleTableAdapter1.Insert(newInvoiceNumber, int.Parse(PartNoValue), quantityValue, Convert.ToDecimal(rowtotalValue));
+                                    if (string.IsNullOrEmpty(PartNoValue) || string.IsNullOrEmpty(quantityValue))
+                                    {
+                                        MessageBox.Show("PartNo or Quantity is empty.");
+                                        continue;
+                                    }
+
+                                    int partNo = int.Parse(PartNoValue);
+                                    int quantity = int.Parse(quantityValue);
+
+                                    // Insert into item sale table
+                                    itemSaleTableAdapter1.Insert(newInvoiceNumber, partNo, quantityValue, Convert.ToDecimal(rowtotalValue));
+
+
+                                    // Decrease quantity in parts table
+                                    
+                                    int rowsAffected = partsTableTableAdapter.UpdateQuantity(partNo, quantity);
+
+                                }
+                                catch (Exception ex)
+                                {
+                                    MessageBox.Show("An error occurred: " + ex.Message);
+                                }
                             }
+
                         }
                         catch(NullReferenceException)
                         {
