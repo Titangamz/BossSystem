@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Diagnostics;
 
 namespace bosssystem1
 {
@@ -193,7 +194,7 @@ namespace bosssystem1
         {
 
             DialogResult result = MessageBox.Show("Do you want to Confirm?", "Confirmation",
-MessageBoxButtons.YesNo);
+ MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
                 if (ordtotaltxt.Text == "")
@@ -202,23 +203,58 @@ MessageBoxButtons.YesNo);
                 }
                 else
                 {
-
-
                     int? lastInvoiceNumber = overallsalesTableAdapter.GetInvoiceNumber();
                     int newInvoiceNumber = (lastInvoiceNumber ?? 0) + 1;
-                    try
+
+                    // Check if there's enough stock for all items before processing the sale
+                    bool hasEnoughStock = true;
+                    foreach (DataGridViewRow row in saledatagrid.Rows)
                     {
-                        // Get values from the first row to perform the insert just once.
-                        var firstRow = saledatagrid.Rows[0];
-                        var custIDValue = firstRow.Cells[0].Value.ToString();
-                        var paytypeValue = firstRow.Cells[7].Value.ToString();
-                        var custname = firstRow.Cells[1].Value.ToString();
-
-                        // Insert into the overallsalesTableAdapter once, outside of the loop.
-                        overallsalesTableAdapter.InsertQuery(newInvoiceNumber, int.Parse(custIDValue),Convert.ToDecimal(ordtotaltxt.Text), paytypeValue,Convert.ToString(DateTime.Now), null, null);
-
                         try
                         {
+                            var PartNoValue = row.Cells[2].Value.ToString().Trim();
+                            var quantityValue = row.Cells[5].Value?.ToString();
+
+                            if (string.IsNullOrEmpty(PartNoValue) || string.IsNullOrEmpty(quantityValue))
+                            {
+                                MessageBox.Show("PartNo or Quantity is empty.");
+                                hasEnoughStock = false;
+                                break;
+                            }
+
+                            int partNo = int.Parse(PartNoValue);
+                            int quantity = int.Parse(quantityValue);
+
+                            // Get the current quantity in the parts table
+                            int? currentQuantity = partsTableTableAdapter.GetQuantity(partNo);
+
+                            // Check if there's enough stock
+                            if (currentQuantity < quantity)
+                            {
+                                MessageBox.Show($"Not enough stock for Part No: {partNo}. Available quantity: {currentQuantity}");
+                                hasEnoughStock = false;
+                                break;
+                            }
+                        }
+                        catch (NullReferenceException ex)
+                        {
+                           
+                        }
+                    }
+
+                    if (hasEnoughStock)
+                    {
+                        try
+                        {
+                            // Get values from the first row to perform the insert just once.
+                            var firstRow = saledatagrid.Rows[0];
+                            var custIDValue = firstRow.Cells[0].Value.ToString();
+                            var paytypeValue = firstRow.Cells[7].Value.ToString();
+                            var custname = firstRow.Cells[1].Value.ToString();
+
+                            // Insert into the overallsalesTableAdapter once, outside of the loop.
+                            overallsalesTableAdapter.InsertQuery(newInvoiceNumber, int.Parse(custIDValue), Convert.ToDecimal(ordtotaltxt.Text), paytypeValue, Convert.ToString(DateTime.Now), null, null);
+
                             foreach (DataGridViewRow row in saledatagrid.Rows)
                             {
                                 try
@@ -239,37 +275,33 @@ MessageBoxButtons.YesNo);
                                     // Insert into item sale table
                                     itemSaleTableAdapter1.Insert(newInvoiceNumber, partNo, quantityValue, Convert.ToDecimal(rowtotalValue));
 
-
                                     // Decrease quantity in parts table
-                                    
-                                    int rowsAffected = partsTableTableAdapter.UpdateQuantity(partNo, quantity);
-
+                                    int rowsAffected = partsTableTableAdapter.UpdateQuantity(quantity, partNo);
                                 }
                                 catch (Exception ex)
                                 {
                                     MessageBox.Show("An error occurred: " + ex.Message);
                                 }
                             }
-
                         }
-                        catch(NullReferenceException)
+                        catch (Exception)
                         {
-                            
+                            MessageBox.Show("Error, please ensure all fields are filled in.");
                         }
-                    }
-                    catch (Exception)
-                    {
-                        MessageBox.Show("Error, please ensure all fields are filled in.");
-                    }
 
-                    MessageBox.Show("Order has been Confirmed with Invoice No: " + newInvoiceNumber);
+                        MessageBox.Show("Order has been Confirmed with Invoice No: " + newInvoiceNumber);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Sale NOT Processed due to insufficient stock.");
+                    }
                 }
             }
             else if (result == DialogResult.No)
             {
                 MessageBox.Show("Sale NOT Processed");
             }
-            
+
 
 
         }
