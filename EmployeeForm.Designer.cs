@@ -31,34 +31,34 @@ namespace bosssystem1
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.g13Wst2024DataSet = new bosssystem1.G13Wst2024DataSet();
-            this.employeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.employeeTableAdapter = new bosssystem1.G13Wst2024DataSetTableAdapters.EmployeeTableAdapter();
             this.employeeIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.employeeNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.employeeSurnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.employeePhoneNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.employeeEmailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.employeePasswordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.g13Wst2024DataSet = new bosssystem1.G13Wst2024DataSet();
+            this.employeeTableAdapter = new bosssystem1.G13Wst2024DataSetTableAdapters.EmployeeTableAdapter();
             this.updatebtn = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.empidtxt = new System.Windows.Forms.TextBox();
-            this.empnumtxt = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.empnametxt = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.empmailtxt = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.empsurtxt = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.emppasstxt = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.empsurtxt = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.empmailtxt = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.empnametxt = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.empnumtxt = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.empidtxt = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.g13Wst2024DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.g13Wst2024DataSet)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -81,20 +81,7 @@ namespace bosssystem1
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(1251, 175);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // g13Wst2024DataSet
-            // 
-            this.g13Wst2024DataSet.DataSetName = "G13Wst2024DataSet";
-            this.g13Wst2024DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // employeeBindingSource
-            // 
-            this.employeeBindingSource.DataMember = "Employee";
-            this.employeeBindingSource.DataSource = this.g13Wst2024DataSet;
-            // 
-            // employeeTableAdapter
-            // 
-            this.employeeTableAdapter.ClearBeforeFill = true;
+            this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
             // employeeIDDataGridViewTextBoxColumn
             // 
@@ -144,6 +131,20 @@ namespace bosssystem1
             this.employeePasswordDataGridViewTextBoxColumn.Name = "employeePasswordDataGridViewTextBoxColumn";
             this.employeePasswordDataGridViewTextBoxColumn.Width = 125;
             // 
+            // employeeBindingSource
+            // 
+            this.employeeBindingSource.DataMember = "Employee";
+            this.employeeBindingSource.DataSource = this.g13Wst2024DataSet;
+            // 
+            // g13Wst2024DataSet
+            // 
+            this.g13Wst2024DataSet.DataSetName = "G13Wst2024DataSet";
+            this.g13Wst2024DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // employeeTableAdapter
+            // 
+            this.employeeTableAdapter.ClearBeforeFill = true;
+            // 
             // updatebtn
             // 
             this.updatebtn.Location = new System.Drawing.Point(1116, 323);
@@ -177,21 +178,79 @@ namespace bosssystem1
             this.groupBox1.Text = "Add Employee";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // label1
+            // button1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 47);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(87, 17);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "EmployeeID:";
+            this.button1.Location = new System.Drawing.Point(925, 75);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(114, 41);
+            this.button1.TabIndex = 12;
+            this.button1.Text = "Add Employee";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // empidtxt
+            // emppasstxt
             // 
-            this.empidtxt.Location = new System.Drawing.Point(102, 44);
-            this.empidtxt.Name = "empidtxt";
-            this.empidtxt.Size = new System.Drawing.Size(144, 22);
-            this.empidtxt.TabIndex = 1;
+            this.emppasstxt.Location = new System.Drawing.Point(723, 115);
+            this.emppasstxt.Name = "emppasstxt";
+            this.emppasstxt.Size = new System.Drawing.Size(144, 22);
+            this.emppasstxt.TabIndex = 11;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(582, 118);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(135, 17);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "Employee Password";
+            // 
+            // empsurtxt
+            // 
+            this.empsurtxt.Location = new System.Drawing.Point(723, 41);
+            this.empsurtxt.Name = "empsurtxt";
+            this.empsurtxt.Size = new System.Drawing.Size(144, 22);
+            this.empsurtxt.TabIndex = 9;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(582, 44);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(135, 17);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "Employee Surname:";
+            // 
+            // empmailtxt
+            // 
+            this.empmailtxt.Location = new System.Drawing.Point(417, 115);
+            this.empmailtxt.Name = "empmailtxt";
+            this.empmailtxt.Size = new System.Drawing.Size(144, 22);
+            this.empmailtxt.TabIndex = 7;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(303, 118);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(108, 17);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Employee Email";
+            // 
+            // empnametxt
+            // 
+            this.empnametxt.Location = new System.Drawing.Point(389, 44);
+            this.empnametxt.Name = "empnametxt";
+            this.empnametxt.Size = new System.Drawing.Size(144, 22);
+            this.empnametxt.TabIndex = 5;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(273, 47);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(115, 17);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Employee Name:";
             // 
             // empnumtxt
             // 
@@ -210,79 +269,21 @@ namespace bosssystem1
             this.label2.Text = "Employee Number";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
-            // empnametxt
+            // empidtxt
             // 
-            this.empnametxt.Location = new System.Drawing.Point(389, 44);
-            this.empnametxt.Name = "empnametxt";
-            this.empnametxt.Size = new System.Drawing.Size(144, 22);
-            this.empnametxt.TabIndex = 5;
+            this.empidtxt.Location = new System.Drawing.Point(102, 44);
+            this.empidtxt.Name = "empidtxt";
+            this.empidtxt.Size = new System.Drawing.Size(144, 22);
+            this.empidtxt.TabIndex = 1;
             // 
-            // label3
+            // label1
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(273, 47);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(115, 17);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Employee Name:";
-            // 
-            // empmailtxt
-            // 
-            this.empmailtxt.Location = new System.Drawing.Point(417, 115);
-            this.empmailtxt.Name = "empmailtxt";
-            this.empmailtxt.Size = new System.Drawing.Size(144, 22);
-            this.empmailtxt.TabIndex = 7;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(303, 118);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(108, 17);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Employee Email";
-            // 
-            // empsurtxt
-            // 
-            this.empsurtxt.Location = new System.Drawing.Point(723, 41);
-            this.empsurtxt.Name = "empsurtxt";
-            this.empsurtxt.Size = new System.Drawing.Size(144, 22);
-            this.empsurtxt.TabIndex = 9;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(582, 44);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(135, 17);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "Employee Surname:";
-            // 
-            // emppasstxt
-            // 
-            this.emppasstxt.Location = new System.Drawing.Point(723, 115);
-            this.emppasstxt.Name = "emppasstxt";
-            this.emppasstxt.Size = new System.Drawing.Size(144, 22);
-            this.emppasstxt.TabIndex = 11;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(582, 118);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(135, 17);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "Employee Password";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(925, 75);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(114, 41);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "Add Employee";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(9, 47);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(87, 17);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "EmployeeID:";
             // 
             // groupBox2
             // 
@@ -306,8 +307,8 @@ namespace bosssystem1
             this.Text = "EmployeeForm";
             this.Load += new System.EventHandler(this.EmployeeForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.g13Wst2024DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.g13Wst2024DataSet)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

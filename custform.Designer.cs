@@ -32,9 +32,18 @@ namespace bosssystem1
             this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.customerIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customerNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customerSurnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customerPhoneNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customerAddressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customerBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.g13Wst2024DataSet = new bosssystem1.G13Wst2024DataSet();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.custaddresstxt = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.custphnnumtxt = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -44,20 +53,13 @@ namespace bosssystem1
             this.label3 = new System.Windows.Forms.Label();
             this.custidtxt = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.custaddresstxt = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.customerIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customerNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customerSurnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customerPhoneNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customerAddressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customerBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.g13Wst2024DataSet = new bosssystem1.G13Wst2024DataSet();
             this.customerTableAdapter = new bosssystem1.G13Wst2024DataSetTableAdapters.CustomerTableAdapter();
+            this.UpdateBtn = new System.Windows.Forms.Button();
+            this.ClearBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.g13Wst2024DataSet)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -87,6 +89,62 @@ namespace bosssystem1
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(1312, 227);
             this.dataGridView1.TabIndex = 1;
+            this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
+            // 
+            // customerIDDataGridViewTextBoxColumn
+            // 
+            this.customerIDDataGridViewTextBoxColumn.DataPropertyName = "CustomerID";
+            this.customerIDDataGridViewTextBoxColumn.HeaderText = "CustomerID";
+            this.customerIDDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.customerIDDataGridViewTextBoxColumn.Name = "customerIDDataGridViewTextBoxColumn";
+            this.customerIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.customerIDDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // customerNameDataGridViewTextBoxColumn
+            // 
+            this.customerNameDataGridViewTextBoxColumn.DataPropertyName = "CustomerName";
+            this.customerNameDataGridViewTextBoxColumn.HeaderText = "CustomerName";
+            this.customerNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.customerNameDataGridViewTextBoxColumn.Name = "customerNameDataGridViewTextBoxColumn";
+            this.customerNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.customerNameDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // customerSurnameDataGridViewTextBoxColumn
+            // 
+            this.customerSurnameDataGridViewTextBoxColumn.DataPropertyName = "CustomerSurname";
+            this.customerSurnameDataGridViewTextBoxColumn.HeaderText = "CustomerSurname";
+            this.customerSurnameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.customerSurnameDataGridViewTextBoxColumn.Name = "customerSurnameDataGridViewTextBoxColumn";
+            this.customerSurnameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.customerSurnameDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // customerPhoneNumberDataGridViewTextBoxColumn
+            // 
+            this.customerPhoneNumberDataGridViewTextBoxColumn.DataPropertyName = "CustomerPhoneNumber";
+            this.customerPhoneNumberDataGridViewTextBoxColumn.HeaderText = "CustomerPhoneNumber";
+            this.customerPhoneNumberDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.customerPhoneNumberDataGridViewTextBoxColumn.Name = "customerPhoneNumberDataGridViewTextBoxColumn";
+            this.customerPhoneNumberDataGridViewTextBoxColumn.ReadOnly = true;
+            this.customerPhoneNumberDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // customerAddressDataGridViewTextBoxColumn
+            // 
+            this.customerAddressDataGridViewTextBoxColumn.DataPropertyName = "CustomerAddress";
+            this.customerAddressDataGridViewTextBoxColumn.HeaderText = "CustomerAddress";
+            this.customerAddressDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.customerAddressDataGridViewTextBoxColumn.Name = "customerAddressDataGridViewTextBoxColumn";
+            this.customerAddressDataGridViewTextBoxColumn.ReadOnly = true;
+            this.customerAddressDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // customerBindingSource
+            // 
+            this.customerBindingSource.DataMember = "Customer";
+            this.customerBindingSource.DataSource = this.g13Wst2024DataSet;
+            // 
+            // g13Wst2024DataSet
+            // 
+            this.g13Wst2024DataSet.DataSetName = "G13Wst2024DataSet";
+            this.g13Wst2024DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label2
             // 
@@ -107,6 +165,8 @@ namespace bosssystem1
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.ClearBtn);
+            this.groupBox1.Controls.Add(this.UpdateBtn);
             this.groupBox1.Controls.Add(this.custaddresstxt);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.button1);
@@ -125,9 +185,25 @@ namespace bosssystem1
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Add New Customer Details";
             // 
+            // custaddresstxt
+            // 
+            this.custaddresstxt.Location = new System.Drawing.Point(819, 120);
+            this.custaddresstxt.Name = "custaddresstxt";
+            this.custaddresstxt.Size = new System.Drawing.Size(191, 22);
+            this.custaddresstxt.TabIndex = 9;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(689, 123);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(124, 17);
+            this.label7.TabIndex = 8;
+            this.label7.Text = "Customer Address";
+            // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(493, 181);
+            this.button1.Location = new System.Drawing.Point(346, 181);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(184, 57);
             this.button1.TabIndex = 2;
@@ -199,80 +275,29 @@ namespace bosssystem1
             this.label6.TabIndex = 0;
             this.label6.Text = "Customer ID";
             // 
-            // custaddresstxt
-            // 
-            this.custaddresstxt.Location = new System.Drawing.Point(819, 120);
-            this.custaddresstxt.Name = "custaddresstxt";
-            this.custaddresstxt.Size = new System.Drawing.Size(191, 22);
-            this.custaddresstxt.TabIndex = 9;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(689, 123);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(124, 17);
-            this.label7.TabIndex = 8;
-            this.label7.Text = "Customer Address";
-            // 
-            // customerIDDataGridViewTextBoxColumn
-            // 
-            this.customerIDDataGridViewTextBoxColumn.DataPropertyName = "CustomerID";
-            this.customerIDDataGridViewTextBoxColumn.HeaderText = "CustomerID";
-            this.customerIDDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.customerIDDataGridViewTextBoxColumn.Name = "customerIDDataGridViewTextBoxColumn";
-            this.customerIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.customerIDDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // customerNameDataGridViewTextBoxColumn
-            // 
-            this.customerNameDataGridViewTextBoxColumn.DataPropertyName = "CustomerName";
-            this.customerNameDataGridViewTextBoxColumn.HeaderText = "CustomerName";
-            this.customerNameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.customerNameDataGridViewTextBoxColumn.Name = "customerNameDataGridViewTextBoxColumn";
-            this.customerNameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.customerNameDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // customerSurnameDataGridViewTextBoxColumn
-            // 
-            this.customerSurnameDataGridViewTextBoxColumn.DataPropertyName = "CustomerSurname";
-            this.customerSurnameDataGridViewTextBoxColumn.HeaderText = "CustomerSurname";
-            this.customerSurnameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.customerSurnameDataGridViewTextBoxColumn.Name = "customerSurnameDataGridViewTextBoxColumn";
-            this.customerSurnameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.customerSurnameDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // customerPhoneNumberDataGridViewTextBoxColumn
-            // 
-            this.customerPhoneNumberDataGridViewTextBoxColumn.DataPropertyName = "CustomerPhoneNumber";
-            this.customerPhoneNumberDataGridViewTextBoxColumn.HeaderText = "CustomerPhoneNumber";
-            this.customerPhoneNumberDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.customerPhoneNumberDataGridViewTextBoxColumn.Name = "customerPhoneNumberDataGridViewTextBoxColumn";
-            this.customerPhoneNumberDataGridViewTextBoxColumn.ReadOnly = true;
-            this.customerPhoneNumberDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // customerAddressDataGridViewTextBoxColumn
-            // 
-            this.customerAddressDataGridViewTextBoxColumn.DataPropertyName = "CustomerAddress";
-            this.customerAddressDataGridViewTextBoxColumn.HeaderText = "CustomerAddress";
-            this.customerAddressDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.customerAddressDataGridViewTextBoxColumn.Name = "customerAddressDataGridViewTextBoxColumn";
-            this.customerAddressDataGridViewTextBoxColumn.ReadOnly = true;
-            this.customerAddressDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // customerBindingSource
-            // 
-            this.customerBindingSource.DataMember = "Customer";
-            this.customerBindingSource.DataSource = this.g13Wst2024DataSet;
-            // 
-            // g13Wst2024DataSet
-            // 
-            this.g13Wst2024DataSet.DataSetName = "G13Wst2024DataSet";
-            this.g13Wst2024DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // customerTableAdapter
             // 
             this.customerTableAdapter.ClearBeforeFill = true;
+            // 
+            // UpdateBtn
+            // 
+            this.UpdateBtn.Location = new System.Drawing.Point(570, 181);
+            this.UpdateBtn.Name = "UpdateBtn";
+            this.UpdateBtn.Size = new System.Drawing.Size(184, 57);
+            this.UpdateBtn.TabIndex = 10;
+            this.UpdateBtn.Text = "Update customer details";
+            this.UpdateBtn.UseVisualStyleBackColor = true;
+            this.UpdateBtn.Click += new System.EventHandler(this.UpdateBtn_Click);
+            // 
+            // ClearBtn
+            // 
+            this.ClearBtn.Location = new System.Drawing.Point(781, 181);
+            this.ClearBtn.Name = "ClearBtn";
+            this.ClearBtn.Size = new System.Drawing.Size(184, 57);
+            this.ClearBtn.TabIndex = 11;
+            this.ClearBtn.Text = "Clear details";
+            this.ClearBtn.UseVisualStyleBackColor = true;
+            this.ClearBtn.Click += new System.EventHandler(this.ClearBtn_Click);
             // 
             // custform
             // 
@@ -288,10 +313,10 @@ namespace bosssystem1
             this.Text = "custform";
             this.Load += new System.EventHandler(this.custform_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.g13Wst2024DataSet)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -323,5 +348,7 @@ namespace bosssystem1
         private System.Windows.Forms.DataGridViewTextBoxColumn customerAddressDataGridViewTextBoxColumn;
         private System.Windows.Forms.TextBox custaddresstxt;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button UpdateBtn;
+        private System.Windows.Forms.Button ClearBtn;
     }
 }

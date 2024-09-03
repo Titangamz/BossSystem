@@ -46,6 +46,7 @@ namespace bosssystem1
             this.partsTableTableAdapter = new bosssystem1.G13Wst2024DataSetTableAdapters.PartsTableTableAdapter();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.daterectxt = new System.Windows.Forms.MaskedTextBox();
+            this.updatepartbtn = new System.Windows.Forms.Button();
             this.addpartbtn = new System.Windows.Forms.Button();
             this.suppidtxt = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -62,8 +63,6 @@ namespace bosssystem1
             this.label3 = new System.Windows.Forms.Label();
             this.partnotxt = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.updatepartbtn = new System.Windows.Forms.Button();
-            this.label10 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.partsTableBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.g13Wst2024DataSet)).BeginInit();
@@ -107,6 +106,7 @@ namespace bosssystem1
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(1311, 241);
             this.dataGridView1.TabIndex = 5;
+            this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
             // partNoDataGridViewTextBoxColumn
             // 
@@ -189,6 +189,7 @@ namespace bosssystem1
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.daterectxt);
+            this.groupBox1.Controls.Add(this.updatepartbtn);
             this.groupBox1.Controls.Add(this.addpartbtn);
             this.groupBox1.Controls.Add(this.suppidtxt);
             this.groupBox1.Controls.Add(this.label9);
@@ -220,6 +221,16 @@ namespace bosssystem1
             this.daterectxt.Size = new System.Drawing.Size(177, 22);
             this.daterectxt.TabIndex = 17;
             this.daterectxt.ValidatingType = typeof(System.DateTime);
+            // 
+            // updatepartbtn
+            // 
+            this.updatepartbtn.Location = new System.Drawing.Point(814, 171);
+            this.updatepartbtn.Name = "updatepartbtn";
+            this.updatepartbtn.Size = new System.Drawing.Size(149, 41);
+            this.updatepartbtn.TabIndex = 7;
+            this.updatepartbtn.Text = "Update Parts";
+            this.updatepartbtn.UseVisualStyleBackColor = true;
+            this.updatepartbtn.Click += new System.EventHandler(this.updatepartbtn_Click);
             // 
             // addpartbtn
             // 
@@ -278,6 +289,7 @@ namespace bosssystem1
             this.itempricetxt.Name = "itempricetxt";
             this.itempricetxt.Size = new System.Drawing.Size(178, 22);
             this.itempricetxt.TabIndex = 9;
+            this.itempricetxt.TextChanged += new System.EventHandler(this.itempricetxt_TextChanged);
             // 
             // label6
             // 
@@ -352,33 +364,11 @@ namespace bosssystem1
             this.label2.TabIndex = 0;
             this.label2.Text = "PartNo";
             // 
-            // updatepartbtn
-            // 
-            this.updatepartbtn.Location = new System.Drawing.Point(1086, 33);
-            this.updatepartbtn.Name = "updatepartbtn";
-            this.updatepartbtn.Size = new System.Drawing.Size(149, 41);
-            this.updatepartbtn.TabIndex = 7;
-            this.updatepartbtn.Text = "Update Parts";
-            this.updatepartbtn.UseVisualStyleBackColor = true;
-            this.updatepartbtn.Click += new System.EventHandler(this.updatepartbtn_Click);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(564, 45);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(516, 17);
-            this.label10.TabIndex = 8;
-            this.label10.Text = "(To update a part. Simply change the details in the grid and click \"Update Parts\"" +
-    ")";
-            // 
             // invform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1336, 590);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.updatepartbtn);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label1);
@@ -430,6 +420,5 @@ namespace bosssystem1
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.MaskedTextBox daterectxt;
         private System.Windows.Forms.Button updatepartbtn;
-        private System.Windows.Forms.Label label10;
     }
 }

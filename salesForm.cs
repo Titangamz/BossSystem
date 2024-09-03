@@ -22,10 +22,7 @@ namespace bosssystem1
 
         private void invoiceForm_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'dataSetInvoice.saleorder' table. You can move, or remove it, as needed.
-            this.saleorderTableAdapter.Fill(this.dataSetInvoice.saleorder);
-            // TODO: This line of code loads data into the 'dataSetInvoice.saleorder' table. You can move, or remove it, as needed.
-            this.saleorderTableAdapter.Fill(this.dataSetInvoice.saleorder);
+           
             // TODO: This line of code loads data into the 'dataSetInvoice.saleorder' table. You can move, or remove it, as needed.
             this.saleorderTableAdapter.Fill(this.dataSetInvoice.saleorder);
             // TODO: This line of code loads data into the 'g13Wst2024DataSet.Customer' table. You can move, or remove it, as needed.
@@ -249,7 +246,7 @@ namespace bosssystem1
                             // Get values from the first row to perform the insert just once.
                             var firstRow = saledatagrid.Rows[0];
                             var custIDValue = firstRow.Cells[0].Value.ToString();
-                            var paytypeValue = firstRow.Cells[7].Value.ToString();
+                            var paytypeValue = comboBox1.Text;
                             var custname = firstRow.Cells[1].Value.ToString();
 
                             // Insert into the overallsalesTableAdapter once, outside of the loop.
@@ -303,6 +300,11 @@ namespace bosssystem1
             }
 
 
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
 
         }
     }

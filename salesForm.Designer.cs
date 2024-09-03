@@ -32,14 +32,6 @@ namespace bosssystem1
             this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.saledatagrid = new System.Windows.Forms.DataGridView();
-            this.customerIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customerNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.partNoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.unitPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RowTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PaymentType = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.saleorderBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSetInvoice = new bosssystem1.DataSetInvoice();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -74,6 +66,15 @@ namespace bosssystem1
             this.label2 = new System.Windows.Forms.Label();
             this.overallsalesTableAdapter = new bosssystem1.G13Wst2024DataSetTableAdapters.OverallsalesTableAdapter();
             this.itemSaleTableAdapter1 = new bosssystem1.G13Wst2024DataSetTableAdapters.ItemSaleTableAdapter();
+            this.customerIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customerNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.partNoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unitPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RowTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.saledatagrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.saleorderBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetInvoice)).BeginInit();
@@ -105,8 +106,7 @@ namespace bosssystem1
             this.itemNameDataGridViewTextBoxColumn1,
             this.unitPriceDataGridViewTextBoxColumn,
             this.Quantity,
-            this.RowTotal,
-            this.PaymentType});
+            this.RowTotal});
             this.saledatagrid.DataSource = this.saleorderBindingSource;
             this.saledatagrid.Location = new System.Drawing.Point(12, 404);
             this.saledatagrid.Name = "saledatagrid";
@@ -116,71 +116,6 @@ namespace bosssystem1
             this.saledatagrid.TabIndex = 1;
             this.saledatagrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.saledatagrid_CellContentClick);
             this.saledatagrid.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.saledatagrid_CellValueChanged);
-            // 
-            // customerIDDataGridViewTextBoxColumn
-            // 
-            this.customerIDDataGridViewTextBoxColumn.DataPropertyName = "CustomerID";
-            this.customerIDDataGridViewTextBoxColumn.HeaderText = "CustomerID";
-            this.customerIDDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.customerIDDataGridViewTextBoxColumn.Name = "customerIDDataGridViewTextBoxColumn";
-            this.customerIDDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // customerNameDataGridViewTextBoxColumn1
-            // 
-            this.customerNameDataGridViewTextBoxColumn1.DataPropertyName = "CustomerName";
-            this.customerNameDataGridViewTextBoxColumn1.HeaderText = "CustomerName";
-            this.customerNameDataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.customerNameDataGridViewTextBoxColumn1.Name = "customerNameDataGridViewTextBoxColumn1";
-            this.customerNameDataGridViewTextBoxColumn1.Width = 125;
-            // 
-            // partNoDataGridViewTextBoxColumn1
-            // 
-            this.partNoDataGridViewTextBoxColumn1.DataPropertyName = "PartNo";
-            this.partNoDataGridViewTextBoxColumn1.HeaderText = "PartNo";
-            this.partNoDataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.partNoDataGridViewTextBoxColumn1.Name = "partNoDataGridViewTextBoxColumn1";
-            this.partNoDataGridViewTextBoxColumn1.Width = 125;
-            // 
-            // itemNameDataGridViewTextBoxColumn1
-            // 
-            this.itemNameDataGridViewTextBoxColumn1.DataPropertyName = "ItemName";
-            this.itemNameDataGridViewTextBoxColumn1.HeaderText = "ItemName";
-            this.itemNameDataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.itemNameDataGridViewTextBoxColumn1.Name = "itemNameDataGridViewTextBoxColumn1";
-            this.itemNameDataGridViewTextBoxColumn1.Width = 125;
-            // 
-            // unitPriceDataGridViewTextBoxColumn
-            // 
-            this.unitPriceDataGridViewTextBoxColumn.DataPropertyName = "UnitPrice";
-            this.unitPriceDataGridViewTextBoxColumn.HeaderText = "UnitPrice";
-            this.unitPriceDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.unitPriceDataGridViewTextBoxColumn.Name = "unitPriceDataGridViewTextBoxColumn";
-            this.unitPriceDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // Quantity
-            // 
-            this.Quantity.HeaderText = "Quantity";
-            this.Quantity.MinimumWidth = 6;
-            this.Quantity.Name = "Quantity";
-            this.Quantity.Width = 125;
-            // 
-            // RowTotal
-            // 
-            this.RowTotal.HeaderText = "RowTotal";
-            this.RowTotal.MinimumWidth = 6;
-            this.RowTotal.Name = "RowTotal";
-            this.RowTotal.ReadOnly = true;
-            this.RowTotal.Width = 125;
-            // 
-            // PaymentType
-            // 
-            this.PaymentType.HeaderText = "PaymentType";
-            this.PaymentType.Items.AddRange(new object[] {
-            "Cash",
-            "Credit"});
-            this.PaymentType.MinimumWidth = 6;
-            this.PaymentType.Name = "PaymentType";
-            this.PaymentType.Width = 125;
             // 
             // saleorderBindingSource
             // 
@@ -410,7 +345,7 @@ namespace bosssystem1
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(1039, 619);
+            this.button3.Location = new System.Drawing.Point(1088, 619);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(135, 38);
             this.button3.TabIndex = 8;
@@ -452,11 +387,89 @@ namespace bosssystem1
             // 
             this.itemSaleTableAdapter1.ClearBeforeFill = true;
             // 
+            // customerIDDataGridViewTextBoxColumn
+            // 
+            this.customerIDDataGridViewTextBoxColumn.DataPropertyName = "CustomerID";
+            this.customerIDDataGridViewTextBoxColumn.HeaderText = "CustomerID";
+            this.customerIDDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.customerIDDataGridViewTextBoxColumn.Name = "customerIDDataGridViewTextBoxColumn";
+            this.customerIDDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // customerNameDataGridViewTextBoxColumn1
+            // 
+            this.customerNameDataGridViewTextBoxColumn1.DataPropertyName = "CustomerName";
+            this.customerNameDataGridViewTextBoxColumn1.HeaderText = "CustomerName";
+            this.customerNameDataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.customerNameDataGridViewTextBoxColumn1.Name = "customerNameDataGridViewTextBoxColumn1";
+            this.customerNameDataGridViewTextBoxColumn1.Width = 125;
+            // 
+            // partNoDataGridViewTextBoxColumn1
+            // 
+            this.partNoDataGridViewTextBoxColumn1.DataPropertyName = "PartNo";
+            this.partNoDataGridViewTextBoxColumn1.HeaderText = "PartNo";
+            this.partNoDataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.partNoDataGridViewTextBoxColumn1.Name = "partNoDataGridViewTextBoxColumn1";
+            this.partNoDataGridViewTextBoxColumn1.Width = 125;
+            // 
+            // itemNameDataGridViewTextBoxColumn1
+            // 
+            this.itemNameDataGridViewTextBoxColumn1.DataPropertyName = "ItemName";
+            this.itemNameDataGridViewTextBoxColumn1.HeaderText = "ItemName";
+            this.itemNameDataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.itemNameDataGridViewTextBoxColumn1.Name = "itemNameDataGridViewTextBoxColumn1";
+            this.itemNameDataGridViewTextBoxColumn1.Width = 125;
+            // 
+            // unitPriceDataGridViewTextBoxColumn
+            // 
+            this.unitPriceDataGridViewTextBoxColumn.DataPropertyName = "UnitPrice";
+            this.unitPriceDataGridViewTextBoxColumn.HeaderText = "UnitPrice";
+            this.unitPriceDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.unitPriceDataGridViewTextBoxColumn.Name = "unitPriceDataGridViewTextBoxColumn";
+            this.unitPriceDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // Quantity
+            // 
+            this.Quantity.HeaderText = "Quantity";
+            this.Quantity.MinimumWidth = 6;
+            this.Quantity.Name = "Quantity";
+            this.Quantity.Width = 125;
+            // 
+            // RowTotal
+            // 
+            this.RowTotal.HeaderText = "RowTotal";
+            this.RowTotal.MinimumWidth = 6;
+            this.RowTotal.Name = "RowTotal";
+            this.RowTotal.ReadOnly = true;
+            this.RowTotal.Width = 125;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Cash",
+            "Credit"});
+            this.comboBox1.Location = new System.Drawing.Point(865, 627);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(157, 24);
+            this.comboBox1.TabIndex = 10;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(871, 607);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(103, 17);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "Payment Type:";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
+            // 
             // salesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1336, 669);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.deleterowsbtn);
@@ -517,6 +530,10 @@ namespace bosssystem1
         private DataSetInvoiceTableAdapters.saleorderTableAdapter saleorderTableAdapter;
         private System.Windows.Forms.Button deleterowsbtn;
         private System.Windows.Forms.Button button3;
+        private G13Wst2024DataSetTableAdapters.SalebkTableAdapter salebkTableAdapter1;
+        private System.Windows.Forms.Label label2;
+        private G13Wst2024DataSetTableAdapters.OverallsalesTableAdapter overallsalesTableAdapter;
+        private G13Wst2024DataSetTableAdapters.ItemSaleTableAdapter itemSaleTableAdapter1;
         private System.Windows.Forms.DataGridViewTextBoxColumn customerIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn customerNameDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn partNoDataGridViewTextBoxColumn1;
@@ -524,10 +541,7 @@ namespace bosssystem1
         private System.Windows.Forms.DataGridViewTextBoxColumn unitPriceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn RowTotal;
-        private System.Windows.Forms.DataGridViewComboBoxColumn PaymentType;
-        private G13Wst2024DataSetTableAdapters.SalebkTableAdapter salebkTableAdapter1;
-        private System.Windows.Forms.Label label2;
-        private G13Wst2024DataSetTableAdapters.OverallsalesTableAdapter overallsalesTableAdapter;
-        private G13Wst2024DataSetTableAdapters.ItemSaleTableAdapter itemSaleTableAdapter1;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label3;
     }
 }

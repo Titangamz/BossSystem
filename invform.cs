@@ -29,6 +29,19 @@ namespace bosssystem1
 
         }
 
+        private void itempricetxt_TextChanged(object sender, EventArgs e)
+        {
+            if(itempricetxt.Text=="")
+            {
+
+            }
+            else
+            {
+                decimal vat = decimal.Parse(itempricetxt.Text) * 15/100;
+                vattxt.Text = vat.ToString();
+            }
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Do you want to Confirm?", "Confirmation",
@@ -37,6 +50,7 @@ MessageBoxButtons.YesNo);
             {
                   try
                   {
+                    
                     partsTableTableAdapter.Insert(int.Parse(partnotxt.Text), itemdesctxt.Text, itemnametxt.Text, int.Parse(itemquantxt.Text), Convert.ToDecimal(itempricetxt.Text), Convert.ToDateTime(daterectxt.Text), Convert.ToDecimal(vattxt.Text), int.Parse(suppidtxt.Text));
                     MessageBox.Show("Part has been added");
                     partsTableTableAdapter.Fill(g13Wst2024DataSet.PartsTable);
@@ -60,18 +74,70 @@ MessageBoxButtons.YesNo);
 
         private void updatepartbtn_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("WARNING, this will permanantly alter your employee table. Proceed?", "Confirmation",
-MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show("WARNING, this will permanently alter your parts table. Proceed?", "Confirmation", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
-                partsTableTableAdapter.Update(g13Wst2024DataSet.PartsTable);
-                partsTableTableAdapter.Fill(g13Wst2024DataSet.PartsTable);
+                if (dataGridView1.SelectedRows.Count > 0)
+                {
+                    int selectedRowIndex = dataGridView1.SelectedRows[0].Index;
+                    DataRow selectedRow = g13Wst2024DataSet.PartsTable.Rows[selectedRowIndex];
+                    try
+                    {
+                        selectedRow["partNo"] = int.Parse(partnotxt.Text);
+                        selectedRow["itemName"] = itemnametxt.Text;
+                        selectedRow["itemQuantity"] = int.Parse(itemquantxt.Text);
+                        selectedRow["itemPrice"] = Convert.ToDecimal(itempricetxt.Text);
+                        selectedRow["dateReceived"] = Convert.ToDateTime(daterectxt.Text);
+                        selectedRow["supplierID"] = int.Parse(suppidtxt.Text);
+
+                        DateTime dateReceived;
+                        if (DateTime.TryParse(daterectxt.Text, out dateReceived))
+                        {
+
+                           
+                        }
+                        selectedRow["dateReceived"] = dateReceived;
+
+                        partsTableTableAdapter.Update(g13Wst2024DataSet.PartsTable);
+                        MessageBox.Show("Parts updated");
+
+                        partsTableTableAdapter.Fill(g13Wst2024DataSet.PartsTable);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("There was an issue updating the part" + ex.Message);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Please select a row to update");
+                }
             }
-            else if (result == DialogResult.No)
+            else
             {
                 MessageBox.Show("Update Cancelled");
             }
-            
         }
+          
+        
+        
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
+                partnotxt.Text = selectedRow.Cells["partNoDataGridViewTextBoxColumn"].Value.ToString();
+                itemdesctxt.Text = selectedRow.Cells["itemDescriptionDataGridViewTextBoxColumn"].Value.ToString();
+                itemnametxt.Text = selectedRow.Cells["itemNameDataGridViewTextBoxColumn"].Value.ToString();
+                itemquantxt.Text = selectedRow.Cells["itemQuantityDataGridViewTextBoxColumn"].Value.ToString();
+                itempricetxt.Text = selectedRow.Cells["itemPriceDataGridViewTextBoxColumn"].Value.ToString();
+                daterectxt.Text = selectedRow.Cells["dateReceivedDataGridViewTextBoxColumn"].Value.ToString();
+                vattxt.Text = selectedRow.Cells["itemVatDataGridViewTextBoxColumn"].Value.ToString();
+                suppidtxt.Text = selectedRow.Cells["supplierIDDataGridViewTextBoxColumn"].Value.ToString();
+            }
+                
+        }
+
+        
     }
 }
