@@ -32,32 +32,54 @@ namespace bosssystem1
             this.components = new System.ComponentModel.Container();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.invoiceNumberDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lastPaymentDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.amountOutstandingDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.custPaymentsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.g13Wst2024DataSet = new bosssystem1.G13Wst2024DataSet();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.invoiceNumberDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.partNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.partQuantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.itemTotalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.itemSaleBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.g13Wst2024DataSet = new bosssystem1.G13Wst2024DataSet();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.invoiceNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.customerIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.paymentTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateOfSaleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.paymentDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.amountPaidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.overallsalesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.custPaymentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.overallsalesTableAdapter = new bosssystem1.G13Wst2024DataSetTableAdapters.OverallsalesTableAdapter();
             this.itemSaleTableAdapter = new bosssystem1.G13Wst2024DataSetTableAdapters.ItemSaleTableAdapter();
+            this.customerIDTypeTableAdapter1 = new bosssystem1.G13Wst2024DataSetTableAdapters.CustomerIDTypeTableAdapter();
+            this.custPaymentsTableAdapter = new bosssystem1.G13Wst2024DataSetTableAdapters.CustPaymentsTableAdapter();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.custPaymentsBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.g13Wst2024DataSet)).BeginInit();
+            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemSaleBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.g13Wst2024DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.overallsalesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.custPaymentsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dateTimePicker1
@@ -70,18 +92,108 @@ namespace bosssystem1
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.dataGridView2);
+            this.groupBox1.Controls.Add(this.groupBox3);
+            this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.dataGridView1);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.dateTimePicker1);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.groupBox1.Size = new System.Drawing.Size(1312, 548);
+            this.groupBox1.Size = new System.Drawing.Size(1402, 895);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Select a date and all the sales for that day will be displayed";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.button2);
+            this.groupBox3.Controls.Add(this.textBox3);
+            this.groupBox3.Controls.Add(this.label4);
+            this.groupBox3.Controls.Add(this.textBox2);
+            this.groupBox3.Controls.Add(this.label3);
+            this.groupBox3.Controls.Add(this.maskedTextBox1);
+            this.groupBox3.Controls.Add(this.textBox1);
+            this.groupBox3.Controls.Add(this.label2);
+            this.groupBox3.Controls.Add(this.label1);
+            this.groupBox3.Controls.Add(this.dataGridView3);
+            this.groupBox3.Controls.Add(this.button1);
+            this.groupBox3.Location = new System.Drawing.Point(13, 555);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(1356, 313);
+            this.groupBox3.TabIndex = 8;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Payments";
+            // 
+            // dataGridView3
+            // 
+            this.dataGridView3.AutoGenerateColumns = false;
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.invoiceNumberDataGridViewTextBoxColumn2,
+            this.lastPaymentDateDataGridViewTextBoxColumn,
+            this.dataGridViewTextBoxColumn1,
+            this.amountOutstandingDataGridViewTextBoxColumn});
+            this.dataGridView3.DataSource = this.custPaymentsBindingSource1;
+            this.dataGridView3.Location = new System.Drawing.Point(6, 32);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.RowHeadersWidth = 51;
+            this.dataGridView3.RowTemplate.Height = 24;
+            this.dataGridView3.Size = new System.Drawing.Size(1275, 150);
+            this.dataGridView3.TabIndex = 6;
+            this.dataGridView3.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView3_CellContentClick);
+            this.dataGridView3.SelectionChanged += new System.EventHandler(this.dataGridView3_SelectionChanged);
+            // 
+            // invoiceNumberDataGridViewTextBoxColumn2
+            // 
+            this.invoiceNumberDataGridViewTextBoxColumn2.DataPropertyName = "InvoiceNumber";
+            this.invoiceNumberDataGridViewTextBoxColumn2.HeaderText = "InvoiceNumber";
+            this.invoiceNumberDataGridViewTextBoxColumn2.MinimumWidth = 6;
+            this.invoiceNumberDataGridViewTextBoxColumn2.Name = "invoiceNumberDataGridViewTextBoxColumn2";
+            this.invoiceNumberDataGridViewTextBoxColumn2.Width = 125;
+            // 
+            // lastPaymentDateDataGridViewTextBoxColumn
+            // 
+            this.lastPaymentDateDataGridViewTextBoxColumn.DataPropertyName = "LastPaymentDate";
+            this.lastPaymentDateDataGridViewTextBoxColumn.HeaderText = "LastPaymentDate";
+            this.lastPaymentDateDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.lastPaymentDateDataGridViewTextBoxColumn.Name = "lastPaymentDateDataGridViewTextBoxColumn";
+            this.lastPaymentDateDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "AmountPaid";
+            this.dataGridViewTextBoxColumn1.HeaderText = "AmountPaid";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Width = 125;
+            // 
+            // amountOutstandingDataGridViewTextBoxColumn
+            // 
+            this.amountOutstandingDataGridViewTextBoxColumn.DataPropertyName = "AmountOutstanding";
+            this.amountOutstandingDataGridViewTextBoxColumn.HeaderText = "AmountOutstanding";
+            this.amountOutstandingDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.amountOutstandingDataGridViewTextBoxColumn.Name = "amountOutstandingDataGridViewTextBoxColumn";
+            this.amountOutstandingDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // custPaymentsBindingSource1
+            // 
+            this.custPaymentsBindingSource1.DataMember = "CustPayments";
+            this.custPaymentsBindingSource1.DataSource = this.g13Wst2024DataSet;
+            // 
+            // g13Wst2024DataSet
+            // 
+            this.g13Wst2024DataSet.DataSetName = "G13Wst2024DataSet";
+            this.g13Wst2024DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.dataGridView2);
+            this.groupBox2.Location = new System.Drawing.Point(7, 326);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(1371, 204);
+            this.groupBox2.TabIndex = 7;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Itemized details";
             // 
             // dataGridView2
             // 
@@ -93,11 +205,11 @@ namespace bosssystem1
             this.partQuantityDataGridViewTextBoxColumn,
             this.itemTotalDataGridViewTextBoxColumn});
             this.dataGridView2.DataSource = this.itemSaleBindingSource;
-            this.dataGridView2.Location = new System.Drawing.Point(7, 326);
+            this.dataGridView2.Location = new System.Drawing.Point(6, 32);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersWidth = 51;
             this.dataGridView2.RowTemplate.Height = 24;
-            this.dataGridView2.Size = new System.Drawing.Size(1287, 150);
+            this.dataGridView2.Size = new System.Drawing.Size(1281, 150);
             this.dataGridView2.TabIndex = 5;
             this.dataGridView2.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView2_RowHeaderMouseDoubleClick);
             // 
@@ -138,11 +250,6 @@ namespace bosssystem1
             this.itemSaleBindingSource.DataMember = "ItemSale";
             this.itemSaleBindingSource.DataSource = this.g13Wst2024DataSet;
             // 
-            // g13Wst2024DataSet
-            // 
-            this.g13Wst2024DataSet.DataSetName = "G13Wst2024DataSet";
-            this.g13Wst2024DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // dataGridView1
             // 
             this.dataGridView1.AutoGenerateColumns = false;
@@ -152,9 +259,7 @@ namespace bosssystem1
             this.customerIdDataGridViewTextBoxColumn,
             this.totalDataGridViewTextBoxColumn,
             this.paymentTypeDataGridViewTextBoxColumn,
-            this.dateOfSaleDataGridViewTextBoxColumn,
-            this.paymentDateDataGridViewTextBoxColumn,
-            this.amountPaidDataGridViewTextBoxColumn});
+            this.dateOfSaleDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.overallsalesBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(7, 109);
             this.dataGridView1.Name = "dataGridView1";
@@ -204,47 +309,25 @@ namespace bosssystem1
             this.dateOfSaleDataGridViewTextBoxColumn.Name = "dateOfSaleDataGridViewTextBoxColumn";
             this.dateOfSaleDataGridViewTextBoxColumn.Width = 125;
             // 
-            // paymentDateDataGridViewTextBoxColumn
-            // 
-            this.paymentDateDataGridViewTextBoxColumn.DataPropertyName = "PaymentDate";
-            this.paymentDateDataGridViewTextBoxColumn.HeaderText = "PaymentDate";
-            this.paymentDateDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.paymentDateDataGridViewTextBoxColumn.Name = "paymentDateDataGridViewTextBoxColumn";
-            this.paymentDateDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // amountPaidDataGridViewTextBoxColumn
-            // 
-            this.amountPaidDataGridViewTextBoxColumn.DataPropertyName = "AmountPaid";
-            this.amountPaidDataGridViewTextBoxColumn.HeaderText = "AmountPaid";
-            this.amountPaidDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.amountPaidDataGridViewTextBoxColumn.Name = "amountPaidDataGridViewTextBoxColumn";
-            this.amountPaidDataGridViewTextBoxColumn.Width = 125;
-            // 
             // overallsalesBindingSource
             // 
             this.overallsalesBindingSource.DataMember = "Overallsales";
             this.overallsalesBindingSource.DataSource = this.g13Wst2024DataSet;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(704, 18);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(412, 68);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "(To add payment details Change the relevant details in the table\r\n and click \"Add" +
-    " Payment Date and Amount\")\r\n*Note: You only need to fill 1 row,\r\n it will autofi" +
-    "ll rows of the same InvoiceNo*";
-            // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(1122, 22);
+            this.button1.Location = new System.Drawing.Point(925, 224);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(172, 56);
             this.button1.TabIndex = 2;
-            this.button1.Text = "Add Payment Date and Amount";
+            this.button1.Text = "Add Payment";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // custPaymentsBindingSource
+            // 
+            this.custPaymentsBindingSource.DataMember = "CustPayments";
+            this.custPaymentsBindingSource.DataSource = this.g13Wst2024DataSet;
             // 
             // overallsalesTableAdapter
             // 
@@ -254,22 +337,113 @@ namespace bosssystem1
             // 
             this.itemSaleTableAdapter.ClearBeforeFill = true;
             // 
+            // customerIDTypeTableAdapter1
+            // 
+            this.customerIDTypeTableAdapter1.ClearBeforeFill = true;
+            // 
+            // custPaymentsTableAdapter
+            // 
+            this.custPaymentsTableAdapter.ClearBeforeFill = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(29, 224);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(97, 17);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Payment Date";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(29, 273);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(88, 17);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Amount Paid";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(132, 268);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(129, 22);
+            this.textBox1.TabIndex = 11;
+            // 
+            // maskedTextBox1
+            // 
+            this.maskedTextBox1.Location = new System.Drawing.Point(133, 224);
+            this.maskedTextBox1.Mask = "00/00/0000";
+            this.maskedTextBox1.Name = "maskedTextBox1";
+            this.maskedTextBox1.Size = new System.Drawing.Size(128, 22);
+            this.maskedTextBox1.TabIndex = 12;
+            this.maskedTextBox1.ValidatingType = typeof(System.DateTime);
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(434, 270);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
+            this.textBox2.Size = new System.Drawing.Size(132, 22);
+            this.textBox2.TabIndex = 14;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(329, 275);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(99, 17);
+            this.label3.TabIndex = 13;
+            this.label3.Text = "Amount Owing";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(434, 224);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.ReadOnly = true;
+            this.textBox3.Size = new System.Drawing.Size(132, 22);
+            this.textBox3.TabIndex = 16;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(329, 229);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(74, 17);
+            this.label4.TabIndex = 15;
+            this.label4.Text = "Invoice No";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(719, 224);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(172, 56);
+            this.button2.TabIndex = 17;
+            this.button2.Text = "Clear";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // viewSales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1336, 590);
+            this.ClientSize = new System.Drawing.Size(1476, 919);
             this.Controls.Add(this.groupBox1);
             this.Name = "viewSales";
             this.Text = "viewSales";
             this.Load += new System.EventHandler(this.viewSales_Load);
             this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.custPaymentsBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.g13Wst2024DataSet)).EndInit();
+            this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemSaleBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.g13Wst2024DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.overallsalesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.custPaymentsBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -278,7 +452,6 @@ namespace bosssystem1
         private System.Windows.Forms.DataGridViewTextBoxColumn amountDataGridViewTextBoxColumn;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private G13Wst2024DataSet g13Wst2024DataSet;
@@ -298,5 +471,25 @@ namespace bosssystem1
         private System.Windows.Forms.DataGridViewTextBoxColumn partNoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn partQuantityDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn itemTotalDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.BindingSource custPaymentsBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn invoiceNumberDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lastPaymentDateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn amountOutstandingDataGridViewTextBoxColumn;
+        private G13Wst2024DataSetTableAdapters.CustomerIDTypeTableAdapter customerIDTypeTableAdapter1;
+        private System.Windows.Forms.BindingSource custPaymentsBindingSource1;
+        private G13Wst2024DataSetTableAdapters.CustPaymentsTableAdapter custPaymentsTableAdapter;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button button2;
     }
 }

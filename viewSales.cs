@@ -19,6 +19,8 @@ namespace bosssystem1
 
         private void viewSales_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'g13Wst2024DataSet.CustPayments' table. You can move, or remove it, as needed.
+            this.custPaymentsTableAdapter.Fill(this.g13Wst2024DataSet.CustPayments);
             // TODO: This line of code loads data into the 'g13Wst2024DataSet.ItemSale' table. You can move, or remove it, as needed.
             this.itemSaleTableAdapter.Fill(this.g13Wst2024DataSet.ItemSale);
             // TODO: This line of code loads data into the 'g13Wst2024DataSet.Overallsales' table. You can move, or remove it, as needed.
@@ -40,17 +42,34 @@ namespace bosssystem1
 
         private void button1_Click(object sender, EventArgs e)
         {
-          /*  DialogResult result = MessageBox.Show("WARNING, this will permanantly alter your sales table. Proceed?", "Confirmation",
-MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show("Are you sure you wanna add this payment. Proceed?", "Confirmation", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
-                salebkTableAdapter.Update(g13Wst2024DataSet.Salebk);
-                salebkTableAdapter.Fill(g13Wst2024DataSet.Salebk);
+
+                decimal amtowed = decimal.Parse(textBox2.Text) - decimal.Parse(textBox1.Text);
+                if(amtowed == 0)
+                {
+                    MessageBox.Show("Invoice fully paid");
+                }
+                else if(amtowed<0)
+                {
+                    MessageBox.Show("WARNING, Please ensure corrct change is given R" + (amtowed*-1));
+                    amtowed = 0;
+                }
+
+
+
+                custPaymentsTableAdapter.Insert(Convert.ToInt32(textBox3.Text), Convert.ToDateTime(maskedTextBox1.Text), Convert.ToDecimal(textBox1.Text), amtowed);
+
+                maskedTextBox1.Text = "";
+                textBox2.Text = "";
+                textBox1.Text = "";
+                textBox3.Text = "";
             }
-            else if (result == DialogResult.No)
+            else
             {
-                MessageBox.Show("Update Cancelled");
-            }*/
+                MessageBox.Show("Payment Cancelled");
+            }
         }
 
         private void dataGridView2_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -65,6 +84,31 @@ MessageBoxButtons.YesNo);
 
             // Now call FillByInvNo with the retrieved invoice number
             itemSaleTableAdapter.FillByInvNo(g13Wst2024DataSet.ItemSale, invoiceNumber);
+            custPaymentsTableAdapter.FillByInvNum(g13Wst2024DataSet.CustPayments, invoiceNumber);
+        }
+
+        private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dataGridView3_SelectionChanged(object sender, EventArgs e)
+        {
+            if(dataGridView3.SelectedRows.Count>0)
+            {
+                DataGridViewRow selectedrow = dataGridView3.SelectedRows[0];
+                
+                textBox2.Text = selectedrow.Cells["amountOutstandingDataGridViewTextBoxColumn"].Value.ToString();
+                textBox3.Text = selectedrow.Cells["invoiceNumberDataGridViewTextBoxColumn2"].Value.ToString();
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            maskedTextBox1.Text = "";
+            textBox2.Text = "";
+            textBox1.Text = "";
+            textBox3.Text = "";
         }
     }
 }

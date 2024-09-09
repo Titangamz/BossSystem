@@ -31,13 +31,13 @@ namespace bosssystem1
 
         private void updatebtn_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("WARNING, this will permanantly alter your employee table. Proceed?", "Confirmation", MessageBoxButtons.YesNo);
+           DialogResult result = MessageBox.Show("WARNING, this will permanantly alter your employee table. Proceed?", "Confirmation", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
 
                 if (dataGridView1.SelectedRows.Count > 0)
                 {
-                    int selectedRowIndex = dataGridView1.SelectedRows[0].Index;
+                     int selectedRowIndex = dataGridView1.SelectedRows[0].Index;
                     DataRow selectedRow = g13Wst2024DataSet.Employee.Rows[selectedRowIndex];
 
                     int employeeID;

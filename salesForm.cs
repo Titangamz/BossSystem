@@ -248,9 +248,11 @@ namespace bosssystem1
                             var custIDValue = firstRow.Cells[0].Value.ToString();
                             var paytypeValue = comboBox1.Text;
                             var custname = firstRow.Cells[1].Value.ToString();
+                            decimal amtPaid = 0;
 
                             // Insert into the overallsalesTableAdapter once, outside of the loop.
-                            overallsalesTableAdapter.InsertQuery(newInvoiceNumber, int.Parse(custIDValue), Convert.ToDecimal(ordtotaltxt.Text), paytypeValue, Convert.ToString(DateTime.Now), null, null);
+                            overallsalesTableAdapter.InsertQuery(newInvoiceNumber, int.Parse(custIDValue), Convert.ToDecimal(ordtotaltxt.Text), paytypeValue, Convert.ToString(DateTime.Now));
+                            custPaymentsTableAdapter.Insert(newInvoiceNumber, null, amtPaid, Convert.ToDecimal(ordtotaltxt.Text));
 
                             foreach (DataGridViewRow row in saledatagrid.Rows)
                             {

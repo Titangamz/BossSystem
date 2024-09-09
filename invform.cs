@@ -74,6 +74,12 @@ MessageBoxButtons.YesNo);
 
         private void updatepartbtn_Click(object sender, EventArgs e)
         {
+            
+            
+            
+            
+            
+            
             DialogResult result = MessageBox.Show("WARNING, this will permanently alter your parts table. Proceed?", "Confirmation", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
