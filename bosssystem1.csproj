@@ -54,6 +54,9 @@
     <Compile Include="custform.Designer.cs">
       <DependentUpon>custform.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataSetInvoice.cs">
+      <DependentUpon>DataSetInvoice.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DataSetInvoice.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
