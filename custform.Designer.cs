@@ -42,6 +42,8 @@ namespace bosssystem1
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.ClearBtn = new System.Windows.Forms.Button();
+            this.UpdateBtn = new System.Windows.Forms.Button();
             this.custaddresstxt = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -54,8 +56,6 @@ namespace bosssystem1
             this.custidtxt = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.customerTableAdapter = new bosssystem1.G13Wst2024DataSetTableAdapters.CustomerTableAdapter();
-            this.UpdateBtn = new System.Windows.Forms.Button();
-            this.ClearBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.g13Wst2024DataSet)).BeginInit();
@@ -64,10 +64,10 @@ namespace bosssystem1
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(99, 17);
+            this.label1.Size = new System.Drawing.Size(290, 26);
             this.label1.TabIndex = 0;
             this.label1.Text = "CUSTOMERS ";
             // 
@@ -185,6 +185,26 @@ namespace bosssystem1
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Add New Customer Details";
             // 
+            // ClearBtn
+            // 
+            this.ClearBtn.Location = new System.Drawing.Point(781, 181);
+            this.ClearBtn.Name = "ClearBtn";
+            this.ClearBtn.Size = new System.Drawing.Size(184, 57);
+            this.ClearBtn.TabIndex = 11;
+            this.ClearBtn.Text = "Clear details";
+            this.ClearBtn.UseVisualStyleBackColor = true;
+            this.ClearBtn.Click += new System.EventHandler(this.ClearBtn_Click);
+            // 
+            // UpdateBtn
+            // 
+            this.UpdateBtn.Location = new System.Drawing.Point(570, 181);
+            this.UpdateBtn.Name = "UpdateBtn";
+            this.UpdateBtn.Size = new System.Drawing.Size(184, 57);
+            this.UpdateBtn.TabIndex = 10;
+            this.UpdateBtn.Text = "Update customer details";
+            this.UpdateBtn.UseVisualStyleBackColor = true;
+            this.UpdateBtn.Click += new System.EventHandler(this.UpdateBtn_Click);
+            // 
             // custaddresstxt
             // 
             this.custaddresstxt.Location = new System.Drawing.Point(819, 120);
@@ -278,26 +298,6 @@ namespace bosssystem1
             // customerTableAdapter
             // 
             this.customerTableAdapter.ClearBeforeFill = true;
-            // 
-            // UpdateBtn
-            // 
-            this.UpdateBtn.Location = new System.Drawing.Point(570, 181);
-            this.UpdateBtn.Name = "UpdateBtn";
-            this.UpdateBtn.Size = new System.Drawing.Size(184, 57);
-            this.UpdateBtn.TabIndex = 10;
-            this.UpdateBtn.Text = "Update customer details";
-            this.UpdateBtn.UseVisualStyleBackColor = true;
-            this.UpdateBtn.Click += new System.EventHandler(this.UpdateBtn_Click);
-            // 
-            // ClearBtn
-            // 
-            this.ClearBtn.Location = new System.Drawing.Point(781, 181);
-            this.ClearBtn.Name = "ClearBtn";
-            this.ClearBtn.Size = new System.Drawing.Size(184, 57);
-            this.ClearBtn.TabIndex = 11;
-            this.ClearBtn.Text = "Clear details";
-            this.ClearBtn.UseVisualStyleBackColor = true;
-            this.ClearBtn.Click += new System.EventHandler(this.ClearBtn_Click);
             // 
             // custform
             // 

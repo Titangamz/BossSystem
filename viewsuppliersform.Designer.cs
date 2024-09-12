@@ -54,6 +54,7 @@ namespace bosssystem1
             this.label6 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetInvoice1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).BeginInit();
@@ -257,11 +258,21 @@ namespace bosssystem1
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // label7
+            // 
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(12, 9);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(234, 29);
+            this.label7.TabIndex = 15;
+            this.label7.Text = "SUPPLIERS";
+            // 
             // viewsuppliersform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1336, 669);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.SuppAddtxt);
@@ -278,7 +289,7 @@ namespace bosssystem1
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
             this.Name = "viewsuppliersform";
-            this.Text = "Suppliers";
+            this.Text = "SUPPLIERS";
             this.Load += new System.EventHandler(this.viewsuppliersform_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataSetInvoice1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -315,5 +326,6 @@ namespace bosssystem1
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label7;
     }
 }

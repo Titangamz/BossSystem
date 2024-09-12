@@ -63,6 +63,7 @@ namespace bosssystem1
             this.label3 = new System.Windows.Forms.Label();
             this.partnotxt = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.partsTableBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.g13Wst2024DataSet)).BeginInit();
@@ -104,7 +105,7 @@ namespace bosssystem1
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1311, 241);
+            this.dataGridView1.Size = new System.Drawing.Size(1401, 241);
             this.dataGridView1.TabIndex = 5;
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
@@ -364,11 +365,21 @@ namespace bosssystem1
             this.label2.TabIndex = 0;
             this.label2.Text = "PartNo";
             // 
+            // label10
+            // 
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(12, 9);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(206, 30);
+            this.label10.TabIndex = 7;
+            this.label10.Text = "INVENTORY";
+            // 
             // invform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1336, 590);
+            this.ClientSize = new System.Drawing.Size(1426, 590);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label1);
@@ -420,5 +431,6 @@ namespace bosssystem1
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.MaskedTextBox daterectxt;
         private System.Windows.Forms.Button updatepartbtn;
+        private System.Windows.Forms.Label label10;
     }
 }

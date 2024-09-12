@@ -68,7 +68,7 @@ namespace bosssystem1
                 {
                     dataGridView1.SelectionChanged -= dataGridView1_SelectionChanged; // Disable event handler
                     supplierTableAdapter.Insert(int.Parse(SuppIDtxt.Text),SuppNametxt.Text,int.Parse(SuppNumtxt.Text),SuppMailtxt.Text,SuppAddtxt.Text);
-                    MessageBox.Show("Employee Added");
+                    MessageBox.Show("Supplier Added");
                     supplierTableAdapter.Fill(g13Wst2024DataSet.Supplier);
                 }
                 catch

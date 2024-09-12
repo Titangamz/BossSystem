@@ -56,6 +56,7 @@ namespace bosssystem1
             this.empidtxt = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.g13Wst2024DataSet)).BeginInit();
@@ -147,7 +148,7 @@ namespace bosssystem1
             // 
             // updatebtn
             // 
-            this.updatebtn.Location = new System.Drawing.Point(1116, 323);
+            this.updatebtn.Location = new System.Drawing.Point(1115, 376);
             this.updatebtn.Name = "updatebtn";
             this.updatebtn.Size = new System.Drawing.Size(133, 58);
             this.updatebtn.TabIndex = 1;
@@ -170,7 +171,7 @@ namespace bosssystem1
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.empidtxt);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(13, 257);
+            this.groupBox1.Location = new System.Drawing.Point(12, 310);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1058, 175);
             this.groupBox1.TabIndex = 2;
@@ -288,18 +289,28 @@ namespace bosssystem1
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.dataGridView1);
-            this.groupBox2.Location = new System.Drawing.Point(13, 13);
+            this.groupBox2.Location = new System.Drawing.Point(12, 66);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(1269, 220);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "If you wish to change any data simply edit the table and click update";
             // 
+            // label7
+            // 
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(24, 13);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(234, 40);
+            this.label7.TabIndex = 4;
+            this.label7.Text = "EMPLOYEES";
+            // 
             // EmployeeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1294, 444);
+            this.ClientSize = new System.Drawing.Size(1294, 572);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.updatebtn);
@@ -344,5 +355,6 @@ namespace bosssystem1
         private System.Windows.Forms.TextBox empsurtxt;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label7;
     }
 }

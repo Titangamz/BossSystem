@@ -75,11 +75,7 @@ MessageBoxButtons.YesNo);
         private void updatepartbtn_Click(object sender, EventArgs e)
         {
             
-            
-            
-            
-            
-            
+                 
             DialogResult result = MessageBox.Show("WARNING, this will permanently alter your parts table. Proceed?", "Confirmation", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
@@ -94,6 +90,7 @@ MessageBoxButtons.YesNo);
                         selectedRow["itemQuantity"] = int.Parse(itemquantxt.Text);
                         selectedRow["itemPrice"] = Convert.ToDecimal(itempricetxt.Text);
                         selectedRow["dateReceived"] = Convert.ToDateTime(daterectxt.Text);
+                        selectedRow["itemVat"] = Convert.ToDecimal(vattxt.Text);
                         selectedRow["supplierID"] = int.Parse(suppidtxt.Text);
 
                         DateTime dateReceived;

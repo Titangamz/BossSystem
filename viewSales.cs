@@ -60,6 +60,7 @@ namespace bosssystem1
 
 
                 custPaymentsTableAdapter.Insert(Convert.ToInt32(textBox3.Text), Convert.ToDateTime(maskedTextBox1.Text), Convert.ToDecimal(textBox1.Text), amtowed);
+                custPaymentsTableAdapter.Fill(g13Wst2024DataSet.CustPayments);
 
                 maskedTextBox1.Text = "";
                 textBox2.Text = "";
