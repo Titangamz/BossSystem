@@ -16,14 +16,17 @@ namespace bosssystem1
         {
             InitializeComponent();
         }
-
-        private void LogInForm_Load(object sender, EventArgs e)
+       
+      private void LogInForm_Load(object sender, EventArgs e)
         {
-
+          
         }
 
-        private void loginbtn_Click(object sender, EventArgs e)
+      
+    private void loginbtn_Click(object sender, EventArgs e)
         {
+           
+           
             string name = textBox1.Text;
             string password = textBox2.Text;
 
@@ -31,9 +34,11 @@ namespace bosssystem1
             {
                 MessageBox.Show("Login successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Hide();
-                Form1 frm1 = new Form1();
+                Form1 frm1 = new Form1(textBox1.Text);
                 frm1.ShowDialog();
                 this.Close();
+
+               
             }
             else
             {

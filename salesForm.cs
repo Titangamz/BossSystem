@@ -22,7 +22,7 @@ namespace bosssystem1
 
         private void invoiceForm_Load(object sender, EventArgs e)
         {
-           
+            g13Wst2024DataSet.EnforceConstraints = false;
             // TODO: This line of code loads data into the 'dataSetInvoice.saleorder' table. You can move, or remove it, as needed.
             this.saleorderTableAdapter.Fill(this.dataSetInvoice.saleorder);
             // TODO: This line of code loads data into the 'g13Wst2024DataSet.Customer' table. You can move, or remove it, as needed.

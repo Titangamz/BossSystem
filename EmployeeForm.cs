@@ -133,7 +133,7 @@ namespace bosssystem1
                 empsurtxt.Text = selectedRow.Cells["employeeSurnameDataGridViewTextBoxColumn"].Value.ToString();
                 empnumtxt.Text = selectedRow.Cells["employeePhoneNumberDataGridViewTextBoxColumn"].Value.ToString();
                 empmailtxt.Text = selectedRow.Cells["employeeEmailDataGridViewTextBoxColumn"].Value.ToString();
-                emppasstxt.Text = selectedRow.Cells["employeePasswordDataGridViewTextBoxColumn"].Value.ToString();
+               
             }
 
         }

@@ -61,6 +61,7 @@ namespace bosssystem1
             this.sidebartimer = new System.Windows.Forms.Timer(this.components);
             this.saledrptimer = new System.Windows.Forms.Timer(this.components);
             this.suppdrptimer = new System.Windows.Forms.Timer(this.components);
+            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.sidebar.SuspendLayout();
@@ -118,6 +119,7 @@ namespace bosssystem1
             this.sidebar.Controls.Add(this.suppContainer);
             this.sidebar.Controls.Add(this.panel9);
             this.sidebar.Controls.Add(this.panel7);
+            this.sidebar.Controls.Add(this.label2);
             this.sidebar.Dock = System.Windows.Forms.DockStyle.Left;
             this.sidebar.Location = new System.Drawing.Point(0, 50);
             this.sidebar.MaximumSize = new System.Drawing.Size(200, 545);
@@ -460,6 +462,17 @@ namespace bosssystem1
             this.suppdrptimer.Interval = 10;
             this.suppdrptimer.Tick += new System.EventHandler(this.suppdrptimer_Tick);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.Location = new System.Drawing.Point(3, 300);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(46, 17);
+            this.label2.TabIndex = 12;
+            this.label2.Text = "label2";
+            this.label2.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -475,6 +488,7 @@ namespace bosssystem1
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.sidebar.ResumeLayout(false);
+            this.sidebar.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.saleContainer.ResumeLayout(false);
@@ -523,6 +537,7 @@ namespace bosssystem1
         private System.Windows.Forms.Timer suppdrptimer;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Button employeebtn;
+        private System.Windows.Forms.Label label2;
     }
 }
 

@@ -12,9 +12,10 @@ namespace bosssystem1
 {
     public partial class Form1 : Form
     {
-        public Form1()
+        public Form1(string userName)
         {
             InitializeComponent();
+            label2.Text= userName;
         }
         
         bool sidebarExpand;
@@ -23,7 +24,7 @@ namespace bosssystem1
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+           
         }
 
         public void FormSetup(Form myForm)
@@ -179,8 +180,15 @@ MessageBoxButtons.YesNo);
 
         private void employeebtn_Click(object sender, EventArgs e)
         {
-            EmployeeForm empfrm = new EmployeeForm();
-            FormSetup(empfrm);
+            if(label2.Text=="Admin")
+            {
+                EmployeeForm empfrm = new EmployeeForm();
+                FormSetup(empfrm);
+            }
+            else
+            {
+                MessageBox.Show("Only the owner can access employee records!");
+            }
         }
     }
 }
