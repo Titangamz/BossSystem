@@ -43,9 +43,9 @@ namespace bosssystem1
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(12, 67);
+            this.pictureBox1.Location = new System.Drawing.Point(216, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(361, 425);
+            this.pictureBox1.Size = new System.Drawing.Size(788, 1019);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -53,7 +53,7 @@ namespace bosssystem1
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(461, 187);
+            this.label1.Location = new System.Drawing.Point(1186, 418);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(49, 17);
             this.label1.TabIndex = 1;
@@ -61,7 +61,7 @@ namespace bosssystem1
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(517, 187);
+            this.textBox1.Location = new System.Drawing.Point(1242, 418);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(160, 22);
             this.textBox1.TabIndex = 2;
@@ -69,7 +69,7 @@ namespace bosssystem1
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(517, 271);
+            this.textBox2.Location = new System.Drawing.Point(1242, 502);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(160, 22);
             this.textBox2.TabIndex = 4;
@@ -78,7 +78,7 @@ namespace bosssystem1
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(438, 274);
+            this.label2.Location = new System.Drawing.Point(1163, 505);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(73, 17);
             this.label2.TabIndex = 3;
@@ -86,7 +86,7 @@ namespace bosssystem1
             // 
             // loginbtn
             // 
-            this.loginbtn.Location = new System.Drawing.Point(517, 356);
+            this.loginbtn.Location = new System.Drawing.Point(1242, 587);
             this.loginbtn.Name = "loginbtn";
             this.loginbtn.Size = new System.Drawing.Size(160, 45);
             this.loginbtn.TabIndex = 5;
@@ -102,7 +102,7 @@ namespace bosssystem1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 571);
+            this.ClientSize = new System.Drawing.Size(1414, 967);
             this.Controls.Add(this.loginbtn);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label2);
@@ -111,6 +111,7 @@ namespace bosssystem1
             this.Controls.Add(this.pictureBox1);
             this.Name = "LogInForm";
             this.Text = "LogInForm";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.LogInForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

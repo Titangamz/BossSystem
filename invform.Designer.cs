@@ -33,10 +33,22 @@ namespace bosssystem1
             this.searchBar = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.partNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemDescriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemQuantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateReceivedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemVatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.supplierIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ImageUrl = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.partsTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.g13Wst2024DataSet = new bosssystem1.G13Wst2024DataSet();
             this.partsTableTableAdapter = new bosssystem1.G13Wst2024DataSetTableAdapters.PartsTableTableAdapter();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.daterectxt = new System.Windows.Forms.MaskedTextBox();
             this.updatepartbtn = new System.Windows.Forms.Button();
             this.addpartbtn = new System.Windows.Forms.Button();
@@ -56,18 +68,6 @@ namespace bosssystem1
             this.partnotxt = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.partNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemDescriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemQuantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateReceivedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemVatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.supplierIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ImageUrl = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.partsTableBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.g13Wst2024DataSet)).BeginInit();
@@ -110,9 +110,81 @@ namespace bosssystem1
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1491, 241);
+            this.dataGridView1.Size = new System.Drawing.Size(1739, 354);
             this.dataGridView1.TabIndex = 5;
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
+            // 
+            // partNoDataGridViewTextBoxColumn
+            // 
+            this.partNoDataGridViewTextBoxColumn.DataPropertyName = "PartNo";
+            this.partNoDataGridViewTextBoxColumn.HeaderText = "PartNo";
+            this.partNoDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.partNoDataGridViewTextBoxColumn.Name = "partNoDataGridViewTextBoxColumn";
+            this.partNoDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // itemDescriptionDataGridViewTextBoxColumn
+            // 
+            this.itemDescriptionDataGridViewTextBoxColumn.DataPropertyName = "ItemDescription";
+            this.itemDescriptionDataGridViewTextBoxColumn.HeaderText = "ItemDescription";
+            this.itemDescriptionDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.itemDescriptionDataGridViewTextBoxColumn.Name = "itemDescriptionDataGridViewTextBoxColumn";
+            this.itemDescriptionDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // itemNameDataGridViewTextBoxColumn
+            // 
+            this.itemNameDataGridViewTextBoxColumn.DataPropertyName = "ItemName";
+            this.itemNameDataGridViewTextBoxColumn.HeaderText = "ItemName";
+            this.itemNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.itemNameDataGridViewTextBoxColumn.Name = "itemNameDataGridViewTextBoxColumn";
+            this.itemNameDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // itemQuantityDataGridViewTextBoxColumn
+            // 
+            this.itemQuantityDataGridViewTextBoxColumn.DataPropertyName = "ItemQuantity";
+            this.itemQuantityDataGridViewTextBoxColumn.HeaderText = "ItemQuantity";
+            this.itemQuantityDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.itemQuantityDataGridViewTextBoxColumn.Name = "itemQuantityDataGridViewTextBoxColumn";
+            this.itemQuantityDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // itemPriceDataGridViewTextBoxColumn
+            // 
+            this.itemPriceDataGridViewTextBoxColumn.DataPropertyName = "ItemPrice";
+            this.itemPriceDataGridViewTextBoxColumn.HeaderText = "ItemPrice";
+            this.itemPriceDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.itemPriceDataGridViewTextBoxColumn.Name = "itemPriceDataGridViewTextBoxColumn";
+            this.itemPriceDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // dateReceivedDataGridViewTextBoxColumn
+            // 
+            this.dateReceivedDataGridViewTextBoxColumn.DataPropertyName = "DateReceived";
+            this.dateReceivedDataGridViewTextBoxColumn.HeaderText = "DateReceived";
+            this.dateReceivedDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.dateReceivedDataGridViewTextBoxColumn.Name = "dateReceivedDataGridViewTextBoxColumn";
+            this.dateReceivedDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // itemVatDataGridViewTextBoxColumn
+            // 
+            this.itemVatDataGridViewTextBoxColumn.DataPropertyName = "ItemVat";
+            this.itemVatDataGridViewTextBoxColumn.HeaderText = "ItemVat";
+            this.itemVatDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.itemVatDataGridViewTextBoxColumn.Name = "itemVatDataGridViewTextBoxColumn";
+            this.itemVatDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // supplierIDDataGridViewTextBoxColumn
+            // 
+            this.supplierIDDataGridViewTextBoxColumn.DataPropertyName = "SupplierID";
+            this.supplierIDDataGridViewTextBoxColumn.HeaderText = "SupplierID";
+            this.supplierIDDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.supplierIDDataGridViewTextBoxColumn.Name = "supplierIDDataGridViewTextBoxColumn";
+            this.supplierIDDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // ImageUrl
+            // 
+            this.ImageUrl.DataPropertyName = "ImageUrl";
+            this.ImageUrl.HeaderText = "ImageUrl";
+            this.ImageUrl.MinimumWidth = 6;
+            this.ImageUrl.Name = "ImageUrl";
+            this.ImageUrl.Width = 125;
             // 
             // partsTableBindingSource
             // 
@@ -151,13 +223,39 @@ namespace bosssystem1
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.partnotxt);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(12, 356);
+            this.groupBox1.Location = new System.Drawing.Point(12, 465);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1492, 331);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Add Part";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(358, 256);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(188, 45);
+            this.button1.TabIndex = 20;
+            this.button1.Text = "Clear Fields";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(1077, 194);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(178, 22);
+            this.textBox1.TabIndex = 19;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(993, 197);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(78, 17);
+            this.label11.TabIndex = 18;
+            this.label11.Text = "Image URL";
             // 
             // daterectxt
             // 
@@ -319,109 +417,11 @@ namespace bosssystem1
             this.label10.TabIndex = 7;
             this.label10.Text = "INVENTORY";
             // 
-            // partNoDataGridViewTextBoxColumn
-            // 
-            this.partNoDataGridViewTextBoxColumn.DataPropertyName = "PartNo";
-            this.partNoDataGridViewTextBoxColumn.HeaderText = "PartNo";
-            this.partNoDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.partNoDataGridViewTextBoxColumn.Name = "partNoDataGridViewTextBoxColumn";
-            this.partNoDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // itemDescriptionDataGridViewTextBoxColumn
-            // 
-            this.itemDescriptionDataGridViewTextBoxColumn.DataPropertyName = "ItemDescription";
-            this.itemDescriptionDataGridViewTextBoxColumn.HeaderText = "ItemDescription";
-            this.itemDescriptionDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.itemDescriptionDataGridViewTextBoxColumn.Name = "itemDescriptionDataGridViewTextBoxColumn";
-            this.itemDescriptionDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // itemNameDataGridViewTextBoxColumn
-            // 
-            this.itemNameDataGridViewTextBoxColumn.DataPropertyName = "ItemName";
-            this.itemNameDataGridViewTextBoxColumn.HeaderText = "ItemName";
-            this.itemNameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.itemNameDataGridViewTextBoxColumn.Name = "itemNameDataGridViewTextBoxColumn";
-            this.itemNameDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // itemQuantityDataGridViewTextBoxColumn
-            // 
-            this.itemQuantityDataGridViewTextBoxColumn.DataPropertyName = "ItemQuantity";
-            this.itemQuantityDataGridViewTextBoxColumn.HeaderText = "ItemQuantity";
-            this.itemQuantityDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.itemQuantityDataGridViewTextBoxColumn.Name = "itemQuantityDataGridViewTextBoxColumn";
-            this.itemQuantityDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // itemPriceDataGridViewTextBoxColumn
-            // 
-            this.itemPriceDataGridViewTextBoxColumn.DataPropertyName = "ItemPrice";
-            this.itemPriceDataGridViewTextBoxColumn.HeaderText = "ItemPrice";
-            this.itemPriceDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.itemPriceDataGridViewTextBoxColumn.Name = "itemPriceDataGridViewTextBoxColumn";
-            this.itemPriceDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // dateReceivedDataGridViewTextBoxColumn
-            // 
-            this.dateReceivedDataGridViewTextBoxColumn.DataPropertyName = "DateReceived";
-            this.dateReceivedDataGridViewTextBoxColumn.HeaderText = "DateReceived";
-            this.dateReceivedDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.dateReceivedDataGridViewTextBoxColumn.Name = "dateReceivedDataGridViewTextBoxColumn";
-            this.dateReceivedDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // itemVatDataGridViewTextBoxColumn
-            // 
-            this.itemVatDataGridViewTextBoxColumn.DataPropertyName = "ItemVat";
-            this.itemVatDataGridViewTextBoxColumn.HeaderText = "ItemVat";
-            this.itemVatDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.itemVatDataGridViewTextBoxColumn.Name = "itemVatDataGridViewTextBoxColumn";
-            this.itemVatDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // supplierIDDataGridViewTextBoxColumn
-            // 
-            this.supplierIDDataGridViewTextBoxColumn.DataPropertyName = "SupplierID";
-            this.supplierIDDataGridViewTextBoxColumn.HeaderText = "SupplierID";
-            this.supplierIDDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.supplierIDDataGridViewTextBoxColumn.Name = "supplierIDDataGridViewTextBoxColumn";
-            this.supplierIDDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // ImageUrl
-            // 
-            this.ImageUrl.DataPropertyName = "ImageUrl";
-            this.ImageUrl.HeaderText = "ImageUrl";
-            this.ImageUrl.MinimumWidth = 6;
-            this.ImageUrl.Name = "ImageUrl";
-            this.ImageUrl.Width = 125;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(1077, 194);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(178, 22);
-            this.textBox1.TabIndex = 19;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(993, 197);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(78, 17);
-            this.label11.TabIndex = 18;
-            this.label11.Text = "Image URL";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(358, 256);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(188, 45);
-            this.button1.TabIndex = 20;
-            this.button1.Text = "Clear Fields";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
-            // 
             // invform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1516, 741);
+            this.ClientSize = new System.Drawing.Size(1764, 862);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dataGridView1);

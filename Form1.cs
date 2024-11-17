@@ -230,5 +230,11 @@ MessageBoxButtons.YesNo);
             webcustomer webcust = new webcustomer();
             FormSetup(webcust);
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            WebSales websle = new WebSales();
+            FormSetup(websle);
+        }
     }
 }

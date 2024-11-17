@@ -126,6 +126,12 @@
     <Compile Include="webcustomer.Designer.cs">
       <DependentUpon>webcustomer.cs</DependentUpon>
     </Compile>
+    <Compile Include="WebSales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WebSales.Designer.cs">
+      <DependentUpon>WebSales.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="custform.resx">
       <DependentUpon>custform.cs</DependentUpon>
     </EmbeddedResource>
@@ -164,6 +170,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="webcustomer.resx">
       <DependentUpon>webcustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WebSales.resx">
+      <DependentUpon>WebSales.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="DataSetInvoice.xsc">
       <DependentUpon>DataSetInvoice.xsd</DependentUpon>

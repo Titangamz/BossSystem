@@ -32,6 +32,8 @@ namespace bosssystem1
             this.components = new System.ComponentModel.Container();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.button2 = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -69,8 +71,6 @@ namespace bosssystem1
             this.itemSaleTableAdapter = new bosssystem1.G13Wst2024DataSetTableAdapters.ItemSaleTableAdapter();
             this.customerIDTypeTableAdapter1 = new bosssystem1.G13Wst2024DataSetTableAdapters.CustomerIDTypeTableAdapter();
             this.custPaymentsTableAdapter = new bosssystem1.G13Wst2024DataSetTableAdapters.CustPaymentsTableAdapter();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
@@ -106,6 +106,24 @@ namespace bosssystem1
             this.groupBox1.Size = new System.Drawing.Size(1402, 895);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(263, 55);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(179, 17);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "Select a date to filter sales:";
+            // 
+            // label5
+            // 
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(8, 18);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(249, 39);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Sales Record";
             // 
             // groupBox3
             // 
@@ -174,7 +192,7 @@ namespace bosssystem1
             // maskedTextBox1
             // 
             this.maskedTextBox1.Location = new System.Drawing.Point(133, 224);
-            this.maskedTextBox1.Mask = "00/00/0000";
+            this.maskedTextBox1.Mask = "0000/00/00";
             this.maskedTextBox1.Name = "maskedTextBox1";
             this.maskedTextBox1.Size = new System.Drawing.Size(128, 22);
             this.maskedTextBox1.TabIndex = 12;
@@ -425,24 +443,6 @@ namespace bosssystem1
             // custPaymentsTableAdapter
             // 
             this.custPaymentsTableAdapter.ClearBeforeFill = true;
-            // 
-            // label5
-            // 
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(8, 18);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(249, 39);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "Sales Record";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(263, 55);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(179, 17);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "Select a date to filter sales:";
             // 
             // viewSales
             // 

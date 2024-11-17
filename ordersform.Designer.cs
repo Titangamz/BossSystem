@@ -77,6 +77,7 @@ namespace bosssystem1
             this.employeeIDDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lineTotalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.supplierTableAdapter = new bosssystem1.G13Wst2024DataSetTableAdapters.SupplierTableAdapter();
+            this.label10 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ordersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.g13Wst2024DataSet)).BeginInit();
@@ -97,9 +98,8 @@ namespace bosssystem1
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(136, 17);
+            this.label1.Size = new System.Drawing.Size(0, 17);
             this.label1.TabIndex = 0;
-            this.label1.Text = "PURCHASES FORM";
             // 
             // dataGridView1
             // 
@@ -112,7 +112,7 @@ namespace bosssystem1
             this.purchaseDateDataGridViewTextBoxColumn,
             this.amountDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.ordersBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(13, 30);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 54);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
@@ -241,7 +241,7 @@ namespace bosssystem1
             this.groupBox1.Controls.Add(this.partnotxt);
             this.groupBox1.Controls.Add(this.empidtxt);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Location = new System.Drawing.Point(15, 434);
+            this.groupBox1.Location = new System.Drawing.Point(14, 458);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -359,7 +359,7 @@ namespace bosssystem1
             this.unitPriceDataGridViewTextBoxColumn,
             this.linePriceDataGridViewTextBoxColumn});
             this.dataGridView2.DataSource = this.itemOrderBindingSource2;
-            this.dataGridView2.Location = new System.Drawing.Point(13, 267);
+            this.dataGridView2.Location = new System.Drawing.Point(12, 291);
             this.dataGridView2.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersWidth = 51;
@@ -457,7 +457,7 @@ namespace bosssystem1
             this.employeeIDDataGridViewTextBoxColumn2,
             this.lineTotalDataGridViewTextBoxColumn});
             this.dataGridView3.DataSource = this.temPurchasesInvBindingSource;
-            this.dataGridView3.Location = new System.Drawing.Point(16, 686);
+            this.dataGridView3.Location = new System.Drawing.Point(15, 710);
             this.dataGridView3.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.RowHeadersWidth = 51;
@@ -492,11 +492,21 @@ namespace bosssystem1
             // 
             this.supplierTableAdapter.ClearBeforeFill = true;
             // 
+            // label10
+            // 
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(10, 9);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(206, 30);
+            this.label10.TabIndex = 16;
+            this.label10.Text = "Purchases Form";
+            // 
             // ordersform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1340, 930);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.dataGridView3);
             this.Controls.Add(this.groupBox1);
@@ -580,5 +590,6 @@ namespace bosssystem1
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.BindingSource supplierBindingSource;
         private G13Wst2024DataSetTableAdapters.SupplierTableAdapter supplierTableAdapter;
+        private System.Windows.Forms.Label label10;
     }
 }
