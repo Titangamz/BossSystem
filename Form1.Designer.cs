@@ -34,6 +34,7 @@ namespace bosssystem1
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.sidebar = new System.Windows.Forms.FlowLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -56,12 +57,20 @@ namespace bosssystem1
             this.supplierdrpbtn = new System.Windows.Forms.Button();
             this.panel9 = new System.Windows.Forms.Panel();
             this.employeebtn = new System.Windows.Forms.Button();
+            this.webContainer = new System.Windows.Forms.Panel();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.webdrpbtn = new System.Windows.Forms.Button();
+            this.panel15 = new System.Windows.Forms.Panel();
+            this.button4 = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
             this.button6 = new System.Windows.Forms.Button();
             this.sidebartimer = new System.Windows.Forms.Timer(this.components);
             this.saledrptimer = new System.Windows.Forms.Timer(this.components);
             this.suppdrptimer = new System.Windows.Forms.Timer(this.components);
-            this.label2 = new System.Windows.Forms.Label();
+            this.webdrptimer = new System.Windows.Forms.Timer(this.components);
+            this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.sidebar.SuspendLayout();
@@ -76,14 +85,20 @@ namespace bosssystem1
             this.panel4.SuspendLayout();
             this.panel10.SuspendLayout();
             this.panel9.SuspendLayout();
+            this.webContainer.SuspendLayout();
+            this.panel13.SuspendLayout();
+            this.panel14.SuspendLayout();
+            this.panel15.SuspendLayout();
             this.panel7.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.label2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -110,6 +125,17 @@ namespace bosssystem1
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.Location = new System.Drawing.Point(1101, 19);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(46, 17);
+            this.label2.TabIndex = 12;
+            this.label2.Text = "label2";
+            this.label2.Visible = false;
+            // 
             // sidebar
             // 
             this.sidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(29)))));
@@ -118,8 +144,8 @@ namespace bosssystem1
             this.sidebar.Controls.Add(this.saleContainer);
             this.sidebar.Controls.Add(this.suppContainer);
             this.sidebar.Controls.Add(this.panel9);
+            this.sidebar.Controls.Add(this.webContainer);
             this.sidebar.Controls.Add(this.panel7);
-            this.sidebar.Controls.Add(this.label2);
             this.sidebar.Dock = System.Windows.Forms.DockStyle.Left;
             this.sidebar.Location = new System.Drawing.Point(0, 50);
             this.sidebar.MaximumSize = new System.Drawing.Size(200, 545);
@@ -127,6 +153,7 @@ namespace bosssystem1
             this.sidebar.Name = "sidebar";
             this.sidebar.Size = new System.Drawing.Size(200, 545);
             this.sidebar.TabIndex = 1;
+            this.sidebar.Paint += new System.Windows.Forms.PaintEventHandler(this.sidebar_Paint);
             // 
             // panel2
             // 
@@ -418,10 +445,110 @@ namespace bosssystem1
             this.employeebtn.UseVisualStyleBackColor = false;
             this.employeebtn.Click += new System.EventHandler(this.employeebtn_Click);
             // 
+            // webContainer
+            // 
+            this.webContainer.Controls.Add(this.panel13);
+            this.webContainer.Controls.Add(this.panel14);
+            this.webContainer.Controls.Add(this.panel15);
+            this.webContainer.Location = new System.Drawing.Point(0, 250);
+            this.webContainer.Margin = new System.Windows.Forms.Padding(0);
+            this.webContainer.MaximumSize = new System.Drawing.Size(200, 150);
+            this.webContainer.MinimumSize = new System.Drawing.Size(200, 50);
+            this.webContainer.Name = "webContainer";
+            this.webContainer.Size = new System.Drawing.Size(200, 50);
+            this.webContainer.TabIndex = 12;
+            // 
+            // panel13
+            // 
+            this.panel13.Controls.Add(this.button1);
+            this.panel13.Location = new System.Drawing.Point(0, 100);
+            this.panel13.Margin = new System.Windows.Forms.Padding(0);
+            this.panel13.MaximumSize = new System.Drawing.Size(200, 50);
+            this.panel13.MinimumSize = new System.Drawing.Size(200, 50);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(200, 50);
+            this.panel13.TabIndex = 9;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Black;
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(-12, -21);
+            this.button1.Margin = new System.Windows.Forms.Padding(0);
+            this.button1.Name = "button1";
+            this.button1.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
+            this.button1.Size = new System.Drawing.Size(242, 91);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "    Web Sales";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // panel14
+            // 
+            this.panel14.Controls.Add(this.webdrpbtn);
+            this.panel14.Location = new System.Drawing.Point(0, 0);
+            this.panel14.Margin = new System.Windows.Forms.Padding(0);
+            this.panel14.MaximumSize = new System.Drawing.Size(200, 50);
+            this.panel14.MinimumSize = new System.Drawing.Size(200, 50);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(200, 50);
+            this.panel14.TabIndex = 12;
+            // 
+            // webdrpbtn
+            // 
+            this.webdrpbtn.BackColor = System.Drawing.Color.Black;
+            this.webdrpbtn.FlatAppearance.BorderSize = 0;
+            this.webdrpbtn.ForeColor = System.Drawing.Color.White;
+            this.webdrpbtn.Image = ((System.Drawing.Image)(resources.GetObject("webdrpbtn.Image")));
+            this.webdrpbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.webdrpbtn.Location = new System.Drawing.Point(-12, -25);
+            this.webdrpbtn.Margin = new System.Windows.Forms.Padding(0);
+            this.webdrpbtn.Name = "webdrpbtn";
+            this.webdrpbtn.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
+            this.webdrpbtn.Size = new System.Drawing.Size(233, 100);
+            this.webdrpbtn.TabIndex = 3;
+            this.webdrpbtn.Text = "    Website";
+            this.webdrpbtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.webdrpbtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.webdrpbtn.UseVisualStyleBackColor = false;
+            this.webdrpbtn.Click += new System.EventHandler(this.webdrpbtn_Click);
+            // 
+            // panel15
+            // 
+            this.panel15.Controls.Add(this.button4);
+            this.panel15.Location = new System.Drawing.Point(0, 50);
+            this.panel15.Margin = new System.Windows.Forms.Padding(0);
+            this.panel15.MaximumSize = new System.Drawing.Size(200, 50);
+            this.panel15.MinimumSize = new System.Drawing.Size(200, 50);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(200, 50);
+            this.panel15.TabIndex = 8;
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.Black;
+            this.button4.ForeColor = System.Drawing.Color.White;
+            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
+            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button4.Location = new System.Drawing.Point(-12, -24);
+            this.button4.Margin = new System.Windows.Forms.Padding(0);
+            this.button4.Name = "button4";
+            this.button4.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
+            this.button4.Size = new System.Drawing.Size(230, 100);
+            this.button4.TabIndex = 3;
+            this.button4.Text = "    Web Customers";
+            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // panel7
             // 
             this.panel7.Controls.Add(this.button6);
-            this.panel7.Location = new System.Drawing.Point(0, 250);
+            this.panel7.Location = new System.Drawing.Point(0, 300);
             this.panel7.Margin = new System.Windows.Forms.Padding(0);
             this.panel7.MaximumSize = new System.Drawing.Size(200, 50);
             this.panel7.MinimumSize = new System.Drawing.Size(200, 50);
@@ -462,16 +589,20 @@ namespace bosssystem1
             this.suppdrptimer.Interval = 10;
             this.suppdrptimer.Tick += new System.EventHandler(this.suppdrptimer_Tick);
             // 
-            // label2
+            // webdrptimer
             // 
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(3, 300);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 17);
-            this.label2.TabIndex = 12;
-            this.label2.Text = "label2";
-            this.label2.Visible = false;
+            this.webdrptimer.Interval = 10;
+            this.webdrptimer.Tick += new System.EventHandler(this.webdrptimer_Tick);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(888, 19);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(46, 17);
+            this.label3.TabIndex = 13;
+            this.label3.Text = "label3";
+            this.label3.Visible = false;
             // 
             // Form1
             // 
@@ -488,7 +619,6 @@ namespace bosssystem1
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.sidebar.ResumeLayout(false);
-            this.sidebar.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.saleContainer.ResumeLayout(false);
@@ -500,6 +630,10 @@ namespace bosssystem1
             this.panel4.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
+            this.webContainer.ResumeLayout(false);
+            this.panel13.ResumeLayout(false);
+            this.panel14.ResumeLayout(false);
+            this.panel15.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -538,6 +672,15 @@ namespace bosssystem1
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Button employeebtn;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel webContainer;
+        private System.Windows.Forms.Panel panel13;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel panel14;
+        private System.Windows.Forms.Button webdrpbtn;
+        private System.Windows.Forms.Panel panel15;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Timer webdrptimer;
+        private System.Windows.Forms.Label label3;
     }
 }
 

@@ -120,6 +120,12 @@
     <Compile Include="viewsuppliersform.Designer.cs">
       <DependentUpon>viewsuppliersform.cs</DependentUpon>
     </Compile>
+    <Compile Include="webcustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="webcustomer.Designer.cs">
+      <DependentUpon>webcustomer.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="custform.resx">
       <DependentUpon>custform.cs</DependentUpon>
     </EmbeddedResource>
@@ -155,6 +161,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="viewsuppliersform.resx">
       <DependentUpon>viewsuppliersform.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="webcustomer.resx">
+      <DependentUpon>webcustomer.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="DataSetInvoice.xsc">
       <DependentUpon>DataSetInvoice.xsd</DependentUpon>

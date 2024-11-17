@@ -32,9 +32,10 @@ namespace bosssystem1
 
             if (CheckCredentials(name, password))
             {
+                int? empid = employeeTableAdapter1.getEmpID(name);
                 MessageBox.Show("Login successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Hide();
-                Form1 frm1 = new Form1(textBox1.Text);
+                Form1 frm1 = new Form1(textBox1.Text, empid);
                 frm1.ShowDialog();
                 this.Close();
 

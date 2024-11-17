@@ -87,7 +87,7 @@ namespace bosssystem1
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1312, 227);
+            this.dataGridView1.Size = new System.Drawing.Size(1312, 438);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
@@ -178,7 +178,7 @@ namespace bosssystem1
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.custidtxt);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Location = new System.Drawing.Point(12, 325);
+            this.groupBox1.Location = new System.Drawing.Point(12, 557);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1309, 259);
             this.groupBox1.TabIndex = 4;
@@ -303,7 +303,7 @@ namespace bosssystem1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1336, 590);
+            this.ClientSize = new System.Drawing.Size(1336, 828);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label2);

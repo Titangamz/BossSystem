@@ -12,13 +12,16 @@ namespace bosssystem1
 {
     public partial class ordersform : Form
     {
-        public ordersform()
+        public ordersform(string empID)
         {
             InitializeComponent();
+            empidtxt.Text = empID;
         }
 
         private void ordersform_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'g13Wst2024DataSet.Supplier' table. You can move, or remove it, as needed.
+            this.supplierTableAdapter.Fill(this.g13Wst2024DataSet.Supplier);
             // TODO: This line of code loads data into the 'g13Wst2024DataSet1.ItemOrder' table. You can move, or remove it, as needed.
             this.itemOrderTableAdapter.Fill(this.g13Wst2024DataSet1.ItemOrder);
             // TODO: This line of code loads data into the 'g13Wst2024DataSet1.ItemOrder' table. You can move, or remove it, as needed.
@@ -32,6 +35,7 @@ namespace bosssystem1
             this.ordersTableAdapter.Fill(this.g13Wst2024DataSet.Orders);
 
             this.ControlBox = false;
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -40,6 +44,7 @@ namespace bosssystem1
  MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
+                comboBox1.Enabled = true;
                 int? lastOrderid = ordersTableAdapter.GetOrderId();
                 int newOrderid = (lastOrderid ?? 0) + 1;
 
@@ -121,7 +126,7 @@ namespace bosssystem1
                 MessageBox.Show("Order Confirmed with Order Number: " + newOrderid);
 
                 // Clear input fields
-                suppNametxt.Text = "";
+                
                 empidtxt.Text = "";
                 partnotxt.Text = "";
                 quantitytxt.Text = "";
@@ -143,7 +148,7 @@ namespace bosssystem1
 
             decimal linesum = Convert.ToDecimal(unitPricetxt.Text) * Convert.ToDecimal(quantitytxt.Text);
             DataRow row = dataSetInvoice.TemPurchasesInv.NewRow();
-            row["SupplierName"] = suppNametxt.Text;
+            row["SupplierName"] = comboBox1.Text;
             row["EmployeeID"] = empidtxt.Text;
             row["PartNo"] = partnotxt.Text;
             row["Quantity"] = quantitytxt.Text;
@@ -156,6 +161,7 @@ namespace bosssystem1
             partnotxt.Text = "";
             quantitytxt.Text = "";
             unitPricetxt.Text = "";
+            comboBox1.Enabled = false;
         }
 
         private void dataGridView1_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -167,7 +173,8 @@ namespace bosssystem1
 
         private void button3_Click(object sender, EventArgs e)
         {
-            suppNametxt.Text = "";
+            comboBox1.Enabled = true;
+          
             empidtxt.Text = "";
             partnotxt.Text = "";
             quantitytxt.Text = "";

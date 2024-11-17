@@ -52,9 +52,19 @@ MessageBoxButtons.YesNo);
                   try
                   {
                     
-                    partsTableTableAdapter.Insert(int.Parse(partnotxt.Text), itemdesctxt.Text, itemnametxt.Text, int.Parse(itemquantxt.Text), Convert.ToDecimal(itempricetxt.Text), Convert.ToDateTime(daterectxt.Text), Convert.ToDecimal(vattxt.Text), int.Parse(suppidtxt.Text));
+                    partsTableTableAdapter.Insert(int.Parse(partnotxt.Text), itemdesctxt.Text, itemnametxt.Text, int.Parse(itemquantxt.Text), Convert.ToDecimal(itempricetxt.Text), Convert.ToDateTime(daterectxt.Text), Convert.ToDecimal(vattxt.Text), int.Parse(suppidtxt.Text),textBox1.Text);
                     MessageBox.Show("Part has been added");
                     partsTableTableAdapter.Fill(g13Wst2024DataSet.PartsTable);
+
+                    partnotxt.Text = "";
+                    itemdesctxt.Text = "";
+                    itemquantxt.Text = "";
+                    itempricetxt.Text = "";
+                    itemnametxt.Text = "";
+                    daterectxt.Text = "";
+                    vattxt.Text = "";
+                    suppidtxt.Text = "";
+                    textBox1.Text = "";
                   }
                   catch
                   {
@@ -93,6 +103,7 @@ MessageBoxButtons.YesNo);
                         selectedRow["dateReceived"] = Convert.ToDateTime(daterectxt.Text);
                         selectedRow["itemVat"] = Convert.ToDecimal(vattxt.Text);
                         selectedRow["supplierID"] = int.Parse(suppidtxt.Text);
+                        selectedRow["ImageURL"] = textBox1.Text;
 
                         DateTime dateReceived;
                         if (DateTime.TryParse(daterectxt.Text, out dateReceived))
@@ -106,6 +117,16 @@ MessageBoxButtons.YesNo);
                         MessageBox.Show("Parts updated");
 
                         partsTableTableAdapter.Fill(g13Wst2024DataSet.PartsTable);
+
+                        partnotxt.Text = "";
+                        itemdesctxt.Text = "";
+                        itemquantxt.Text = "";
+                        itempricetxt.Text = "";
+                        itemnametxt.Text = "";
+                        daterectxt.Text = "";
+                        vattxt.Text = "";
+                        suppidtxt.Text = "";
+                        textBox1.Text = "";
                     }
                     catch (Exception ex)
                     {
@@ -138,10 +159,27 @@ MessageBoxButtons.YesNo);
                 daterectxt.Text = selectedRow.Cells["dateReceivedDataGridViewTextBoxColumn"].Value.ToString();
                 vattxt.Text = selectedRow.Cells["itemVatDataGridViewTextBoxColumn"].Value.ToString();
                 suppidtxt.Text = selectedRow.Cells["supplierIDDataGridViewTextBoxColumn"].Value.ToString();
+                textBox1.Text = selectedRow.Cells["ImageUrl"].Value.ToString();
             }
                 
         }
 
-        
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            partnotxt.Text = "";
+            itemdesctxt.Text = "";
+            itemquantxt.Text = "";
+            itempricetxt.Text = "";
+            itemnametxt.Text = "";
+            daterectxt.Text = "";
+            vattxt.Text = "";
+            suppidtxt.Text = "";
+            textBox1.Text = "";
+        }
     }
 }

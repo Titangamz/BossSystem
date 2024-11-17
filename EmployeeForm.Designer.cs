@@ -31,6 +31,12 @@ namespace bosssystem1
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.employeeIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employeeNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employeeSurnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employeePhoneNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employeeEmailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employeePasswordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.employeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.g13Wst2024DataSet = new bosssystem1.G13Wst2024DataSet();
             this.employeeTableAdapter = new bosssystem1.G13Wst2024DataSetTableAdapters.EmployeeTableAdapter();
@@ -51,12 +57,6 @@ namespace bosssystem1
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.employeeIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.employeeNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.employeeSurnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.employeePhoneNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.employeeEmailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.employeePasswordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.g13Wst2024DataSet)).BeginInit();
@@ -80,9 +80,58 @@ namespace bosssystem1
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1251, 175);
+            this.dataGridView1.Size = new System.Drawing.Size(1251, 387);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
+            // 
+            // employeeIDDataGridViewTextBoxColumn
+            // 
+            this.employeeIDDataGridViewTextBoxColumn.DataPropertyName = "EmployeeID";
+            this.employeeIDDataGridViewTextBoxColumn.HeaderText = "EmployeeID";
+            this.employeeIDDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.employeeIDDataGridViewTextBoxColumn.Name = "employeeIDDataGridViewTextBoxColumn";
+            this.employeeIDDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // employeeNameDataGridViewTextBoxColumn
+            // 
+            this.employeeNameDataGridViewTextBoxColumn.DataPropertyName = "EmployeeName";
+            this.employeeNameDataGridViewTextBoxColumn.HeaderText = "EmployeeName";
+            this.employeeNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.employeeNameDataGridViewTextBoxColumn.Name = "employeeNameDataGridViewTextBoxColumn";
+            this.employeeNameDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // employeeSurnameDataGridViewTextBoxColumn
+            // 
+            this.employeeSurnameDataGridViewTextBoxColumn.DataPropertyName = "EmployeeSurname";
+            this.employeeSurnameDataGridViewTextBoxColumn.HeaderText = "EmployeeSurname";
+            this.employeeSurnameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.employeeSurnameDataGridViewTextBoxColumn.Name = "employeeSurnameDataGridViewTextBoxColumn";
+            this.employeeSurnameDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // employeePhoneNumberDataGridViewTextBoxColumn
+            // 
+            this.employeePhoneNumberDataGridViewTextBoxColumn.DataPropertyName = "EmployeePhoneNumber";
+            this.employeePhoneNumberDataGridViewTextBoxColumn.HeaderText = "EmployeePhoneNumber";
+            this.employeePhoneNumberDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.employeePhoneNumberDataGridViewTextBoxColumn.Name = "employeePhoneNumberDataGridViewTextBoxColumn";
+            this.employeePhoneNumberDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // employeeEmailDataGridViewTextBoxColumn
+            // 
+            this.employeeEmailDataGridViewTextBoxColumn.DataPropertyName = "EmployeeEmail";
+            this.employeeEmailDataGridViewTextBoxColumn.HeaderText = "EmployeeEmail";
+            this.employeeEmailDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.employeeEmailDataGridViewTextBoxColumn.Name = "employeeEmailDataGridViewTextBoxColumn";
+            this.employeeEmailDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // employeePasswordDataGridViewTextBoxColumn
+            // 
+            this.employeePasswordDataGridViewTextBoxColumn.DataPropertyName = "EmployeePassword";
+            this.employeePasswordDataGridViewTextBoxColumn.HeaderText = "EmployeePassword";
+            this.employeePasswordDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.employeePasswordDataGridViewTextBoxColumn.Name = "employeePasswordDataGridViewTextBoxColumn";
+            this.employeePasswordDataGridViewTextBoxColumn.Visible = false;
+            this.employeePasswordDataGridViewTextBoxColumn.Width = 125;
             // 
             // employeeBindingSource
             // 
@@ -100,7 +149,7 @@ namespace bosssystem1
             // 
             // updatebtn
             // 
-            this.updatebtn.Location = new System.Drawing.Point(1115, 376);
+            this.updatebtn.Location = new System.Drawing.Point(1123, 589);
             this.updatebtn.Name = "updatebtn";
             this.updatebtn.Size = new System.Drawing.Size(133, 58);
             this.updatebtn.TabIndex = 1;
@@ -123,7 +172,7 @@ namespace bosssystem1
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.empidtxt);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 310);
+            this.groupBox1.Location = new System.Drawing.Point(12, 523);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1058, 175);
             this.groupBox1.TabIndex = 2;
@@ -243,10 +292,11 @@ namespace bosssystem1
             this.groupBox2.Controls.Add(this.dataGridView1);
             this.groupBox2.Location = new System.Drawing.Point(12, 66);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1269, 220);
+            this.groupBox2.Size = new System.Drawing.Size(1269, 426);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "If you wish to change any data simply edit the table and click update";
+            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // label7
             // 
@@ -257,60 +307,11 @@ namespace bosssystem1
             this.label7.TabIndex = 4;
             this.label7.Text = "EMPLOYEES";
             // 
-            // employeeIDDataGridViewTextBoxColumn
-            // 
-            this.employeeIDDataGridViewTextBoxColumn.DataPropertyName = "EmployeeID";
-            this.employeeIDDataGridViewTextBoxColumn.HeaderText = "EmployeeID";
-            this.employeeIDDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.employeeIDDataGridViewTextBoxColumn.Name = "employeeIDDataGridViewTextBoxColumn";
-            this.employeeIDDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // employeeNameDataGridViewTextBoxColumn
-            // 
-            this.employeeNameDataGridViewTextBoxColumn.DataPropertyName = "EmployeeName";
-            this.employeeNameDataGridViewTextBoxColumn.HeaderText = "EmployeeName";
-            this.employeeNameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.employeeNameDataGridViewTextBoxColumn.Name = "employeeNameDataGridViewTextBoxColumn";
-            this.employeeNameDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // employeeSurnameDataGridViewTextBoxColumn
-            // 
-            this.employeeSurnameDataGridViewTextBoxColumn.DataPropertyName = "EmployeeSurname";
-            this.employeeSurnameDataGridViewTextBoxColumn.HeaderText = "EmployeeSurname";
-            this.employeeSurnameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.employeeSurnameDataGridViewTextBoxColumn.Name = "employeeSurnameDataGridViewTextBoxColumn";
-            this.employeeSurnameDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // employeePhoneNumberDataGridViewTextBoxColumn
-            // 
-            this.employeePhoneNumberDataGridViewTextBoxColumn.DataPropertyName = "EmployeePhoneNumber";
-            this.employeePhoneNumberDataGridViewTextBoxColumn.HeaderText = "EmployeePhoneNumber";
-            this.employeePhoneNumberDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.employeePhoneNumberDataGridViewTextBoxColumn.Name = "employeePhoneNumberDataGridViewTextBoxColumn";
-            this.employeePhoneNumberDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // employeeEmailDataGridViewTextBoxColumn
-            // 
-            this.employeeEmailDataGridViewTextBoxColumn.DataPropertyName = "EmployeeEmail";
-            this.employeeEmailDataGridViewTextBoxColumn.HeaderText = "EmployeeEmail";
-            this.employeeEmailDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.employeeEmailDataGridViewTextBoxColumn.Name = "employeeEmailDataGridViewTextBoxColumn";
-            this.employeeEmailDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // employeePasswordDataGridViewTextBoxColumn
-            // 
-            this.employeePasswordDataGridViewTextBoxColumn.DataPropertyName = "EmployeePassword";
-            this.employeePasswordDataGridViewTextBoxColumn.HeaderText = "EmployeePassword";
-            this.employeePasswordDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.employeePasswordDataGridViewTextBoxColumn.Name = "employeePasswordDataGridViewTextBoxColumn";
-            this.employeePasswordDataGridViewTextBoxColumn.Visible = false;
-            this.employeePasswordDataGridViewTextBoxColumn.Width = 125;
-            // 
             // EmployeeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1294, 572);
+            this.ClientSize = new System.Drawing.Size(1294, 832);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);

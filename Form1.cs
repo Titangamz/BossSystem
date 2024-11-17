@@ -12,15 +12,17 @@ namespace bosssystem1
 {
     public partial class Form1 : Form
     {
-        public Form1(string userName)
+        public Form1(string userName, int? ID)
         {
             InitializeComponent();
             label2.Text= userName;
+            label3.Text = ID.ToString();
         }
         
         bool sidebarExpand;
         bool saledrpexp;
         bool suppdrpexp;
+        bool webdepexp;
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -146,7 +148,7 @@ MessageBoxButtons.YesNo);
 
         private void button2_Click(object sender, EventArgs e)
         {
-            ordersform orderfrm = new ordersform();
+            ordersform orderfrm = new ordersform(label3.Text);
             FormSetup(orderfrm);
         }
 
@@ -189,6 +191,44 @@ MessageBoxButtons.YesNo);
             {
                 MessageBox.Show("Only the owner can access employee records!");
             }
+        }
+
+        private void webdrptimer_Tick(object sender, EventArgs e)
+        {
+            if (webdepexp)
+            {
+                webContainer.Height -= 10;
+                if (webContainer.Height <= webContainer.MinimumSize.Height)
+                {
+                    webdepexp = false;
+                    webdrptimer.Stop();
+                }
+            }
+            else
+            {
+                webContainer.Height += 10;
+                if (webContainer.Height >= webContainer.MaximumSize.Height)
+                {
+                    webdepexp = true;
+                    webdrptimer.Stop();
+                }
+            }
+        }
+
+        private void webdrpbtn_Click(object sender, EventArgs e)
+        {
+            webdrptimer.Start();
+        }
+
+        private void sidebar_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            webcustomer webcust = new webcustomer();
+            FormSetup(webcust);
         }
     }
 }
